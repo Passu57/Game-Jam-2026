@@ -1,6 +1,6 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dkmr1wqp1c33t"]
 
-[ext_resource type="Texture2D" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet.png" id="1_1fna3"]
+[ext_resource type="Texture2D" uid="uid://4yqfiiln5vgo" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet.png" id="1_1fna3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vwfx"]
 size = Vector2(16, 17)
@@ -69,7 +69,6 @@ metadata/scene_file_path = "res://Assets/Player.tscn"
 texture = ExtResource("1_1fna3")
 hframes = 8
 vframes = 5
-frame = 2
 metadata/_tc_uuid = "3471136414224237871"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=1575990045]

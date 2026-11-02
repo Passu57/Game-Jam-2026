@@ -1,7 +1,7 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://buppfvhqlh84m"]
 
-[ext_resource type="Script" path="res://UI/quest_box.gd" id="1_25hfa"]
-[ext_resource type="SystemFont" path="res://UI/QuestPixelFont.tres" id="1_cy32h"]
+[ext_resource type="Script" uid="uid://di8iyl30li5wt" path="res://UI/quest_box.gd" id="1_25hfa"]
+[ext_resource type="SystemFont" uid="uid://dql05c60mgawo" path="res://UI/QuestPixelFont.tres" id="1_cy32h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lj7ny"]
 content_margin_left = 10.0
@@ -17,7 +17,7 @@ border_color = Color(0.27450982, 0.8980392, 1, 1)
 corner_detail = 5
 anti_aliasing = false
 
-[node name="@Node2D@437" type="Node2D" unique_id=1720873034]
+[node name="QuestLogController" type="Node2D" unique_id=1720873034]
 script = ExtResource("1_25hfa")
 metadata/_tc_uuid = "4169120267857748596"
 metadata/scene_file_path = "res://UI/UI Quest box.tscn"
@@ -39,7 +39,7 @@ metadata/_tc_uuid = "4646562964190558659"
 layout_mode = 0
 offset_left = 24.0
 offset_top = 24.0
-offset_right = 404.0
+offset_right = 345.0
 offset_bottom = 381.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_lj7ny")
 metadata/_tc_uuid = "334256927162442788"
