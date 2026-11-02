@@ -1,0 +1,7 @@
+[gd_resource type="SystemFont" format=3 uid="uid://dql05c60mgawo"]
+
+[resource]
+font_names = PackedStringArray("Cascadia Mono", "Consolas")
+font_weight = 500
+hinting = 0
+subpixel_positioning = 0

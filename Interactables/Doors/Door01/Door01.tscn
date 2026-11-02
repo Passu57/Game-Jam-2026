@@ -1,0 +1,87 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/Robot Platform Pack/Example/ExampleTileset&Items.png" id="1_imfbi"]
+
+[sub_resource type="Animation" id="Animation_q167o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [30]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_psi00"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [30, 37]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.83),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ail1i"]
+_data = {
+&"RESET": SubResource("Animation_q167o"),
+&"open": SubResource("Animation_psi00")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul0di"]
+size = Vector2(10, 32)
+
+[node name="Door01" type="StaticBody2D" unique_id=1568425792]
+metadata/_tc_uuid = "2927323086493266543"
+metadata/scene_file_path = "res://Interactables/Doors/Door01/Door01.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1816400786]
+texture = ExtResource("1_imfbi")
+hframes = 10
+vframes = 6
+frame = 37
+metadata/_tc_uuid = "8965255774922156433"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1401863507]
+libraries/ = SubResource("AnimationLibrary_ail1i")
+autoplay = &"open"
+metadata/_tc_uuid = "739271855669455392"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=241358099]
+shape = SubResource("RectangleShape2D_ul0di")
+disabled = true
+metadata/_tc_uuid = "6106854148671784339"

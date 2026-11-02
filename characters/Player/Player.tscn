@@ -1,0 +1,126 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet.png" id="1_1fna3"]
+[ext_resource type="Script" path="res://characters/Player/player.gd" id="1_l6qrd"]
+[ext_resource type="Script" path="res://characters/Player/interaction_controller.gd" id="3_m1y8q"]
+
+[sub_resource type="Animation" id="Animation_dch2n"]
+resource_name = "Idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 4, 4]
+}
+
+[sub_resource type="Animation" id="Animation_on1tb"]
+resource_name = "Jump"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.7, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [10, 12, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_1fna3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ify7s"]
+resource_name = "Run"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.73333335, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [5, 10, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ify7s"]
+_data = {
+&"Idle": SubResource("Animation_dch2n"),
+&"Jump": SubResource("Animation_on1tb"),
+&"RESET": SubResource("Animation_1fna3"),
+&"Run": SubResource("Animation_ify7s")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vwfx"]
+size = Vector2(16, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2yvdw"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1355679720]
+z_index = 5
+position = Vector2(0, 24535216000)
+velocity = Vector2(0, 8836924)
+script = ExtResource("1_l6qrd")
+jump_velocity = -300.0
+metadata/_tc_uuid = "2742061418804172302"
+metadata/scene_file_path = "res://characters/Player/Player.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=346033941]
+texture = ExtResource("1_1fna3")
+hframes = 8
+vframes = 5
+frame = 15
+metadata/_tc_uuid = "3471136414224237871"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1529513473]
+libraries/ = SubResource("AnimationLibrary_ify7s")
+autoplay = &"Idle"
+metadata/_tc_uuid = "7272969148466396993"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1575990045]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_5vwfx")
+metadata/_tc_uuid = "8587947460977694001"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1350338758]
+zoom = Vector2(2, 2)
+metadata/_tc_uuid = "8411494736906750158"
+
+[node name="InteractionController" type="Node2D" parent="." unique_id=1070281134]
+script = ExtResource("3_m1y8q")
+metadata/_tc_uuid = "8416144372710494794"
+
+[node name="InteractionArea" type="Area2D" parent="InteractionController" unique_id=125695550]
+monitorable = false
+metadata/_tc_uuid = "8676648017961939382"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionController/InteractionArea" unique_id=1884787244]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_2yvdw")
+metadata/_tc_uuid = "3481731897291678941"

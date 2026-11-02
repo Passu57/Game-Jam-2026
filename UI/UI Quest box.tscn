@@ -1,0 +1,217 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://UI/quest_box.gd" id="1_25hfa"]
+[ext_resource type="SystemFont" path="res://UI/QuestPixelFont.tres" id="1_cy32h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lj7ny"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0627451, 0.08235294, 0.16078432, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.27450982, 0.8980392, 1, 1)
+corner_detail = 5
+anti_aliasing = false
+
+[node name="@Node2D@437" type="Node2D" unique_id=1720873034]
+script = ExtResource("1_25hfa")
+metadata/_tc_uuid = "4169120267857748596"
+metadata/scene_file_path = "res://UI/UI Quest box.tscn"
+
+[node name="HudLayer" type="CanvasLayer" parent="." unique_id=2069964629]
+metadata/_tc_uuid = "7633186915859510086"
+
+[node name="Overlay" type="Control" parent="HudLayer" unique_id=105553447]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_tc_uuid = "4646562964190558659"
+
+[node name="QuestPanel" type="PanelContainer" parent="HudLayer/Overlay" unique_id=759019185]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 404.0
+offset_bottom = 381.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lj7ny")
+metadata/_tc_uuid = "334256927162442788"
+
+[node name="ContentMargin" type="MarginContainer" parent="HudLayer/Overlay/QuestPanel" unique_id=324780163]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+metadata/_tc_uuid = "3518543908453139139"
+
+[node name="Content" type="VBoxContainer" parent="HudLayer/Overlay/QuestPanel/ContentMargin" unique_id=158180519]
+layout_mode = 2
+theme_override_constants/separation = 8
+metadata/_tc_uuid = "1431078433933604829"
+
+[node name="Header" type="HBoxContainer" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content" unique_id=292058595]
+layout_mode = 2
+theme_override_constants/separation = 8
+metadata/_tc_uuid = "1880766961897549135"
+
+[node name="PixelBot" type="Control" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content/Header" unique_id=2119260234]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+metadata/_tc_uuid = "2337854282980623597"
+
+[node name="Antenna" type="ColorRect" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content/Header/PixelBot" unique_id=1841525990]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 14.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(1, 0.78431374, 0.34117648, 1)
+metadata/_tc_uuid = "6164594170442397563"
+
+[node name="HeadTop" type="ColorRect" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content/Header/PixelBot" unique_id=646834006]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 20.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0.27450982, 0.8980392, 1, 1)
+metadata/_tc_uuid = "6127297913284924412"
+
+[node name="Head" type="ColorRect" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content/Header/PixelBot" unique_id=2090541610]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 24.0
+offset_bottom = 16.0
+mouse_filter = 2
+color = Color(0.27450982, 0.8980392, 1, 1)
+metadata/_tc_uuid = "982322542959948058"
+
+[node name="EyeLeft" type="ColorRect" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content/Header/PixelBot" unique_id=1482771623]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 10.0
+offset_right = 8.0
+offset_bottom = 14.0
+mouse_filter = 2
+color = Color(0.0627451, 0.08235294, 0.16078432, 1)
+metadata/_tc_uuid = "5060235875785836236"
+
+[node name="EyeRight" type="ColorRect" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content/Header/PixelBot" unique_id=1605823053]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 14.0
+mouse_filter = 2
+color = Color(0.0627451, 0.08235294, 0.16078432, 1)
+metadata/_tc_uuid = "1935175854198950200"
+
+[node name="Jaw" type="ColorRect" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content/Header/PixelBot" unique_id=713237988]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 16.0
+offset_right = 20.0
+offset_bottom = 20.0
+mouse_filter = 2
+color = Color(0.09019608, 0.6627451, 0.75686276, 1)
+metadata/_tc_uuid = "2100307967393951712"
+
+[node name="Neck" type="ColorRect" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content/Header/PixelBot" unique_id=544089371]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 14.0
+offset_bottom = 24.0
+mouse_filter = 2
+color = Color(1, 0.78431374, 0.34117648, 1)
+metadata/_tc_uuid = "8668028411544421585"
+
+[node name="TerminalTitle" type="Label" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content/Header" unique_id=307441496]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78431374, 0.34117648, 1)
+theme_override_fonts/font = ExtResource("1_cy32h")
+theme_override_font_sizes/font_size = 18
+text = "[ QUEST LOG ]"
+metadata/_tc_uuid = "5588929221317607208"
+
+[node name="LinkStatus" type="Label" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content/Header" unique_id=234029448]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.49019608, 1, 0.7019608, 1)
+theme_override_fonts/font = ExtResource("1_cy32h")
+theme_override_font_sizes/font_size = 12
+text = "■ ONLINE"
+horizontal_alignment = 2
+metadata/_tc_uuid = "3657320929169525190"
+
+[node name="AccentLine" type="ColorRect" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content" unique_id=1917716371]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 0.78431374, 0.34117648, 1)
+metadata/_tc_uuid = "5254335901949308877"
+
+[node name="ObjectiveHeading" type="Label" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content" unique_id=235364375]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6117647, 0.9254902, 1, 1)
+theme_override_fonts/font = ExtResource("1_cy32h")
+theme_override_font_sizes/font_size = 12
+text = "■ ACTIVE OBJECTIVE"
+metadata/_tc_uuid = "3081243958179303314"
+
+[node name="QuestTitle" type="Label" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content" unique_id=268657863]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9490196, 0.96862745, 1, 1)
+theme_override_fonts/font = ExtResource("1_cy32h")
+theme_override_font_sizes/font_size = 20
+text = "Restore the first color"
+metadata/_tc_uuid = "8101192520469104955"
+
+[node name="QuestDescription" type="Label" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content" unique_id=337184110]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7176471, 0.78431374, 0.84705883, 1)
+theme_override_fonts/font = ExtResource("1_cy32h")
+text = "Find the relay switch. Reach the core to bring the world back to life."
+autowrap_mode = 2
+metadata/_tc_uuid = "1830046407256206765"
+
+[node name="Divider" type="HSeparator" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content" unique_id=667720518]
+layout_mode = 2
+metadata/_tc_uuid = "800352788226025742"
+
+[node name="InstructionsHeading" type="Label" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content" unique_id=1962381141]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6117647, 0.9254902, 1, 1)
+theme_override_fonts/font = ExtResource("1_cy32h")
+theme_override_font_sizes/font_size = 12
+text = "■ FIELD INSTRUCTIONS"
+metadata/_tc_uuid = "3044987738904828283"
+
+[node name="InstructionsText" type="Label" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content" unique_id=1323817206]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8784314, 0.91764706, 0.95686275, 1)
+theme_override_fonts/font = ExtResource("1_cy32h")
+text = "MOVE   A / D  or  ← / →
+JUMP   Space  or  W / ↑
+Step on the relay to rebuild the bridge."
+autowrap_mode = 2
+metadata/_tc_uuid = "8178693514308121850"
+
+[node name="Footer" type="Label" parent="HudLayer/Overlay/QuestPanel/ContentMargin/Content" unique_id=979153786]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78431374, 0.34117648, 1)
+theme_override_fonts/font = ExtResource("1_cy32h")
+theme_override_font_sizes/font_size = 10
+text = "QUEST 01"
+metadata/_tc_uuid = "1863398021772111035"
