@@ -24,6 +24,8 @@ InteractHighlighter="*res://Systems/Interaction/interact_highlighter.gd"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -66,3 +68,4 @@ interact={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+anti_aliasing/quality/msaa_2d=1

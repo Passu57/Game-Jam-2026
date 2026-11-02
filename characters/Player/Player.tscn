@@ -1,8 +1,9 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://b3lajcjw25r0m"]
 
-[ext_resource type="Texture2D" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet.png" id="1_1fna3"]
-[ext_resource type="Script" path="res://characters/Player/player.gd" id="1_l6qrd"]
-[ext_resource type="Script" path="res://characters/Player/interaction_controller.gd" id="3_m1y8q"]
+[ext_resource type="Texture2D" uid="uid://4yqfiiln5vgo" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet.png" id="1_1fna3"]
+[ext_resource type="Script" uid="uid://dbkkdodn014tt" path="res://characters/Player/player.gd" id="1_l6qrd"]
+[ext_resource type="Script" uid="uid://ce8twdc0mi2jq" path="res://characters/Player/interaction_controller.gd" id="3_m1y8q"]
+[ext_resource type="PackedScene" uid="uid://buppfvhqlh84m" path="res://UI/UI Quest box.tscn" id="4_ofsc6"]
 
 [sub_resource type="Animation" id="Animation_dch2n"]
 resource_name = "Idle"
@@ -95,7 +96,6 @@ metadata/scene_file_path = "res://characters/Player/Player.tscn"
 texture = ExtResource("1_1fna3")
 hframes = 8
 vframes = 5
-frame = 15
 metadata/_tc_uuid = "3471136414224237871"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1529513473]
@@ -109,8 +109,10 @@ shape = SubResource("RectangleShape2D_5vwfx")
 metadata/_tc_uuid = "8587947460977694001"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1350338758]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 metadata/_tc_uuid = "8411494736906750158"
+
+[node name="QuestLog" parent="." unique_id=1720873034 instance=ExtResource("4_ofsc6")]
 
 [node name="InteractionController" type="Node2D" parent="." unique_id=1070281134]
 script = ExtResource("3_m1y8q")

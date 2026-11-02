@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://byn747372qbog"]
+
+[ext_resource type="Script" uid="uid://chrq83iy3lbaj" path="res://Interactables/Buttons/Button_Controller.gd" id="1_af5wu"]
+[ext_resource type="Texture2D" uid="uid://6sfec2urbpfa" path="res://Assets/Robot Platform Pack/Example/ExampleTileset&Items.png" id="2_ivr0b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul0di"]
+size = Vector2(12, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivr0b"]
+size = Vector2(12, 5)
+
+[node name="Button01" type="StaticBody2D" unique_id=199196666]
+collision_layer = 0
+script = ExtResource("1_af5wu")
+toggle = false
+metadata/_tc_uuid = "6747649945914360413"
+metadata/scene_file_path = "res://Interactables/Buttons/Button01.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=205436046]
+texture = ExtResource("2_ivr0b")
+hframes = 10
+vframes = 12
+frame = 94
+metadata/_tc_uuid = "1997480874889568940"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=175809197]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_ul0di")
+metadata/_tc_uuid = "5631871045588307149"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1230979952]
+collision_layer = 0
+metadata/_tc_uuid = "7400075365252458187"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=249375481]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_ivr0b")
+metadata/_tc_uuid = "1165464142996447407"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
