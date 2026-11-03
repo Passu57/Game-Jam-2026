@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dg6lajrgyemjm"]
+
+[node name="SpikeController" type="StaticBody2D" unique_id=2099850994]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1638155917]
