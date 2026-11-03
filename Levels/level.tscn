@@ -1,9 +1,8 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://bgu7k77xiqvy1"]
 
-[ext_resource type="TileSet" path="res://Assets/mk_16_16_nature_tileset_godot/nature_tileset.tres" id="1_s41d2"]
-[ext_resource type="Script" path="res://Levels/Level.gd" id="1_t80w2"]
-[ext_resource type="PackedScene" path="res://characters/Player/Player.tscn" id="2_gtnvv"]
-[ext_resource type="Script" path="res://characters/Player/player.gd" id="3_wav5q"]
+[ext_resource type="TileSet" uid="uid://n1p3umbb5rgl" path="res://Assets/mk_16_16_nature_tileset_godot/nature_tileset.tres" id="1_s41d2"]
+[ext_resource type="Script" uid="uid://mloc3yj1k04d" path="res://Levels/Level.gd" id="1_t80w2"]
+[ext_resource type="PackedScene" uid="uid://b3lajcjw25r0m" path="res://characters/Player/Player.tscn" id="2_gtnvv"]
 
 [node name="_Node2D_240" type="Node2D" unique_id=2045724769]
 script = ExtResource("1_t80w2")
@@ -17,14 +16,10 @@ tile_set = ExtResource("1_s41d2")
 collision_enabled = false
 metadata/_tc_uuid = "916167133667669243"
 
-[node name="_CharacterBody2D_32" type="CharacterBody2D" parent="." unique_id=1355679720 groups=["player"] instance=ExtResource("2_gtnvv")]
-z_index = 5
-position = Vector2(48, 31940549000)
+[node name="_CharacterBody2D_32" parent="." unique_id=1355679720 groups=["player"] instance=ExtResource("2_gtnvv")]
+position = Vector2(-10192, 31940657000)
 velocity = Vector2(0, 8043209)
-script = ExtResource("3_wav5q")
-jump_velocity = -300.0
 metadata/_tc_uuid = "6216803477045729770"
-metadata/scene_file_path = "res://characters/Player/Player.tscn"
 
 [node name="@Node2D@409" type="Node2D" parent="." unique_id=960431637]
 metadata/_tc_uuid = "4593152749006714551"
