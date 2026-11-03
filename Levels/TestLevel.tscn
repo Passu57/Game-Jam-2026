@@ -7,8 +7,93 @@
 [ext_resource type="PackedScene" uid="uid://byn747372qbog" path="res://Interactables/Buttons/Button01.tscn" id="6_voj1p"]
 [ext_resource type="PackedScene" uid="uid://tqu6ofrk4mkn" path="res://Interactables/Electricity/Electrical floor.tscn" id="7_kv5fy"]
 [ext_resource type="PackedScene" uid="uid://cp81utlnjdlx6" path="res://Interactables/Doors/Door01/Door01.tscn" id="7_kxr0u"]
-[ext_resource type="PackedScene" uid="uid://s772j5ii6oth" path="res://Interactables/boxes/Box01.tscn" id="8_kv5fy"]
-[ext_resource type="PackedScene" uid="uid://dg6lajrgyemjm" path="res://Interactables/Spikes/SpikeController.tscn" id="9_jeepb"]
+[ext_resource type="Shader" uid="uid://btkj4p8aa27ho" path="res://Levels/BackGroundShader.gdshader" id="8_jeepb"]
+[ext_resource type="Texture2D" uid="uid://dq4dvin3g5btu" path="res://Assets/Parallax Cave/BG.png" id="9_8x8nf"]
+[ext_resource type="Texture2D" uid="uid://b74x6ya6ljp3j" path="res://Assets/Parallax Cave/0.png" id="10_ijb51"]
+[ext_resource type="Texture2D" uid="uid://hw2yxsivj3wy" path="res://Assets/Parallax Cave/1.png" id="11_76fkc"]
+[ext_resource type="Texture2D" uid="uid://dkps2tmg5lf02" path="res://Assets/Parallax Cave/2.png" id="12_jfium"]
+[ext_resource type="Texture2D" uid="uid://bh10xympo5bkn" path="res://Assets/Parallax Cave/3.png" id="13_wenv2"]
+[ext_resource type="Texture2D" uid="uid://bjknwtq8ljv82" path="res://Assets/Parallax Cave/4.png" id="14_wq5b5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0t6di"]
+shader = ExtResource("8_jeepb")
+shader_parameter/tint_color = Color(0.55773085, 0.2283015, 0.19187203, 1)
+shader_parameter/tint_strength = 1.0
+
+[sub_resource type="Shader" id="Shader_8lo6y"]
+code = "shader_type canvas_item;
+
+uniform vec4 tint_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float tint_strength : hint_range(0.0, 1.0) = 0.35;
+
+void fragment() {
+    COLOR.rgb = mix(COLOR.rgb, tint_color.rgb, tint_strength);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gp5y3"]
+shader = SubResource("Shader_8lo6y")
+shader_parameter/tint_color = Color(0.24449697, 0.08113102, 0.063349016, 1)
+shader_parameter/tint_strength = 1.0
+
+[sub_resource type="Shader" id="Shader_w8qko"]
+code = "shader_type canvas_item;
+
+uniform vec4 tint_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float tint_strength : hint_range(0.0, 1.0) = 0.35;
+
+void fragment() {
+    COLOR.rgb = mix(COLOR.rgb, tint_color.rgb, tint_strength);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tw0iv"]
+shader = SubResource("Shader_w8qko")
+shader_parameter/tint_color = Color(0.2976641, 0.10484756, 0.084800355, 1)
+shader_parameter/tint_strength = 1.0
+
+[sub_resource type="Shader" id="Shader_jxq34"]
+code = "shader_type canvas_item;
+
+uniform vec4 tint_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float tint_strength : hint_range(0.0, 1.0) = 0.35;
+
+void fragment() {
+    COLOR.rgb = mix(COLOR.rgb, tint_color.rgb, tint_strength);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mv11h"]
+shader = SubResource("Shader_jxq34")
+shader_parameter/tint_color = Color(0.39384425, 0.14952132, 0.12547868, 1)
+shader_parameter/tint_strength = 1.0
+
+[sub_resource type="Shader" id="Shader_4uf7c"]
+code = "shader_type canvas_item;
+
+uniform vec4 tint_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float tint_strength : hint_range(0.0, 1.0) = 0.35;
+
+void fragment() {
+    COLOR.rgb = mix(COLOR.rgb, tint_color.rgb, tint_strength);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ta13h"]
+shader = SubResource("Shader_4uf7c")
+shader_parameter/tint_color = Color(0.4689595, 0.18496004, 0.15477243, 1)
+shader_parameter/tint_strength = 1.0
+
+[sub_resource type="Shader" id="Shader_mgba7"]
+code = "shader_type canvas_item;
+
+uniform vec4 tint_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float tint_strength : hint_range(0.0, 1.0) = 0.35;
+
+void fragment() {
+    COLOR.rgb = mix(COLOR.rgb, tint_color.rgb, tint_strength);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8pteh"]
+shader = SubResource("Shader_mgba7")
+shader_parameter/tint_color = Color(0.49561638, 0.19766185, 0.16592866, 1)
+shader_parameter/tint_strength = 1.0
 
 [node name="TestLevel" type="Node2D" unique_id=2045724769]
 script = ExtResource("1_jyvk6")
@@ -54,8 +139,52 @@ scene_to_open = NodePath("../Door02")
 [node name="ElectricalFloor" parent="." unique_id=964258261 instance=ExtResource("7_kv5fy")]
 position = Vector2(681, 624)
 
-[node name="Box01" parent="." unique_id=1345553384 instance=ExtResource("8_kv5fy")]
-position = Vector2(1000, 552)
+[node name="CaveBackground" type="ParallaxBackground" parent="." unique_id=427021937]
+follow_viewport_enabled = true
 
-[node name="SpikeController" parent="." unique_id=2099850994 instance=ExtResource("9_jeepb")]
-position = Vector2(881, 553)
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CaveBackground" unique_id=1172385557]
+position = Vector2(-66, 46)
+scale = Vector2(0.25, 0.25)
+motion_scale = Vector2(-0.2, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CaveBackground/ParallaxLayer" unique_id=689868531]
+z_index = -100
+material = SubResource("ShaderMaterial_0t6di")
+position = Vector2(602, 314)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("9_8x8nf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CaveBackground/ParallaxLayer" unique_id=1344621257]
+z_index = -90
+material = SubResource("ShaderMaterial_gp5y3")
+position = Vector2(602, 314)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("10_ijb51")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CaveBackground/ParallaxLayer" unique_id=35574975]
+z_index = -91
+material = SubResource("ShaderMaterial_tw0iv")
+position = Vector2(602, 314)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("11_76fkc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CaveBackground/ParallaxLayer" unique_id=2028740736]
+z_index = -92
+material = SubResource("ShaderMaterial_mv11h")
+position = Vector2(602, 314)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("12_jfium")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CaveBackground/ParallaxLayer" unique_id=1619513976]
+z_index = -93
+material = SubResource("ShaderMaterial_ta13h")
+position = Vector2(602, 314)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("13_wenv2")
+
+[node name="Sprite2D6" type="Sprite2D" parent="CaveBackground/ParallaxLayer" unique_id=1132241073]
+z_index = -94
+material = SubResource("ShaderMaterial_8pteh")
+position = Vector2(602, 314)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("14_wq5b5")
