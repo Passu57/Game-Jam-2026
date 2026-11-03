@@ -85,7 +85,6 @@ size = Vector2(16, 17)
 
 [node name="Player" type="CharacterBody2D" unique_id=1355679720]
 z_index = 5
-position = Vector2(0, 24535216000)
 velocity = Vector2(0, 8836924)
 script = ExtResource("1_l6qrd")
 jump_velocity = -300.0

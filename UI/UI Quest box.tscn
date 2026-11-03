@@ -181,7 +181,7 @@ custom_minimum_size = Vector2(0, 46)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7176471, 0.78431374, 0.84705883, 1)
 theme_override_fonts/font = ExtResource("1_cy32h")
-text = "Find the relay switch. Reach the core to bring the world back to life."
+text = "Find the button. Reach the machine to restore some colors in your eyes"
 autowrap_mode = 2
 metadata/_tc_uuid = "1830046407256206765"
 
@@ -202,9 +202,9 @@ custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8784314, 0.91764706, 0.95686275, 1)
 theme_override_fonts/font = ExtResource("1_cy32h")
-text = "MOVE   A / D  or  ← / →
-JUMP   Space  or  W / ↑
-Step on the relay to rebuild the bridge."
+text = "MOVE -  A / D  or  ← / →
+JUMP - Space  or  W / ↑
+Step on the button to open the door."
 autowrap_mode = 2
 metadata/_tc_uuid = "8178693514308121850"
 
