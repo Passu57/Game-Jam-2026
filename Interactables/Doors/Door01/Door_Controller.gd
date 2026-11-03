@@ -12,6 +12,9 @@ func _ready() -> void:
 func on() -> void:
 	animation_player.play("open")
 
+func off() -> void:
+	animation_player.play_backwards("open")
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

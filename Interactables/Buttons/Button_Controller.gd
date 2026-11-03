@@ -3,18 +3,25 @@ extends StaticBody2D
 
 @export var scene_to_open: StaticBody2D = null
 @export var toggle: bool = true
+var opened: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 func on() -> void:
-	sprite_2d.frame = 95
-	if scene_to_open != null:
-		scene_to_open.on()
+	if opened == false:
+		sprite_2d.frame = 95
+		if scene_to_open != null:
+			scene_to_open.on()
+			if toggle == true:
+				opened = true
 	pass
 
 func off() -> void:
-	sprite_2d.frame = 94
+	if toggle == false:
+		sprite_2d.frame = 94
+		if scene_to_open != null:
+			scene_to_open.off()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
