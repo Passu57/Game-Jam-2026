@@ -108,6 +108,9 @@ metadata/_tc_uuid = "916167133667669243"
 [node name="Player" parent="." unique_id=1355679720 instance=ExtResource("3_u2cfn")]
 position = Vector2(199, -63)
 velocity = Vector2(0, 8626620)
+speed = null
+death_time = null
+respawn_protection = null
 metadata/_tc_uuid = "138445414280153707"
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1500521860]
