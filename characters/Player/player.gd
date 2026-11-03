@@ -6,6 +6,44 @@ extends CharacterBody2D
 @export var jump_velocity: float = -260.0
 @onready var interaction_controller: Node2D = $InteractionController
 
+@export_group("Double Jump")
+## How strong the second (air) jump is. Bigger negative = higher.
+@export var double_jump_velocity: float = -260.0
+## How many extra jumps you get in the air once double jump is unlocked.
+@export var max_air_jumps: int = 1
+## Testing shortcut: tick this to have double jump without unlocking it.
+@export var debug_always_double_jump: bool = false
+@export_group("")
+
+var _air_jumps_left: int = 0
+@onready var double_jump_particles: CPUParticles2D = $DoubleJumpParticles
+@onready var run_dust: CPUParticles2D = $RunDustParticles
+
+@export_group("Wrench Throw")
+## Hold this button to aim, release to throw (right mouse by default).
+const THROW_ACTION := &"throw"
+## How fast the wrench leaves your hand (pixels per second).
+@export var wrench_throw_speed: float = 300.0
+## How strongly the wrench falls while flying. 0 = flies in a straight line.
+@export var wrench_gravity: float = 500.0
+## How long the wrench flies before it comes back on its own (seconds).
+@export var wrench_flight_time: float = 1.0
+## Where the wrench sits in the hand, relative to the player's center
+## (for the robot facing right; it's mirrored automatically when facing left).
+@export var wrench_hand_offset: Vector2 = Vector2(-7.5, 8)
+## Tick this if the wrench should only work after unlocking it
+## with GameProgress.unlock(GameProgress.WRENCH_THROW).
+@export var wrench_needs_unlock: bool = false
+@export_group("")
+
+const WRENCH_SCENE := preload("res://characters/Player/Wrench/Wrench.tscn")
+const WrenchAim := preload("res://characters/Player/Wrench/wrench_aim.gd")
+
+var _wrench_out: Node2D = null  # the wrench in the air, if any
+var _wrench_aim: Node2D
+## The wrench drawn in the robot's hand (same frames as the robot sheet).
+@onready var wrench_sprite: Sprite2D = $WrenchSprite
+
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var sprite: Sprite2D = $Sprite2D
@@ -17,9 +55,15 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Jump only when standing on the ground.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
+	# Landing refills the air jumps.
+	if is_on_floor():
+		_air_jumps_left = max_air_jumps
+
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y = jump_velocity
+		elif _can_double_jump():
+			_double_jump()
 	
 	if Input.is_action_just_pressed("interact"):
 		interaction_controller.interact()
@@ -34,6 +78,118 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_push_objects()
 	_update_animation(direction)
+	_update_run_dust(direction)
+	_update_wrench()
+
+
+# Kicks up dust behind the feet while running on the ground.
+func _update_run_dust(direction: float) -> void:
+	var running := is_on_floor() and direction != 0
+	run_dust.emitting = running
+	if running:
+		# Dust flies backwards, away from where we're running.
+		run_dust.direction.x = -signf(direction)
+
+
+func _can_double_jump() -> bool:
+	var unlocked := debug_always_double_jump or GameProgress.has(GameProgress.DOUBLE_JUMP)
+	return unlocked and _air_jumps_left > 0
+
+
+func _double_jump() -> void:
+	_air_jumps_left -= 1
+	velocity.y = double_jump_velocity
+	double_jump_particles.restart()
+	anim.stop()  # replay the jump animation from the start
+	anim.play("Jump")
+
+
+# --- Wrench throwing -----------------------------------------------------
+
+func _ready() -> void:
+	_wrench_aim = WrenchAim.new()
+	_wrench_aim.name = "WrenchAim"
+	add_child(_wrench_aim)
+	_wrench_aim.hide_arc()
+	died.connect(_wrench_aim.hide_arc)
+
+
+# Keeps the in-hand wrench on the same animation frame as the robot,
+# and hides it while the wrench is flying.
+func _process(_delta: float) -> void:
+	wrench_sprite.frame = sprite.frame
+	wrench_sprite.flip_h = sprite.flip_h
+	wrench_sprite.visible = _wrench_out == null
+
+
+# The hand position in the world, mirrored when facing left.
+func _wrench_hand_position() -> Vector2:
+	var offset := wrench_hand_offset
+	if sprite.flip_h:
+		offset.x = -offset.x
+	return global_position + offset
+
+
+func _can_throw_wrench() -> bool:
+	if _wrench_out != null:
+		return false  # only one wrench at a time
+	return not wrench_needs_unlock or GameProgress.has(GameProgress.WRENCH_THROW)
+
+
+# Hold the throw button to aim (shows the arc), release to throw.
+func _update_wrench() -> void:
+	if not _can_throw_wrench():
+		_wrench_aim.hide_arc()
+		return
+
+	var aiming := Input.is_action_pressed(THROW_ACTION)
+	if aiming:
+		# Face where we aim (this also moves the hand to that side).
+		sprite.flip_h = get_global_mouse_position().x < global_position.x
+
+	var start := _wrench_hand_position()
+	var aim_dir := (get_global_mouse_position() - start).normalized()
+	if aim_dir == Vector2.ZERO:
+		aim_dir = Vector2.LEFT if sprite.flip_h else Vector2.RIGHT
+	var start_velocity := aim_dir * wrench_throw_speed
+
+	if aiming:
+		var arc := _predict_wrench_arc(start, start_velocity)
+		_wrench_aim.show_arc(arc.points, arc.hit)
+	elif Input.is_action_just_released(THROW_ACTION):
+		_wrench_aim.hide_arc()
+		_throw_wrench(start, start_velocity)
+
+
+func _throw_wrench(start: Vector2, start_velocity: Vector2) -> void:
+	var wrench := WRENCH_SCENE.instantiate()
+	# Add to the level, not the player, so it doesn't move with us.
+	get_tree().current_scene.add_child(wrench)
+	wrench.launch(start, start_velocity, wrench_gravity, wrench_flight_time, self, sprite.flip_h)
+	wrench.tree_exited.connect(func(): _wrench_out = null)
+	_wrench_out = wrench
+
+
+# Simulates the throw step by step (the same way the wrench moves)
+# and stops at the first wall/floor/box it would hit.
+func _predict_wrench_arc(start: Vector2, start_velocity: Vector2) -> Dictionary:
+	var points := PackedVector2Array([start])
+	var space := get_world_2d().direct_space_state
+	var dt := 1.0 / Engine.physics_ticks_per_second
+	var steps := int(wrench_flight_time / dt)
+	var pos := start
+	var vel := start_velocity
+	for i in steps:
+		vel.y += wrench_gravity * dt
+		var next := pos + vel * dt
+		var query := PhysicsRayQueryParameters2D.create(pos, next, 1, [get_rid()])
+		var result := space.intersect_ray(query)
+		if result:
+			points.append(result.position)
+			return {"points": points, "hit": true}
+		points.append(next)
+		pos = next
+	return {"points": points, "hit": false}
 
 
 # Pushes boxes (anything with a push() function) we walk into from the side.
@@ -67,6 +223,7 @@ func die(flash_color: Color = Color(2.0, 0.35, 0.35)) -> void:
 	if is_dead or Time.get_ticks_msec() < _protected_until_ms:
 		return
 	is_dead = true
+	anim.play("die")
 	died.emit()
 	set_physics_process(false)
 	velocity = Vector2.ZERO
