@@ -15,7 +15,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [30]
+"values": [31]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -42,7 +42,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [30, 36]
+"values": [31, 36]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -51,10 +51,10 @@ tracks/1/path = NodePath("CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.83),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.8, 0.83),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ail1i"]
@@ -75,7 +75,7 @@ metadata/scene_file_path = "res://Interactables/Doors/Door01/Door01.tscn"
 texture = ExtResource("1_imfbi")
 hframes = 10
 vframes = 6
-frame = 30
+frame = 31
 metadata/_tc_uuid = "8965255774922156433"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1401863507]
