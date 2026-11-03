@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b3lajcjw25r0m"]
 
-[ext_resource type="Texture2D" uid="uid://4yqfiiln5vgo" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet.png" id="1_1fna3"]
 [ext_resource type="Script" uid="uid://dbkkdodn014tt" path="res://characters/Player/player.gd" id="1_l6qrd"]
+[ext_resource type="Texture2D" uid="uid://03g3ycgnm6mo" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet_NoWrench.png" id="2_srhiw"]
 [ext_resource type="Script" uid="uid://ce8twdc0mi2jq" path="res://characters/Player/interaction_controller.gd" id="3_m1y8q"]
 [ext_resource type="PackedScene" uid="uid://buppfvhqlh84m" path="res://UI/UI Quest box.tscn" id="4_ofsc6"]
+[ext_resource type="Texture2D" uid="uid://b4x354kw5j11h" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet_WrenchOnly.png" id="5_enwbc"]
 
 [sub_resource type="Animation" id="Animation_dch2n"]
 resource_name = "Idle"
@@ -52,6 +53,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WrenchSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_ify7s"]
 resource_name = "Run"
@@ -70,12 +83,40 @@ tracks/0/keys = {
 "values": [5, 10, 10]
 }
 
+[sub_resource type="Animation" id="Animation_srhiw"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [26, 33]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WrenchSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [26, 33]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ify7s"]
 _data = {
 &"Idle": SubResource("Animation_dch2n"),
 &"Jump": SubResource("Animation_on1tb"),
 &"RESET": SubResource("Animation_1fna3"),
-&"Run": SubResource("Animation_ify7s")
+&"Run": SubResource("Animation_ify7s"),
+&"die": SubResource("Animation_srhiw")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vwfx"]
@@ -83,16 +124,23 @@ size = Vector2(14, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2yvdw"]
 
+[sub_resource type="Gradient" id="Gradient_ofsc6"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_srhiw"]
+colors = PackedColorArray(1, 1, 1, 0.8, 1, 1, 1, 0)
+
 [node name="Player" type="CharacterBody2D" unique_id=1355679720]
 z_index = 5
 velocity = Vector2(0, 8836924)
 script = ExtResource("1_l6qrd")
 jump_velocity = -300.0
+death_time = 1.0
 metadata/_tc_uuid = "2742061418804172302"
 metadata/scene_file_path = "res://characters/Player/Player.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=346033941]
-texture = ExtResource("1_1fna3")
+texture = ExtResource("2_srhiw")
 hframes = 8
 vframes = 5
 metadata/_tc_uuid = "3471136414224237871"
@@ -125,3 +173,47 @@ metadata/_tc_uuid = "8676648017961939382"
 position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_2yvdw")
 metadata/_tc_uuid = "3481731897291678941"
+
+[node name="DoubleJumpParticles" type="CPUParticles2D" parent="." unique_id=2041396489]
+position = Vector2(0, 16)
+emitting = false
+amount = 18
+lifetime = 0.45
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(6, 1)
+direction = Vector2(0, 1)
+spread = 70.0
+gravity = Vector2(0, 120)
+initial_velocity_min = 30.0
+initial_velocity_max = 70.0
+damping_min = 40.0
+damping_max = 80.0
+scale_amount_min = 1.5
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_ofsc6")
+
+[node name="RunDustParticles" type="CPUParticles2D" parent="." unique_id=70210150]
+position = Vector2(0, 16)
+emitting = false
+amount = 5
+lifetime = 0.5
+randomness = 0.4
+emission_shape = 3
+emission_rect_extents = Vector2(3, 1)
+direction = Vector2(-1, -0.6)
+spread = 25.0
+gravity = Vector2(0, -15)
+initial_velocity_min = 10.0
+initial_velocity_max = 25.0
+damping_min = 20.0
+damping_max = 40.0
+scale_amount_max = 2.5
+color = Color(0.8509804, 0.8235294, 0.77254903, 1)
+color_ramp = SubResource("Gradient_srhiw")
+
+[node name="WrenchSprite" type="Sprite2D" parent="." unique_id=413637360]
+texture = ExtResource("5_enwbc")
+hframes = 8
+vframes = 5

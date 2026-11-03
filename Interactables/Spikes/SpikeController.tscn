@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://dg6lajrgyemjm"]
 
-[ext_resource type="Texture2D" uid="uid://snxmo0x77krt" path="res://Assets/Content/Spikes.png" id="1_nycni"]
+[ext_resource type="Texture2D" uid="uid://snxmo0x77krt" path="res://Assets/Crates/Spikes.png" id="1_nycni"]
 [ext_resource type="Script" uid="uid://dwcp7mvces3kn" path="res://Interactables/Spikes/spikes.gd" id="2_spikes"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul0di"]
+size = Vector2(13, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_spikes_up"]
 atlas = ExtResource("1_nycni")
 region = Rect2(0, 0, 16, 16)
 filter_clip = true
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul0di"]
-size = Vector2(13, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nycni"]
 size = Vector2(15, 10)

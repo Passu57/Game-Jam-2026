@@ -14,6 +14,11 @@ signal player_shocked(player: Node2D)
 		if is_node_ready():
 			_update_visual()
 
+## Electricity only exists once Yellow is restored. Until then, even a
+## powered floor is just calm, safe water. Untick for a floor that's
+## dangerous from the very start.
+@export var needs_yellow: bool = true
+
 ## How long the player is frozen (flashing) before respawning, in seconds.
 @export var shock_time: float = 0.4
 
@@ -29,10 +34,8 @@ var _shocking := false
 
 func _ready() -> void:
 	hazard.body_entered.connect(_on_hazard_body_entered)
+	ColorManager.colors_unlocked.connect(_on_colors_unlocked)
 	_update_visual()
-	# Start each puddle at a random point so several side by side don't sync up.
-	if powered:
-		anim.seek(randf() * anim.current_animation_length, true)
 
 
 func turn_on() -> void:
@@ -43,16 +46,40 @@ func turn_off() -> void:
 	powered = false
 
 
+## True when the floor actually zaps: switched on AND the world has power.
+func is_live() -> bool:
+	if not powered:
+		return false
+	return not needs_yellow or ColorManager.is_unlocked(ColorManager.YELLOW)
+
+
+func _on_colors_unlocked(_mask: int) -> void:
+	_update_visual()
+
+
 func _update_visual() -> void:
-	if powered:
+	var was_playing := anim.is_playing()
+	if is_live():
 		anim.play("Zap")
+		# Start each puddle at a random point so several side by side don't sync up.
+		if not was_playing:
+			anim.seek(randf() * anim.current_animation_length, true)
+		# Power just came on while someone stands in it? Zap them.
+		_shock_anyone_inside()
 	else:
 		anim.stop()
 		sprite.frame = OFF_FRAME
 
 
+func _shock_anyone_inside() -> void:
+	if not is_inside_tree():
+		return
+	for body in hazard.get_overlapping_bodies():
+		_on_hazard_body_entered(body)
+
+
 func _on_hazard_body_entered(body: Node2D) -> void:
-	if powered and not _shocking and body is CharacterBody2D:
+	if is_live() and not _shocking and body is CharacterBody2D:
 		_shock(body)
 
 
