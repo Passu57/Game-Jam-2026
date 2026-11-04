@@ -24,6 +24,11 @@
 [ext_resource type="Script" uid="uid://bn4i3a0pe1nv3" path="res://Interactables/Water/pool_water.gd" id="21_jmim6"]
 [ext_resource type="PackedScene" path="res://Interactables/Geyser/Geyser.tscn" id="22_rq3t5"]
 [ext_resource type="PackedScene" path="res://Interactables/Checkpoint/Checkpoint.tscn" id="24_idqyf"]
+[ext_resource type="PackedScene" uid="uid://b4hqsqgyo23lg" path="res://Interactables/Signs/HelpSign.tscn" id="25_0rql5"]
+[ext_resource type="PackedScene" uid="uid://cuo6ytxqhuckq" path="res://Interactables/decorations/DeadBush5.tscn" id="26_t865d"]
+[ext_resource type="PackedScene" uid="uid://4fahhn32je12" path="res://Interactables/decorations/Torch.tscn" id="27_5uu0c"]
+[ext_resource type="Shader" uid="uid://cvoa7xthahuji" path="res://Interactables/decorations/torch_flame.gdshader" id="28_qu3ch"]
+[ext_resource type="PackedScene" uid="uid://docwcyrehcyhn" path="res://Interactables/Water/Waterfall.tscn" id="29_5uu0c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rq3t5"]
 shader = ExtResource("2_3wp5b")
@@ -119,6 +124,102 @@ void fragment() {
 shader = SubResource("Shader_mgba7")
 shader_parameter/tint_color = Color(0.20674583, 0.27313963, 0.549828, 1)
 shader_parameter/tint_strength = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5uu0c"]
+resource_local_to_scene = true
+shader = ExtResource("28_qu3ch")
+shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
+shader_parameter/flame_mid = Color(0.11764706, 0.34509805, 0.9019608, 1)
+shader_parameter/flame_light = Color(0.36078432, 0.6666667, 1, 1)
+shader_parameter/flame_core = Color(0.80784315, 0.9647059, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 1.4245175425633079
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qu3ch"]
+resource_local_to_scene = true
+shader = ExtResource("28_qu3ch")
+shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
+shader_parameter/flame_mid = Color(0.11764706, 0.34509805, 0.9019608, 1)
+shader_parameter/flame_light = Color(0.36078432, 0.6666667, 1, 1)
+shader_parameter/flame_core = Color(0.80784315, 0.9647059, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = -3.5108881569224764
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nv3ms"]
+resource_local_to_scene = true
+shader = ExtResource("28_qu3ch")
+shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
+shader_parameter/flame_mid = Color(0.11764706, 0.34509805, 0.9019608, 1)
+shader_parameter/flame_light = Color(0.36078432, 0.6666667, 1, 1)
+shader_parameter/flame_core = Color(0.80784315, 0.9647059, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 0.18488486307362706
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kqxd"]
+resource_local_to_scene = true
+shader = ExtResource("28_qu3ch")
+shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
+shader_parameter/flame_mid = Color(0.11764706, 0.34509805, 0.9019608, 1)
+shader_parameter/flame_light = Color(0.36078432, 0.6666667, 1, 1)
+shader_parameter/flame_core = Color(0.80784315, 0.9647059, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 3.556140340506488
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_heno1"]
+resource_local_to_scene = true
+shader = ExtResource("28_qu3ch")
+shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
+shader_parameter/flame_mid = Color(0.11764706, 0.34509805, 0.9019608, 1)
+shader_parameter/flame_light = Color(0.36078432, 0.6666667, 1, 1)
+shader_parameter/flame_core = Color(0.80784315, 0.9647059, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 0.47791665435144637
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f71it"]
+resource_local_to_scene = true
+shader = ExtResource("28_qu3ch")
+shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
+shader_parameter/flame_mid = Color(0.11764706, 0.34509805, 0.9019608, 1)
+shader_parameter/flame_light = Color(0.36078432, 0.6666667, 1, 1)
+shader_parameter/flame_core = Color(0.80784315, 0.9647059, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 5.566584418967743
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66agr"]
+resource_local_to_scene = true
+shader = ExtResource("28_qu3ch")
+shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
+shader_parameter/flame_mid = Color(0.11764706, 0.34509805, 0.9019608, 1)
+shader_parameter/flame_light = Color(0.36078432, 0.6666667, 1, 1)
+shader_parameter/flame_core = Color(0.80784315, 0.9647059, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 5.239325647686108
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjyx8"]
+resource_local_to_scene = true
+shader = ExtResource("28_qu3ch")
+shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
+shader_parameter/flame_mid = Color(0.11764706, 0.34509805, 0.9019608, 1)
+shader_parameter/flame_light = Color(0.36078432, 0.6666667, 1, 1)
+shader_parameter/flame_core = Color(0.80784315, 0.9647059, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 0.2202905625594198
 
 [node name="Level02" type="Node2D" unique_id=2045724769]
 script = ExtResource("1_ptdb3")
@@ -353,8 +454,9 @@ floats = true
 
 [node name="PoolWater" type="Node2D" parent="." unique_id=1576615856]
 z_index = 10
-position = Vector2(512, 752)
+position = Vector2(511, 753)
 script = ExtResource("21_jmim6")
+size = Vector2(386, 120)
 
 [node name="Door03" parent="." unique_id=214228410 instance=ExtResource("5_4sbwh")]
 position = Vector2(1160, 496)
@@ -486,5 +588,95 @@ position = Vector2(240, 625)
 
 [node name="Checkpoint02" parent="." unique_id=2088721453 instance=ExtResource("24_idqyf")]
 position = Vector2(1146, 257)
+
+[node name="HelpSign" parent="." unique_id=1724599371 instance=ExtResource("25_0rql5")]
+position = Vector2(16, 629)
+frame = 6
+sign_type = 6
+
+[node name="HelpSign2" parent="." unique_id=810091621 instance=ExtResource("25_0rql5")]
+position = Vector2(-312, 458)
+frame = 10
+sign_type = 10
+
+[node name="HelpSign3" parent="." unique_id=121504503 instance=ExtResource("25_0rql5")]
+position = Vector2(385, 629)
+frame = 9
+sign_type = 9
+
+[node name="HelpSign4" parent="." unique_id=2081563274 instance=ExtResource("25_0rql5")]
+position = Vector2(489, 629)
+
+[node name="HelpSign5" parent="." unique_id=670615152 instance=ExtResource("25_0rql5")]
+position = Vector2(998, 613)
+frame = 0
+sign_type = 0
+
+[node name="HelpSign6" parent="." unique_id=1050177630 instance=ExtResource("25_0rql5")]
+position = Vector2(1160, 469)
+rotation = 1.5707964
+frame = 2
+sign_type = 2
+
+[node name="HelpSign7" parent="." unique_id=129206495 instance=ExtResource("25_0rql5")]
+position = Vector2(1128, 261)
+frame = 6
+sign_type = 6
+
+[node name="HelpSign8" parent="." unique_id=1231105006 instance=ExtResource("25_0rql5")]
+position = Vector2(974, 181)
+frame = 10
+sign_type = 10
+
+[node name="DeadBush05" parent="." unique_id=1101694943 instance=ExtResource("26_t865d")]
+position = Vector2(-213, 632)
+
+[node name="DeadBush06" parent="." unique_id=1806007870 instance=ExtResource("26_t865d")]
+position = Vector2(-134, 522)
+
+[node name="DeadBush07" parent="." unique_id=902590541 instance=ExtResource("26_t865d")]
+position = Vector2(-315, 463)
+
+[node name="DeadBush08" parent="." unique_id=1474284536 instance=ExtResource("27_5uu0c")]
+material = SubResource("ShaderMaterial_5uu0c")
+position = Vector2(-25, 554)
+
+[node name="DeadBush09" parent="." unique_id=1014955203 instance=ExtResource("27_5uu0c")]
+material = SubResource("ShaderMaterial_qu3ch")
+position = Vector2(-296, 621)
+
+[node name="DeadBush10" parent="." unique_id=105410316 instance=ExtResource("27_5uu0c")]
+material = SubResource("ShaderMaterial_nv3ms")
+position = Vector2(373, 632)
+
+[node name="DeadBush11" parent="." unique_id=2121751557 instance=ExtResource("27_5uu0c")]
+material = SubResource("ShaderMaterial_5kqxd")
+position = Vector2(913, 617)
+
+[node name="DeadBush12" parent="." unique_id=445246349 instance=ExtResource("27_5uu0c")]
+material = SubResource("ShaderMaterial_heno1")
+position = Vector2(1137, 521)
+
+[node name="DeadBush13" parent="." unique_id=679465710 instance=ExtResource("27_5uu0c")]
+material = SubResource("ShaderMaterial_f71it")
+position = Vector2(1088, 218)
+
+[node name="DeadBush14" parent="." unique_id=349556176 instance=ExtResource("27_5uu0c")]
+material = SubResource("ShaderMaterial_66agr")
+position = Vector2(1029, 185)
+
+[node name="DeadBush15" parent="." unique_id=1852766800 instance=ExtResource("27_5uu0c")]
+material = SubResource("ShaderMaterial_jjyx8")
+position = Vector2(758, 137)
+
+[node name="Waterfall" parent="." unique_id=1434921018 node_paths=PackedStringArray("pool") instance=ExtResource("29_5uu0c")]
+z_index = 101
+position = Vector2(584, 511)
+pool = NodePath("../PoolWater")
+width = 32
+fallback_height = 121.0
+water_color = Color(0, 0.5701961, 0.96595424, 0.78039217)
+dark_color = Color(0.19009882, 0.32136384, 0.8419417, 0.8509804)
+splash_size = 1.5
 
 [connection signal="body_entered" from="Secret/SecretController" to="Secret/SecretController" method="_on_body_entered"]

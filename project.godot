@@ -20,8 +20,8 @@ config/icon="res://icon.svg"
 ColorManager="*res://Systems/ColorManager/color_manager.gd"
 MachineColorLink="*res://Systems/ColorManager/machine_color_link.gd"
 InteractHighlighter="*res://Systems/Interaction/interact_highlighter.gd"
-GameProgress="*res://Systems/Progress/game_progress.gd"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+GameProgress="*res://Systems/Progress/game_progress.gd"
 
 [display]
 

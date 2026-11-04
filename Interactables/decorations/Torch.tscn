@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://4fahhn32je12"]
+
+[ext_resource type="Shader" uid="uid://cvoa7xthahuji" path="res://Interactables/decorations/torch_flame.gdshader" id="1_d1erk"]
+[ext_resource type="Texture2D" uid="uid://m63m5xs5fpb7" path="res://Assets/Shroom_Assets/Assets_Shroom_Cave.png" id="2_q63g6"]
+[ext_resource type="Script" uid="uid://y4vdtbtilyqe" path="res://Interactables/decorations/torch_color.gd" id="3_itf35"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oq8ao"]
+resource_local_to_scene = true
+shader = ExtResource("1_d1erk")
+shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
+shader_parameter/flame_mid = Color(0.11764706, 0.34509805, 0.9019608, 1)
+shader_parameter/flame_light = Color(0.36078432, 0.6666667, 1, 1)
+shader_parameter/flame_core = Color(0.80784315, 0.9647059, 1, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 0.0
+
+[sub_resource type="Animation" id="Animation_yx2l7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [195]
+}
+
+[sub_resource type="Animation" id="Animation_jbfol"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [195, 196, 197, 197]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uhk5r"]
+_data = {
+&"RESET": SubResource("Animation_yx2l7"),
+&"default": SubResource("Animation_jbfol")
+}
+
+[node name="DeadBush06" type="Sprite2D" unique_id=1724599371]
+z_index = -1
+material = SubResource("ShaderMaterial_oq8ao")
+texture = ExtResource("2_q63g6")
+offset = Vector2(0, -12)
+hframes = 19
+vframes = 15
+frame = 195
+script = ExtResource("3_itf35")
+flame_color = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1166263928]
+libraries/ = SubResource("AnimationLibrary_uhk5r")
+autoplay = &"default"

@@ -20,3 +20,7 @@ On day 2 we made a lot of advancements. We made a proper movement system. Made i
 ## Day 3
 
 We continued working on the levels. We found some assets to add decors to our game and added checkpoints finally. The whole game was slowly coming together. We also added some secrets into levels for the players to find. Once they had finished the game.
+
+### Added water with physics and a waterfall aswell
+
+![alt text](image-3.png)
