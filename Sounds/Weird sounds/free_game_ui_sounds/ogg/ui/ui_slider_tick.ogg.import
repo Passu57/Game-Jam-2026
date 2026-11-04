@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://7t4kpcm8vpav"
+path="res://.godot/imported/ui_slider_tick.ogg-1d6f98b1842953d61cab817b3eca5f86.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/ui/ui_slider_tick.ogg"
+dest_files=["res://.godot/imported/ui_slider_tick.ogg-1d6f98b1842953d61cab817b3eca5f86.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

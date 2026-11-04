@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://crpxyuhsmbg6r"
+path="res://.godot/imported/arrow_shot.wav-b80cfe085acb11e2e90e3d09c32ffb51.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/arrow_shot.wav"
+dest_files=["res://.godot/imported/arrow_shot.wav-b80cfe085acb11e2e90e3d09c32ffb51.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

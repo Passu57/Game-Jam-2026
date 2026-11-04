@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ba4g88of7onnp"
+path="res://.godot/imported/throw.ogg-74af0d36a5af37b29349ced640a1b51c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/throw.ogg"
+dest_files=["res://.godot/imported/throw.ogg-74af0d36a5af37b29349ced640a1b51c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

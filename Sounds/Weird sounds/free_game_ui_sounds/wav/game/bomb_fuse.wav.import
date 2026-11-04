@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://brt6340l8f0i2"
+path="res://.godot/imported/bomb_fuse.wav-28993c767a36cf37d0e0087b5a8088f1.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/bomb_fuse.wav"
+dest_files=["res://.godot/imported/bomb_fuse.wav-28993c767a36cf37d0e0087b5a8088f1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

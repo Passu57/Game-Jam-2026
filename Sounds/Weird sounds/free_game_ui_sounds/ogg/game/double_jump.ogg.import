@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://xvgx4rimf0sc"
+path="res://.godot/imported/double_jump.ogg-de53e236e12ca61a63c01d5f4ad159de.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/double_jump.ogg"
+dest_files=["res://.godot/imported/double_jump.ogg-de53e236e12ca61a63c01d5f4ad159de.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

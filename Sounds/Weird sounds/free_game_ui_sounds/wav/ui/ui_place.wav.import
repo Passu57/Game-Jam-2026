@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bg4v35w7tvdqq"
+path="res://.godot/imported/ui_place.wav-43af55d9d32a65f8eed1d2fc144faffa.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/ui/ui_place.wav"
+dest_files=["res://.godot/imported/ui_place.wav-43af55d9d32a65f8eed1d2fc144faffa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

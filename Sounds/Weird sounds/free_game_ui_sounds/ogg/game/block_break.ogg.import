@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bspq1y7l67pix"
+path="res://.godot/imported/block_break.ogg-7cdd1c569e9957c9acb47ac978ae229b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/block_break.ogg"
+dest_files=["res://.godot/imported/block_break.ogg-7cdd1c569e9957c9acb47ac978ae229b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

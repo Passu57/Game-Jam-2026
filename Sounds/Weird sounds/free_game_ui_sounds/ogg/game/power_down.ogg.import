@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cmgsu4jbrlmyi"
+path="res://.godot/imported/power_down.ogg-d5e30e32463a15d0074ec177d1c82307.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/power_down.ogg"
+dest_files=["res://.godot/imported/power_down.ogg-d5e30e32463a15d0074ec177d1c82307.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

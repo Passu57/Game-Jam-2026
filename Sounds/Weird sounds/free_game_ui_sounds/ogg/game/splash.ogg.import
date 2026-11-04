@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://brijcg10x64g7"
+path="res://.godot/imported/splash.ogg-c7da2e0d110004766490dcedca26ff1c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/splash.ogg"
+dest_files=["res://.godot/imported/splash.ogg-c7da2e0d110004766490dcedca26ff1c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dws7k2m0ktqx8"
+path="res://.godot/imported/laser_shot.wav-8637ed60e201a23e52628e39f136c10c.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/laser_shot.wav"
+dest_files=["res://.godot/imported/laser_shot.wav-8637ed60e201a23e52628e39f136c10c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

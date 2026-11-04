@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5mkdua6rxg24"
+path="res://.godot/imported/explosion_big.wav-aa9e707be865a7ba1e15c58790ac7ee4.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/explosion_big.wav"
+dest_files=["res://.godot/imported/explosion_big.wav-aa9e707be865a7ba1e15c58790ac7ee4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

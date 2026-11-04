@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cvc7kpsvitt04"
+path="res://.godot/imported/spring_bounce.ogg-d089b61253e2119a7a4fbb19b8f57f5f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/spring_bounce.ogg"
+dest_files=["res://.godot/imported/spring_bounce.ogg-d089b61253e2119a7a4fbb19b8f57f5f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

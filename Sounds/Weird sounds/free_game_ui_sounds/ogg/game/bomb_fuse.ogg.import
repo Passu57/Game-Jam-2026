@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bmlw855cim1gk"
+path="res://.godot/imported/bomb_fuse.ogg-793cdc91f5a2e0a4a53f6d104534fb80.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/bomb_fuse.ogg"
+dest_files=["res://.godot/imported/bomb_fuse.ogg-793cdc91f5a2e0a4a53f6d104534fb80.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

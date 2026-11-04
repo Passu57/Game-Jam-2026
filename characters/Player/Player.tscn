@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://ce8twdc0mi2jq" path="res://characters/Player/interaction_controller.gd" id="3_m1y8q"]
 [ext_resource type="PackedScene" uid="uid://buppfvhqlh84m" path="res://UI/UI Quest box.tscn" id="4_ofsc6"]
 [ext_resource type="Texture2D" uid="uid://b4x354kw5j11h" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet_WrenchOnly.png" id="5_enwbc"]
+[ext_resource type="AudioStream" uid="uid://d0bki2gvnhxb7" path="res://Assets/sum sounds/free_game_ui_sounds/wav/game/jump.wav" id="6_enwbc"]
 
 [sub_resource type="Animation" id="Animation_dch2n"]
 resource_name = "Idle"
@@ -217,3 +218,6 @@ color_ramp = SubResource("Gradient_srhiw")
 texture = ExtResource("5_enwbc")
 hframes = 8
 vframes = 5
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=935854326]
+stream = ExtResource("6_enwbc")

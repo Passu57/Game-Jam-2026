@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dcn6ayp3ja6vj"
+path="res://.godot/imported/explosion_big.ogg-b27f904aa3e6e400563b6d6d4aa230b4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/explosion_big.ogg"
+dest_files=["res://.godot/imported/explosion_big.ogg-b27f904aa3e6e400563b6d6d4aa230b4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

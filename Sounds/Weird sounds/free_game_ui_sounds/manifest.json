@@ -1,0 +1,487 @@
+{
+ "pack": "Free Game & UI Sound Pack",
+ "sounds": 60,
+ "format": "WAV 44.1 kHz 16-bit mono + OGG Vorbis",
+ "sounds_list": [
+  {
+   "name": "ui_blip_up",
+   "category": "ui",
+   "seconds": 0.13,
+   "wav": "wav/ui/ui_blip_up.wav",
+   "ogg": "ogg/ui/ui_blip_up.ogg",
+   "use": "menu cursor moves up"
+  },
+  {
+   "name": "ui_blip_down",
+   "category": "ui",
+   "seconds": 0.13,
+   "wav": "wav/ui/ui_blip_down.wav",
+   "ogg": "ogg/ui/ui_blip_down.ogg",
+   "use": "menu cursor moves down"
+  },
+  {
+   "name": "ui_tab_switch",
+   "category": "ui",
+   "seconds": 0.09,
+   "wav": "wav/ui/ui_tab_switch.wav",
+   "ogg": "ogg/ui/ui_tab_switch.ogg",
+   "use": "switch tab or page"
+  },
+  {
+   "name": "ui_slider_tick",
+   "category": "ui",
+   "seconds": 0.05,
+   "wav": "wav/ui/ui_slider_tick.wav",
+   "ogg": "ogg/ui/ui_slider_tick.ogg",
+   "use": "slider or scroll step"
+  },
+  {
+   "name": "ui_checkbox_on",
+   "category": "ui",
+   "seconds": 0.16,
+   "wav": "wav/ui/ui_checkbox_on.wav",
+   "ogg": "ogg/ui/ui_checkbox_on.ogg",
+   "use": "checkbox or toggle on"
+  },
+  {
+   "name": "ui_checkbox_off",
+   "category": "ui",
+   "seconds": 0.13,
+   "wav": "wav/ui/ui_checkbox_off.wav",
+   "ogg": "ogg/ui/ui_checkbox_off.ogg",
+   "use": "checkbox or toggle off"
+  },
+  {
+   "name": "ui_popup_in",
+   "category": "ui",
+   "seconds": 0.15,
+   "wav": "wav/ui/ui_popup_in.wav",
+   "ogg": "ogg/ui/ui_popup_in.ogg",
+   "use": "window or popup opens"
+  },
+  {
+   "name": "ui_popup_out",
+   "category": "ui",
+   "seconds": 0.12,
+   "wav": "wav/ui/ui_popup_out.wav",
+   "ogg": "ogg/ui/ui_popup_out.ogg",
+   "use": "window or popup closes"
+  },
+  {
+   "name": "ui_tooltip",
+   "category": "ui",
+   "seconds": 0.14,
+   "wav": "wav/ui/ui_tooltip.wav",
+   "ogg": "ogg/ui/ui_tooltip.ogg",
+   "use": "tooltip or hint appears"
+  },
+  {
+   "name": "ui_back",
+   "category": "ui",
+   "seconds": 0.16,
+   "wav": "wav/ui/ui_back.wav",
+   "ogg": "ogg/ui/ui_back.ogg",
+   "use": "back or return"
+  },
+  {
+   "name": "ui_accept",
+   "category": "ui",
+   "seconds": 0.42,
+   "wav": "wav/ui/ui_accept.wav",
+   "ogg": "ogg/ui/ui_accept.ogg",
+   "use": "accept or confirm choice"
+  },
+  {
+   "name": "ui_invalid",
+   "category": "ui",
+   "seconds": 0.22,
+   "wav": "wav/ui/ui_invalid.wav",
+   "ogg": "ogg/ui/ui_invalid.ogg",
+   "use": "not allowed or wrong input"
+  },
+  {
+   "name": "ui_typewriter",
+   "category": "ui",
+   "seconds": 0.07,
+   "wav": "wav/ui/ui_typewriter.wav",
+   "ogg": "ogg/ui/ui_typewriter.ogg",
+   "use": "dialogue text letter"
+  },
+  {
+   "name": "ui_score_count",
+   "category": "ui",
+   "seconds": 0.5,
+   "wav": "wav/ui/ui_score_count.wav",
+   "ogg": "ogg/ui/ui_score_count.ogg",
+   "use": "score counting up"
+  },
+  {
+   "name": "ui_countdown_beep",
+   "category": "ui",
+   "seconds": 0.17,
+   "wav": "wav/ui/ui_countdown_beep.wav",
+   "ogg": "ogg/ui/ui_countdown_beep.ogg",
+   "use": "3-2-1 countdown beep"
+  },
+  {
+   "name": "ui_countdown_go",
+   "category": "ui",
+   "seconds": 0.55,
+   "wav": "wav/ui/ui_countdown_go.wav",
+   "ogg": "ogg/ui/ui_countdown_go.ogg",
+   "use": "countdown GO"
+  },
+  {
+   "name": "ui_drag_start",
+   "category": "ui",
+   "seconds": 0.1,
+   "wav": "wav/ui/ui_drag_start.wav",
+   "ogg": "ogg/ui/ui_drag_start.ogg",
+   "use": "pick up an item to drag"
+  },
+  {
+   "name": "ui_place",
+   "category": "ui",
+   "seconds": 0.13,
+   "wav": "wav/ui/ui_place.wav",
+   "ogg": "ogg/ui/ui_place.ogg",
+   "use": "drop or place an item in a slot"
+  },
+  {
+   "name": "ui_achievement",
+   "category": "ui",
+   "seconds": 1.0,
+   "wav": "wav/ui/ui_achievement.wav",
+   "ogg": "ogg/ui/ui_achievement.ogg",
+   "use": "achievement unlocked"
+  },
+  {
+   "name": "ui_quest_complete",
+   "category": "ui",
+   "seconds": 1.15,
+   "wav": "wav/ui/ui_quest_complete.wav",
+   "ogg": "ogg/ui/ui_quest_complete.ogg",
+   "use": "quest or mission complete"
+  },
+  {
+   "name": "ui_star_1",
+   "category": "ui",
+   "seconds": 0.35,
+   "wav": "wav/ui/ui_star_1.wav",
+   "ogg": "ogg/ui/ui_star_1.ogg",
+   "use": "first rating star"
+  },
+  {
+   "name": "ui_star_2",
+   "category": "ui",
+   "seconds": 0.407,
+   "wav": "wav/ui/ui_star_2.wav",
+   "ogg": "ogg/ui/ui_star_2.ogg",
+   "use": "second rating star"
+  },
+  {
+   "name": "ui_star_3",
+   "category": "ui",
+   "seconds": 0.45,
+   "wav": "wav/ui/ui_star_3.wav",
+   "ogg": "ogg/ui/ui_star_3.ogg",
+   "use": "third rating star"
+  },
+  {
+   "name": "ui_menu_whoosh",
+   "category": "ui",
+   "seconds": 0.26,
+   "wav": "wav/ui/ui_menu_whoosh.wav",
+   "ogg": "ogg/ui/ui_menu_whoosh.ogg",
+   "use": "menu slides in"
+  },
+  {
+   "name": "jump",
+   "category": "game",
+   "seconds": 0.19,
+   "wav": "wav/game/jump.wav",
+   "ogg": "ogg/game/jump.ogg",
+   "use": "jump"
+  },
+  {
+   "name": "double_jump",
+   "category": "game",
+   "seconds": 0.26,
+   "wav": "wav/game/double_jump.wav",
+   "ogg": "ogg/game/double_jump.ogg",
+   "use": "double jump"
+  },
+  {
+   "name": "land",
+   "category": "game",
+   "seconds": 0.16,
+   "wav": "wav/game/land.wav",
+   "ogg": "ogg/game/land.ogg",
+   "use": "land on the ground"
+  },
+  {
+   "name": "dash",
+   "category": "game",
+   "seconds": 0.17,
+   "wav": "wav/game/dash.wav",
+   "ogg": "ogg/game/dash.ogg",
+   "use": "dash or quick dodge"
+  },
+  {
+   "name": "spring_bounce",
+   "category": "game",
+   "seconds": 0.45,
+   "wav": "wav/game/spring_bounce.wav",
+   "ogg": "ogg/game/spring_bounce.ogg",
+   "use": "spring or bounce pad"
+  },
+  {
+   "name": "gem_collect",
+   "category": "game",
+   "seconds": 0.4,
+   "wav": "wav/game/gem_collect.wav",
+   "ogg": "ogg/game/gem_collect.ogg",
+   "use": "collect a gem"
+  },
+  {
+   "name": "key_collect",
+   "category": "game",
+   "seconds": 0.55,
+   "wav": "wav/game/key_collect.wav",
+   "ogg": "ogg/game/key_collect.ogg",
+   "use": "collect a key"
+  },
+  {
+   "name": "heart_collect",
+   "category": "game",
+   "seconds": 0.6,
+   "wav": "wav/game/heart_collect.wav",
+   "ogg": "ogg/game/heart_collect.ogg",
+   "use": "collect health"
+  },
+  {
+   "name": "powerup",
+   "category": "game",
+   "seconds": 0.75,
+   "wav": "wav/game/powerup.wav",
+   "ogg": "ogg/game/powerup.ogg",
+   "use": "get a power-up"
+  },
+  {
+   "name": "power_down",
+   "category": "game",
+   "seconds": 0.7,
+   "wav": "wav/game/power_down.wav",
+   "ogg": "ogg/game/power_down.ogg",
+   "use": "lose a power-up"
+  },
+  {
+   "name": "shield_up",
+   "category": "game",
+   "seconds": 0.6,
+   "wav": "wav/game/shield_up.wav",
+   "ogg": "ogg/game/shield_up.ogg",
+   "use": "shield on"
+  },
+  {
+   "name": "shield_break",
+   "category": "game",
+   "seconds": 0.7,
+   "wav": "wav/game/shield_break.wav",
+   "ogg": "ogg/game/shield_break.ogg",
+   "use": "shield breaks"
+  },
+  {
+   "name": "hurt",
+   "category": "game",
+   "seconds": 0.2,
+   "wav": "wav/game/hurt.wav",
+   "ogg": "ogg/game/hurt.ogg",
+   "use": "player takes damage"
+  },
+  {
+   "name": "player_death",
+   "category": "game",
+   "seconds": 1.1,
+   "wav": "wav/game/player_death.wav",
+   "ogg": "ogg/game/player_death.ogg",
+   "use": "player dies"
+  },
+  {
+   "name": "enemy_hit",
+   "category": "game",
+   "seconds": 0.11,
+   "wav": "wav/game/enemy_hit.wav",
+   "ogg": "ogg/game/enemy_hit.ogg",
+   "use": "hit an enemy"
+  },
+  {
+   "name": "enemy_defeat",
+   "category": "game",
+   "seconds": 0.45,
+   "wav": "wav/game/enemy_defeat.wav",
+   "ogg": "ogg/game/enemy_defeat.ogg",
+   "use": "enemy defeated"
+  },
+  {
+   "name": "stomp",
+   "category": "game",
+   "seconds": 0.18,
+   "wav": "wav/game/stomp.wav",
+   "ogg": "ogg/game/stomp.ogg",
+   "use": "stomp an enemy"
+  },
+  {
+   "name": "laser_shot",
+   "category": "game",
+   "seconds": 0.22,
+   "wav": "wav/game/laser_shot.wav",
+   "ogg": "ogg/game/laser_shot.ogg",
+   "use": "laser gun"
+  },
+  {
+   "name": "blaster_shot",
+   "category": "game",
+   "seconds": 0.2,
+   "wav": "wav/game/blaster_shot.wav",
+   "ogg": "ogg/game/blaster_shot.ogg",
+   "use": "blaster gun"
+  },
+  {
+   "name": "explosion_small",
+   "category": "game",
+   "seconds": 0.65,
+   "wav": "wav/game/explosion_small.wav",
+   "ogg": "ogg/game/explosion_small.ogg",
+   "use": "small explosion"
+  },
+  {
+   "name": "explosion_big",
+   "category": "game",
+   "seconds": 1.5,
+   "wav": "wav/game/explosion_big.wav",
+   "ogg": "ogg/game/explosion_big.ogg",
+   "use": "big explosion"
+  },
+  {
+   "name": "door_open",
+   "category": "game",
+   "seconds": 0.7,
+   "wav": "wav/game/door_open.wav",
+   "ogg": "ogg/game/door_open.ogg",
+   "use": "door opens"
+  },
+  {
+   "name": "chest_open",
+   "category": "game",
+   "seconds": 0.85,
+   "wav": "wav/game/chest_open.wav",
+   "ogg": "ogg/game/chest_open.ogg",
+   "use": "treasure chest opens"
+  },
+  {
+   "name": "switch_flip",
+   "category": "game",
+   "seconds": 0.14,
+   "wav": "wav/game/switch_flip.wav",
+   "ogg": "ogg/game/switch_flip.ogg",
+   "use": "lever or switch"
+  },
+  {
+   "name": "teleport",
+   "category": "game",
+   "seconds": 0.65,
+   "wav": "wav/game/teleport.wav",
+   "ogg": "ogg/game/teleport.ogg",
+   "use": "teleport or warp"
+  },
+  {
+   "name": "checkpoint",
+   "category": "game",
+   "seconds": 0.85,
+   "wav": "wav/game/checkpoint.wav",
+   "ogg": "ogg/game/checkpoint.ogg",
+   "use": "checkpoint reached"
+  },
+  {
+   "name": "game_over",
+   "category": "game",
+   "seconds": 1.8,
+   "wav": "wav/game/game_over.wav",
+   "ogg": "ogg/game/game_over.ogg",
+   "use": "game over jingle"
+  },
+  {
+   "name": "stage_clear",
+   "category": "game",
+   "seconds": 1.6,
+   "wav": "wav/game/stage_clear.wav",
+   "ogg": "ogg/game/stage_clear.ogg",
+   "use": "stage clear jingle"
+  },
+  {
+   "name": "block_bump",
+   "category": "game",
+   "seconds": 0.14,
+   "wav": "wav/game/block_bump.wav",
+   "ogg": "ogg/game/block_bump.ogg",
+   "use": "head bumps a block"
+  },
+  {
+   "name": "block_break",
+   "category": "game",
+   "seconds": 0.45,
+   "wav": "wav/game/block_break.wav",
+   "ogg": "ogg/game/block_break.ogg",
+   "use": "block breaks"
+  },
+  {
+   "name": "splash",
+   "category": "game",
+   "seconds": 0.65,
+   "wav": "wav/game/splash.wav",
+   "ogg": "ogg/game/splash.ogg",
+   "use": "fall into water"
+  },
+  {
+   "name": "throw",
+   "category": "game",
+   "seconds": 0.17,
+   "wav": "wav/game/throw.wav",
+   "ogg": "ogg/game/throw.ogg",
+   "use": "throw an item"
+  },
+  {
+   "name": "sword_swing",
+   "category": "game",
+   "seconds": 0.24,
+   "wav": "wav/game/sword_swing.wav",
+   "ogg": "ogg/game/sword_swing.ogg",
+   "use": "sword swing"
+  },
+  {
+   "name": "arrow_shot",
+   "category": "game",
+   "seconds": 0.32,
+   "wav": "wav/game/arrow_shot.wav",
+   "ogg": "ogg/game/arrow_shot.ogg",
+   "use": "bow shot"
+  },
+  {
+   "name": "bomb_fuse",
+   "category": "game",
+   "seconds": 1.2,
+   "wav": "wav/game/bomb_fuse.wav",
+   "ogg": "ogg/game/bomb_fuse.ogg",
+   "use": "lit bomb fuse"
+  },
+  {
+   "name": "magic_cast",
+   "category": "game",
+   "seconds": 0.8,
+   "wav": "wav/game/magic_cast.wav",
+   "ogg": "ogg/game/magic_cast.ogg",
+   "use": "cast a spell"
+  }
+ ]
+}

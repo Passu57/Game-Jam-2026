@@ -1,0 +1,13 @@
+LICENSE - Free Game & UI Sound Pack
+===================================
+
+You may use these files in personal and commercial projects (games, apps,
+videos, prototypes), any number of them, royalty free. No attribution is
+required, although a credit to "Willosuna" is always appreciated.
+
+You may edit, recolor, resize, cut and combine the files however you like.
+
+You may NOT resell or redistribute the files themselves, edited or not, as an
+asset pack, sprite pack, sound pack or as part of another asset collection.
+
+Copyright (c) 2026 Willosuna - https://willosuna.itch.io/

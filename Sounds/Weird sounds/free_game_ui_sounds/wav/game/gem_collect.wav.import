@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dkecy7l4jrdqf"
+path="res://.godot/imported/gem_collect.wav-03fa64515ea47c974ce7ea02a8c66d20.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/gem_collect.wav"
+dest_files=["res://.godot/imported/gem_collect.wav-03fa64515ea47c974ce7ea02a8c66d20.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
