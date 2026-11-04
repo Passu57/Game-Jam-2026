@@ -5,7 +5,9 @@
 [ext_resource type="Script" uid="uid://ce8twdc0mi2jq" path="res://characters/Player/interaction_controller.gd" id="3_m1y8q"]
 [ext_resource type="PackedScene" uid="uid://buppfvhqlh84m" path="res://UI/Quest_Box/UI Quest box.tscn" id="4_ofsc6"]
 [ext_resource type="Texture2D" uid="uid://b4x354kw5j11h" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet_WrenchOnly.png" id="5_enwbc"]
-[ext_resource type="AudioStream" uid="uid://d0bki2gvnhxb7" path="res://Assets/sum sounds/free_game_ui_sounds/wav/game/jump.wav" id="6_enwbc"]
+[ext_resource type="AudioStream" uid="uid://b5mkdua6rxg24" path="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/explosion_big.wav" id="6_o1d0p"]
+[ext_resource type="AudioStream" uid="uid://b517t03g0prw7" path="res://Sounds/low_jump.wav" id="7_pw3qt"]
+[ext_resource type="AudioStream" uid="uid://nyd828nn0gpt" path="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/throw.wav" id="8_pw3qt"]
 
 [sub_resource type="Animation" id="Animation_dch2n"]
 resource_name = "Idle"
@@ -219,5 +221,11 @@ texture = ExtResource("5_enwbc")
 hframes = 8
 vframes = 5
 
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=228530983]
+stream = ExtResource("6_o1d0p")
+
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=935854326]
-stream = ExtResource("6_enwbc")
+stream = ExtResource("7_pw3qt")
+
+[node name="ThrowSound" type="AudioStreamPlayer2D" parent="." unique_id=631997432]
+stream = ExtResource("8_pw3qt")

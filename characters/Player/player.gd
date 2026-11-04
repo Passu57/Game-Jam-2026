@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var jump_velocity: float = -260.0
 @onready var interaction_controller: Node2D = $InteractionController
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
+@onready var throw_sound: AudioStreamPlayer2D = $ThrowSound
 
 @export_group("Jump Feel")
 ## Coyote time: you can still jump this long after running off a ledge (seconds).
@@ -203,6 +205,7 @@ func _update_wrench() -> void:
 
 
 func _throw_wrench(start: Vector2, start_velocity: Vector2) -> void:
+	throw_sound.play()
 	var wrench := WRENCH_SCENE.instantiate()
 	# Add to the level, not the player, so it doesn't move with us.
 	get_tree().current_scene.add_child(wrench)
@@ -264,6 +267,7 @@ func die(flash_color: Color = Color(2.0, 0.35, 0.35)) -> void:
 	if is_dead or Time.get_ticks_msec() < _protected_until_ms:
 		return
 	is_dead = true
+	death_sound.play()
 	anim.play("die")
 	died.emit()
 	set_physics_process(false)

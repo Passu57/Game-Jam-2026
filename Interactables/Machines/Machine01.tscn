@@ -1,7 +1,8 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://8g4u52ulcxul"]
 
-[ext_resource type="Texture2D" path="res://Assets/Machines/car_factory_front_sheet.png" id="1_jbruc"]
-[ext_resource type="Script" path="res://Interactables/Machines/MachineScript.gd" id="1_u7hb8"]
+[ext_resource type="Texture2D" uid="uid://db1ebper7cem2" path="res://Assets/Machines/car_factory_front_sheet.png" id="1_jbruc"]
+[ext_resource type="Script" uid="uid://blsy7f61gkam6" path="res://Interactables/Machines/MachineScript.gd" id="1_u7hb8"]
+[ext_resource type="AudioStream" uid="uid://clunapmf240lh" path="res://Sounds/color_machine_activate.wav" id="3_c6bxv"]
 
 [sub_resource type="Animation" id="Animation_jbruc"]
 resource_name = "Broken"
@@ -62,7 +63,7 @@ size = Vector2(57, 57)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsc6"]
 size = Vector2(90, 65)
 
-[node name="@StaticBody2D@493" type="StaticBody2D" unique_id=315364537]
+[node name="ColorMachine" type="StaticBody2D" unique_id=315364537]
 script = ExtResource("1_u7hb8")
 metadata/_tc_uuid = "943365004855783848"
 metadata/scene_file_path = "res://Interactables/Machines/Machine01.tscn"
@@ -71,7 +72,6 @@ metadata/scene_file_path = "res://Interactables/Machines/Machine01.tscn"
 texture = ExtResource("1_jbruc")
 hframes = 7
 vframes = 12
-frame = 76
 metadata/_tc_uuid = "7336379222547594063"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1473237768]
@@ -93,3 +93,6 @@ metadata/_tc_uuid = "1452706025575585668"
 position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_ofsc6")
 metadata/_tc_uuid = "8843936983477473023"
+
+[node name="ColorMachine" type="AudioStreamPlayer2D" parent="." unique_id=69698193]
+stream = ExtResource("3_c6bxv")

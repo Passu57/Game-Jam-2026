@@ -26,7 +26,7 @@ var _anim_time: float = 0.0
 var _flash_time: float = 0.0
 
 @onready var sprite: Sprite2D = $Sprite2D
-
+@onready var checkpoint_sound: AudioStreamPlayer2D = $Checkpoint
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
@@ -55,6 +55,7 @@ func activate(player: Node2D) -> void:
 	# Boot-up: screen flash + sparks out of the antenna.
 	_flash_time = 0.15
 	_burst(global_position + Vector2(4, -32), 14, Vector2(0, -1), 70.0, 60.0, 120.0)
+	checkpoint_sound.play()
 	activated.emit()
 
 
