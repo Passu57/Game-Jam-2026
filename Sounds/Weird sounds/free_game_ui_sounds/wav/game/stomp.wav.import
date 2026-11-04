@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://gsex3g3q4e4a"
+path="res://.godot/imported/stomp.wav-7e86b9b8ff2ec7e2d5939ef88b817f86.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/stomp.wav"
+dest_files=["res://.godot/imported/stomp.wav-7e86b9b8ff2ec7e2d5939ef88b817f86.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

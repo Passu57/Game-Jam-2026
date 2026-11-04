@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://e3v2dgj0gec5"
+path="res://.godot/imported/shield_break.ogg-795742983b95519e633ac461243a867e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/shield_break.ogg"
+dest_files=["res://.godot/imported/shield_break.ogg-795742983b95519e633ac461243a867e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://brb7wpg4w15ws"
+path="res://.godot/imported/game_over.ogg-7db306a0645147701b74d2a79d3e7b58.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/game_over.ogg"
+dest_files=["res://.godot/imported/game_over.ogg-7db306a0645147701b74d2a79d3e7b58.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

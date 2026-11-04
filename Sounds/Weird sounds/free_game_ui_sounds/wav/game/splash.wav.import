@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dujnyxce61754"
+path="res://.godot/imported/splash.wav-09a4c8f9a374d58fe3e8dd35e5758e87.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/splash.wav"
+dest_files=["res://.godot/imported/splash.wav-09a4c8f9a374d58fe3e8dd35e5758e87.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

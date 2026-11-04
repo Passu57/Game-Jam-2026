@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmbmfgtrxdch"
+path="res://.godot/imported/ui_checkbox_on.wav-8c79caffdb996165c1e480e391e25107.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/ui/ui_checkbox_on.wav"
+dest_files=["res://.godot/imported/ui_checkbox_on.wav-8c79caffdb996165c1e480e391e25107.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

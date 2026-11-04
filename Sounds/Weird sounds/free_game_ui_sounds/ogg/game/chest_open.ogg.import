@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bjvvvuqulg1mj"
+path="res://.godot/imported/chest_open.ogg-cb07463d590a81679294066d75c30570.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/chest_open.ogg"
+dest_files=["res://.godot/imported/chest_open.ogg-cb07463d590a81679294066d75c30570.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

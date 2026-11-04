@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bcxystw6nc4gs"
+path="res://.godot/imported/enemy_defeat.ogg-fac1b3fb361a7119362c6371c5fd2dac.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/enemy_defeat.ogg"
+dest_files=["res://.godot/imported/enemy_defeat.ogg-fac1b3fb361a7119362c6371c5fd2dac.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b4eq8mmkmk4nh"
+path="res://.godot/imported/ui_blip_up.ogg-11324e1edb8b8a23204304f1761b6046.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/ui/ui_blip_up.ogg"
+dest_files=["res://.godot/imported/ui_blip_up.ogg-11324e1edb8b8a23204304f1761b6046.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

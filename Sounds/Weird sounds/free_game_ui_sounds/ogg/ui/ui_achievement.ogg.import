@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://e7wlappfsld5"
+path="res://.godot/imported/ui_achievement.ogg-b4d4cab55e176a5d170192bd5a7a7e2c.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/ui/ui_achievement.ogg"
+dest_files=["res://.godot/imported/ui_achievement.ogg-b4d4cab55e176a5d170192bd5a7a7e2c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

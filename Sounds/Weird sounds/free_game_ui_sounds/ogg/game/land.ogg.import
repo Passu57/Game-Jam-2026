@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cyhbm0d55ex6f"
+path="res://.godot/imported/land.ogg-8af4bee9e7a77c47963fbabf4f6dadeb.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/land.ogg"
+dest_files=["res://.godot/imported/land.ogg-8af4bee9e7a77c47963fbabf4f6dadeb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

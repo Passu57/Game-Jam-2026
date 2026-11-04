@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://crvtmyop3rdhj"
+path="res://.godot/imported/shield_break.wav-34e42e8480b5f33b6a92210e38fa14b2.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/shield_break.wav"
+dest_files=["res://.godot/imported/shield_break.wav-34e42e8480b5f33b6a92210e38fa14b2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

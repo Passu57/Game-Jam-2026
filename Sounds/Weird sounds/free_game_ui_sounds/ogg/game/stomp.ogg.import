@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dij8nhbl0oc2k"
+path="res://.godot/imported/stomp.ogg-685434884573cc9a49b8ddd0f042ab51.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/stomp.ogg"
+dest_files=["res://.godot/imported/stomp.ogg-685434884573cc9a49b8ddd0f042ab51.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

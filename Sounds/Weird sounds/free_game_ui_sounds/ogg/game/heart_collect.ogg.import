@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dl28a8v37p0hs"
+path="res://.godot/imported/heart_collect.ogg-98a7138d81fb28f4c475608e6fa74930.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/game/heart_collect.ogg"
+dest_files=["res://.godot/imported/heart_collect.ogg-98a7138d81fb28f4c475608e6fa74930.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

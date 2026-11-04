@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccs0tp6vehtou"
+path="res://.godot/imported/blaster_shot.wav-3d6ca3b7fd2a0a254f03d2a601da2b81.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/blaster_shot.wav"
+dest_files=["res://.godot/imported/blaster_shot.wav-3d6ca3b7fd2a0a254f03d2a601da2b81.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

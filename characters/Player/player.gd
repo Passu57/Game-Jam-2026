@@ -5,6 +5,7 @@ extends CharacterBody2D
 ## How strong the jump is. Bigger = higher jump.
 @export var jump_velocity: float = -260.0
 @onready var interaction_controller: Node2D = $InteractionController
+@onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 
 @export_group("Jump Feel")
 ## Coyote time: you can still jump this long after running off a ledge (seconds).
@@ -88,6 +89,7 @@ func _physics_process(delta: float) -> void:
 		if _coyote_timer > 0.0:
 			# Normal ground jump (also works a moment after leaving a ledge).
 			velocity.y = jump_velocity
+			jump_sound.play()
 			_jump_buffer_timer = 0.0
 			_coyote_timer = 0.0  # no second coyote jump
 		elif jump_pressed and _can_double_jump() and not _about_to_land():

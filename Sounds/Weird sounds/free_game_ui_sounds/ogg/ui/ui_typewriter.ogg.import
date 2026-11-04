@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://7tj32scyxy4c"
+path="res://.godot/imported/ui_typewriter.ogg-88f5bcd274f054fc4f4b48899b6a9c97.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/ogg/ui/ui_typewriter.ogg"
+dest_files=["res://.godot/imported/ui_typewriter.ogg-88f5bcd274f054fc4f4b48899b6a9c97.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

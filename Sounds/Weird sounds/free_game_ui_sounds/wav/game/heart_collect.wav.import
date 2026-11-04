@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://damy1ge5kil7s"
+path="res://.godot/imported/heart_collect.wav-2da86c9b097422c297d7e4f3a919a72f.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/heart_collect.wav"
+dest_files=["res://.godot/imported/heart_collect.wav-2da86c9b097422c297d7e4f3a919a72f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

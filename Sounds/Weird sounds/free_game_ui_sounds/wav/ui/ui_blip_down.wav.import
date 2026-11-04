@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bx6u7g17xx14m"
+path="res://.godot/imported/ui_blip_down.wav-a656d9a6b9d7f1af2b980949d8758023.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/ui/ui_blip_down.wav"
+dest_files=["res://.godot/imported/ui_blip_down.wav-a656d9a6b9d7f1af2b980949d8758023.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

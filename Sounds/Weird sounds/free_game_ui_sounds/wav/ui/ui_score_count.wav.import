@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccn4wo8qopwdj"
+path="res://.godot/imported/ui_score_count.wav-a41db8293b941d970bcf04601987f030.sample"
+
+[deps]
+
+source_file="res://Sounds/Weird sounds/free_game_ui_sounds/wav/ui/ui_score_count.wav"
+dest_files=["res://.godot/imported/ui_score_count.wav-a41db8293b941d970bcf04601987f030.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
