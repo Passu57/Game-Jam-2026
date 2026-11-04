@@ -6,6 +6,17 @@ extends CharacterBody2D
 @export var jump_velocity: float = -260.0
 @onready var interaction_controller: Node2D = $InteractionController
 
+@export_group("Jump Feel")
+## Coyote time: you can still jump this long after running off a ledge (seconds).
+@export var coyote_time: float = 0.1
+## Jump buffer: pressing jump this long BEFORE landing still jumps the moment
+## you touch the ground (seconds).
+@export var jump_buffer_time: float = 0.12
+@export_group("")
+
+var _coyote_timer: float = 0.0
+var _jump_buffer_timer: float = 0.0
+
 @export_group("Double Jump")
 ## How strong the second (air) jump is. Bigger negative = higher.
 @export var double_jump_velocity: float = -260.0
@@ -59,11 +70,29 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		_air_jumps_left = max_air_jumps
 
-	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
+	# Coyote time: keep "ground jump allowed" for a moment after leaving a ledge.
+	if is_on_floor():
+		_coyote_timer = coyote_time
+	else:
+		_coyote_timer = maxf(_coyote_timer - delta, 0.0)
+
+	# Jump buffer: remember a jump press for a moment, so pressing a little
+	# too early (just before landing) still jumps as soon as possible.
+	var jump_pressed := Input.is_action_just_pressed("jump")
+	if jump_pressed:
+		_jump_buffer_timer = jump_buffer_time
+	else:
+		_jump_buffer_timer = maxf(_jump_buffer_timer - delta, 0.0)
+
+	if _jump_buffer_timer > 0.0:
+		if _coyote_timer > 0.0:
+			# Normal ground jump (also works a moment after leaving a ledge).
 			velocity.y = jump_velocity
-		elif _can_double_jump():
+			_jump_buffer_timer = 0.0
+			_coyote_timer = 0.0  # no second coyote jump
+		elif jump_pressed and _can_double_jump() and not _about_to_land():
 			_double_jump()
+			_jump_buffer_timer = 0.0
 	
 	if Input.is_action_just_pressed("interact"):
 		interaction_controller.interact()
@@ -89,6 +118,16 @@ func _update_run_dust(direction: float) -> void:
 	if running:
 		# Dust flies backwards, away from where we're running.
 		run_dust.direction.x = -signf(direction)
+
+
+# True if we're falling and will hit the ground within the jump buffer window.
+# Then an early jump press waits for a proper ground jump instead of
+# wasting the double jump a few pixels above the floor.
+func _about_to_land() -> bool:
+	if velocity.y <= 0.0:
+		return false
+	var fall := maxf(velocity.y * jump_buffer_time, 2.0)
+	return test_move(global_transform, Vector2(0, fall))
 
 
 func _can_double_jump() -> bool:
@@ -191,7 +230,7 @@ func _predict_wrench_arc(start: Vector2, start_velocity: Vector2) -> Dictionary:
 		pos = next
 	return {"points": points, "hit": false}
 
-
+ 
 # Pushes boxes (anything with a push() function) we walk into from the side.
 # Standing on top of a box doesn't push it.
 func _push_objects() -> void:

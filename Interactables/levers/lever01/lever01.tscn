@@ -41,7 +41,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecxa5"]
-size = Vector2(40, 30)
+size = Vector2(30, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul0di"]
+size = Vector2(20, 1)
 
 [node name="Lever01" type="StaticBody2D" unique_id=1328679575]
 script = ExtResource("1_bf1xw")
@@ -57,4 +60,9 @@ libraries/ = SubResource("AnimationLibrary_bqw8b")
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=926701133]
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_ecxa5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=575647375]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_ul0di")
