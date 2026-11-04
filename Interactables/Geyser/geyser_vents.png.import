@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcup602dvpj2q"
-path="res://.godot/imported/Spikes.png-29614df197564b62c2ce1101619b6f8b.ctex"
+uid="uid://b7w0lh1ydsoi0"
+path="res://.godot/imported/geyser_vents.png-dcb91d122bf233b39f62c9efe87d39eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/2D Puzzle Elements/Spikes.png"
-dest_files=["res://.godot/imported/Spikes.png-29614df197564b62c2ce1101619b6f8b.ctex"]
+source_file="res://Interactables/Geyser/geyser_vents.png"
+dest_files=["res://.godot/imported/geyser_vents.png-dcb91d122bf233b39f62c9efe87d39eb.ctex"]
 
 [params]
 

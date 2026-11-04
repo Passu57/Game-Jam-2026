@@ -5,12 +5,16 @@ extends StaticBody2D
 
 ## Untick to make the spikes harmless (e.g. switched off by a button).
 @export var deadly: bool = true
+@export var moving: bool = true
 
 @onready var hazard: Area2D = $Sprite2D/Hazard
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready() -> void:
 	hazard.body_entered.connect(_on_hazard_body_entered)
+	if moving == false:
+		animation_player.play("RESET")
 
 
 func _physics_process(_delta: float) -> void:
