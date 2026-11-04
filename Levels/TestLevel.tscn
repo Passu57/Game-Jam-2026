@@ -115,7 +115,7 @@ velocity = Vector2(0, 8626620)
 metadata/_tc_uuid = "138445414280153707"
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1500521860]
-position = Vector2(915, 585)
+position = Vector2(70, 591)
 metadata/_tc_uuid = "7972848003941239366"
 
 [node name="Machine01" parent="." unique_id=315364537 instance=ExtResource("5_voj1p")]
@@ -194,7 +194,7 @@ scale = Vector2(0.85, 0.85)
 texture = ExtResource("14_wq5b5")
 
 [node name="Box01" parent="." unique_id=1345553384 instance=ExtResource("15_76fkc")]
-position = Vector2(952, 588)
+position = Vector2(1044, 552)
 
 [node name="AbilityPickup" parent="." unique_id=994679034 instance=ExtResource("16_jfium")]
 position = Vector2(120, 617)

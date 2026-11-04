@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://docwcyrehcyhn"]
+
+[ext_resource type="Script" uid="uid://ctwhr2ilj1rmk" path="res://Interactables/Water/waterfall_flow.gd" id="1_wf"]
+
+[node name="Waterfall" type="Node2D" unique_id=1459654645]
+z_index = 9
+script = ExtResource("1_wf")

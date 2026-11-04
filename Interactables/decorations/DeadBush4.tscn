@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dopmcfg0o57hd"]
+
+[ext_resource type="Texture2D" uid="uid://m63m5xs5fpb7" path="res://Assets/Shroom_Assets/Assets_Shroom_Cave.png" id="1_sfnvh"]
+
+[node name="DeadBush04" type="Sprite2D" unique_id=1724599371]
+z_index = -1
+texture = ExtResource("1_sfnvh")
+offset = Vector2(0, -12)
+hframes = 19
+vframes = 15
+frame = 193
