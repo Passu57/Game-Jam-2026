@@ -47,10 +47,12 @@ func _on_node_added(node: Node) -> void:
 
 
 func _find_target() -> Node:
-	for controller in _controllers.duplicate():
-		if not is_instance_valid(controller):
-			_controllers.erase(controller)
-			continue
+	# Drop controllers that were freed (e.g. the old player after a level change).
+	# A freed object can't be erase()d from a typed array, so rebuild the list.
+	_controllers.assign(_controllers.filter(func(c): return is_instance_valid(c)))
+	if not is_instance_valid(_current):
+		_current = null
+	for controller in _controllers:
 		if not controller.is_inside_tree():
 			continue
 		var target: Node = controller.get_current_target()

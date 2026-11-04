@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://d08ppbnqohu3d"]
+
+[ext_resource type="Texture2D" uid="uid://dl5gp4qylcr2a" path="res://Assets/2D Puzzle Elements/Door/Door_Open.png" id="1_kb0jk"]
+[ext_resource type="Script" uid="uid://bwg8hiuj707ob" path="res://Interactables/Finish/finish_door.gd" id="1_ypvdt"]
+
+[sub_resource type="Animation" id="Animation_kb0jk"]
+resource_name = "Open"
+length = 0.33999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 1, 4]
+}
+
+[sub_resource type="Animation" id="Animation_ypvdt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5pps"]
+_data = {
+&"Open": SubResource("Animation_kb0jk"),
+&"RESET": SubResource("Animation_ypvdt")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5pps"]
+radius = 48.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7u82"]
+size = Vector2(16, 30)
+
+[node name="Finish" type="Node2D" unique_id=724473009]
+script = ExtResource("1_ypvdt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1824538730]
+texture = ExtResource("1_kb0jk")
+hframes = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=364128525]
+libraries/ = SubResource("AnimationLibrary_f5pps")
+
+[node name="ProximityArea" type="Area2D" parent="." unique_id=385230897]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProximityArea" unique_id=602612545]
+shape = SubResource("CircleShape2D_f5pps")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1263552305]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=200802103]
+shape = SubResource("RectangleShape2D_u7u82")
