@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dbkkdodn014tt" path="res://characters/Player/player.gd" id="1_l6qrd"]
 [ext_resource type="Texture2D" uid="uid://03g3ycgnm6mo" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet_NoWrench.png" id="2_srhiw"]
 [ext_resource type="Script" uid="uid://ce8twdc0mi2jq" path="res://characters/Player/interaction_controller.gd" id="3_m1y8q"]
-[ext_resource type="PackedScene" uid="uid://buppfvhqlh84m" path="res://UI/UI Quest box.tscn" id="4_ofsc6"]
+[ext_resource type="PackedScene" uid="uid://buppfvhqlh84m" path="res://UI/Quest_Box/UI Quest box.tscn" id="4_ofsc6"]
 [ext_resource type="Texture2D" uid="uid://b4x354kw5j11h" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet_WrenchOnly.png" id="5_enwbc"]
 
 [sub_resource type="Animation" id="Animation_dch2n"]

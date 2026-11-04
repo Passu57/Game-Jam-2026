@@ -1,0 +1,505 @@
+[gd_scene format=3 uid="uid://m1wnh3xsjxja"]
+
+[ext_resource type="Script" uid="uid://bu0omb837lvvi" path="res://UI/MainMenu/main_menu.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://bwatph7p4smqe" path="res://UI/MainMenu/menu_theme.tres" id="2_theme"]
+[ext_resource type="Shader" uid="uid://43nwhdw5m0hm" path="res://UI/MainMenu/menu_cave.gdshader" id="3_cave"]
+[ext_resource type="Shader" uid="uid://cp17wu1rh1tg" path="res://UI/MainMenu/menu_grey.gdshader" id="4_grey"]
+[ext_resource type="Shader" uid="uid://dio1v0u235spv" path="res://UI/MainMenu/menu_vignette.gdshader" id="5_vig"]
+[ext_resource type="Texture2D" uid="uid://dq4dvin3g5btu" path="res://Assets/Parallax Cave/BG.png" id="6_bg"]
+[ext_resource type="Texture2D" uid="uid://bjknwtq8ljv82" path="res://Assets/Parallax Cave/4.png" id="7_l4"]
+[ext_resource type="Texture2D" uid="uid://bh10xympo5bkn" path="res://Assets/Parallax Cave/3.png" id="8_l3"]
+[ext_resource type="Texture2D" uid="uid://dkps2tmg5lf02" path="res://Assets/Parallax Cave/2.png" id="9_l2"]
+[ext_resource type="Texture2D" uid="uid://hw2yxsivj3wy" path="res://Assets/Parallax Cave/1.png" id="10_l1"]
+[ext_resource type="Texture2D" uid="uid://b74x6ya6ljp3j" path="res://Assets/Parallax Cave/0.png" id="11_l0"]
+[ext_resource type="Texture2D" uid="uid://4yqfiiln5vgo" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet.png" id="12_robot"]
+[ext_resource type="Texture2D" uid="uid://dmtighgj5f52v" path="res://UI/MainMenu/art/menu_ledge.png" id="13_ledge"]
+[ext_resource type="Texture2D" uid="uid://h1xyhr8dq5ut" path="res://UI/MainMenu/art/spark_orb.png" id="14_spark"]
+[ext_resource type="Texture2D" uid="uid://blhtkpo2oqxi1" path="res://UI/MainMenu/art/spark_glow.png" id="15_glow"]
+[ext_resource type="Texture2D" uid="uid://b8udo76mtvt2l" path="res://UI/MainMenu/art/title_the_last.png" id="16_t1"]
+[ext_resource type="Texture2D" uid="uid://0ir1r5hxcqs7" path="res://UI/MainMenu/art/title_spark.png" id="17_t2"]
+
+[sub_resource type="ShaderMaterial" id="mat_bg"]
+shader = ExtResource("3_cave")
+shader_parameter/speed = 0.002
+shader_parameter/uv_scale_x = 0.889
+shader_parameter/tint = Color(0.6, 0.64, 0.76, 1)
+shader_parameter/brightness = 1.35
+shader_parameter/bob = 0.002
+shader_parameter/phase = 0.0
+
+[sub_resource type="ShaderMaterial" id="mat_l4"]
+shader = ExtResource("3_cave")
+shader_parameter/speed = 0.003
+shader_parameter/uv_scale_x = 0.889
+shader_parameter/tint = Color(0.6, 0.64, 0.76, 1)
+shader_parameter/brightness = 1.6
+shader_parameter/bob = 0.003
+shader_parameter/phase = 0.17
+
+[sub_resource type="ShaderMaterial" id="mat_l3"]
+shader = ExtResource("3_cave")
+shader_parameter/speed = 0.0045
+shader_parameter/uv_scale_x = 0.889
+shader_parameter/tint = Color(0.6, 0.64, 0.76, 1)
+shader_parameter/brightness = 1.7
+shader_parameter/bob = 0.004
+shader_parameter/phase = 0.41
+
+[sub_resource type="ShaderMaterial" id="mat_l2"]
+shader = ExtResource("3_cave")
+shader_parameter/speed = 0.006
+shader_parameter/uv_scale_x = 0.889
+shader_parameter/tint = Color(0.6, 0.64, 0.76, 1)
+shader_parameter/brightness = 1.8
+shader_parameter/bob = 0.005
+shader_parameter/phase = 0.63
+
+[sub_resource type="ShaderMaterial" id="mat_l1"]
+shader = ExtResource("3_cave")
+shader_parameter/speed = 0.008
+shader_parameter/uv_scale_x = 0.889
+shader_parameter/tint = Color(0.6, 0.64, 0.76, 1)
+shader_parameter/brightness = 1.9
+shader_parameter/bob = 0.006
+shader_parameter/phase = 0.29
+
+[sub_resource type="ShaderMaterial" id="mat_l0"]
+shader = ExtResource("3_cave")
+shader_parameter/speed = 0.011
+shader_parameter/uv_scale_x = 0.889
+shader_parameter/tint = Color(0.6, 0.64, 0.76, 1)
+shader_parameter/brightness = 2.0
+shader_parameter/bob = 0.007
+shader_parameter/phase = 0.83
+
+[sub_resource type="CanvasItemMaterial" id="mat_add"]
+blend_mode = 1
+
+[sub_resource type="ShaderMaterial" id="mat_grey"]
+shader = ExtResource("4_grey")
+shader_parameter/tint = Color(0.86, 0.89, 0.96, 1)
+shader_parameter/brightness = 1.0
+
+[sub_resource type="ShaderMaterial" id="mat_vig"]
+shader = ExtResource("5_vig")
+shader_parameter/strength = 0.8
+shader_parameter/pixel = 8.0
+shader_parameter/shade = Color(0.03, 0.02, 0.05, 1)
+
+[node name="MainMenu" type="Control" unique_id=256799433]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Background" type="Control" parent="." unique_id=523910241]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Sky" type="ColorRect" parent="Background" unique_id=212215610]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.05, 0.05, 0.07, 1)
+
+[node name="LayerBG" type="TextureRect" parent="Background" unique_id=311809419]
+texture_repeat = 2
+material = SubResource("mat_bg")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_bg")
+expand_mode = 1
+
+[node name="Layer4" type="TextureRect" parent="Background" unique_id=1198385872]
+texture_repeat = 2
+material = SubResource("mat_l4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_l4")
+expand_mode = 1
+
+[node name="Layer3" type="TextureRect" parent="Background" unique_id=1736424523]
+texture_repeat = 2
+material = SubResource("mat_l3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_l3")
+expand_mode = 1
+
+[node name="Layer2" type="TextureRect" parent="Background" unique_id=1785061424]
+texture_repeat = 2
+material = SubResource("mat_l2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_l2")
+expand_mode = 1
+
+[node name="Layer1" type="TextureRect" parent="Background" unique_id=1757044406]
+texture_repeat = 2
+material = SubResource("mat_l1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_l1")
+expand_mode = 1
+
+[node name="Layer0" type="TextureRect" parent="Background" unique_id=898814244]
+texture_repeat = 2
+material = SubResource("mat_l0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("11_l0")
+expand_mode = 1
+
+[node name="Scene" type="Node2D" parent="." unique_id=1972769561]
+
+[node name="Glow" type="Sprite2D" parent="Scene" unique_id=891112137]
+material = SubResource("mat_add")
+position = Vector2(1560, 560)
+scale = Vector2(8, 8)
+texture = ExtResource("15_glow")
+
+[node name="Ledge" type="Sprite2D" parent="Scene" unique_id=147686366]
+material = SubResource("mat_grey")
+position = Vector2(1420, 800)
+scale = Vector2(6, 6)
+texture = ExtResource("13_ledge")
+
+[node name="Robot" type="Sprite2D" parent="Scene" unique_id=165154539]
+material = SubResource("mat_grey")
+position = Vector2(1380, 680)
+scale = Vector2(6, 6)
+texture = ExtResource("12_robot")
+hframes = 8
+vframes = 5
+
+[node name="Spark" type="Sprite2D" parent="Scene" unique_id=1027006730]
+position = Vector2(1560, 560)
+scale = Vector2(6, 6)
+texture = ExtResource("14_spark")
+hframes = 4
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=786090251]
+material = SubResource("mat_vig")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Title" type="Control" parent="." unique_id=570181284]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 150.0
+offset_top = 110.0
+offset_right = 670.0
+offset_bottom = 360.0
+mouse_filter = 2
+
+[node name="TheLast" type="TextureRect" parent="Title" unique_id=1654018525]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 410.0
+offset_bottom = 80.0
+mouse_filter = 2
+texture = ExtResource("16_t1")
+
+[node name="Spark" type="TextureRect" parent="Title" unique_id=741547984]
+layout_mode = 0
+offset_top = 84.0
+offset_right = 512.0
+offset_bottom = 244.0
+mouse_filter = 2
+texture = ExtResource("17_t2")
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1226740328]
+layout_mode = 1
+offset_left = 170.0
+offset_top = 470.0
+offset_right = 650.0
+offset_bottom = 920.0
+theme_override_constants/separation = 24
+
+[node name="StartButton" type="Button" parent="Buttons" unique_id=1180067250]
+custom_minimum_size = Vector2(480, 84)
+layout_mode = 2
+text = "START GAME"
+alignment = 0
+
+[node name="TutorialButton" type="Button" parent="Buttons" unique_id=1858925263]
+custom_minimum_size = Vector2(480, 84)
+layout_mode = 2
+text = "TUTORIAL"
+alignment = 0
+
+[node name="SettingsButton" type="Button" parent="Buttons" unique_id=598828586]
+custom_minimum_size = Vector2(480, 84)
+layout_mode = 2
+text = "SETTINGS"
+alignment = 0
+
+[node name="CreditsButton" type="Button" parent="Buttons" unique_id=1493783228]
+custom_minimum_size = Vector2(480, 84)
+layout_mode = 2
+text = "CREDITS"
+alignment = 0
+
+[node name="HintLabel" type="Label" parent="." unique_id=625133581]
+layout_mode = 1
+offset_left = 60.0
+offset_top = 1020.0
+offset_right = 900.0
+offset_bottom = 1050.0
+theme_type_variation = &"SmallLabel"
+theme_override_colors/font_color = Color(0.5, 0.53, 0.6, 1)
+text = "ARROWS: MOVE   ENTER: SELECT   ESC: BACK"
+
+[node name="JamLabel" type="Label" parent="." unique_id=521671354]
+layout_mode = 1
+offset_left = 1150.0
+offset_top = 1020.0
+offset_right = 1860.0
+offset_bottom = 1050.0
+theme_type_variation = &"SmallLabel"
+theme_override_colors/font_color = Color(0.5, 0.53, 0.6, 1)
+text = "MADE FOR A GAME JAM - THEME: PACIFIST"
+horizontal_alignment = 2
+
+[node name="Dim" type="ColorRect" parent="." unique_id=1039988153]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="TutorialPanel" type="PanelContainer" parent="." unique_id=1119538580]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -340.0
+offset_right = 520.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="TutorialPanel" unique_id=822388961]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Header" type="Label" parent="TutorialPanel/VBox" unique_id=1357829800]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+text = "* HOW TO PLAY *"
+
+[node name="Body" type="Label" parent="TutorialPanel/VBox" unique_id=305140672]
+layout_mode = 2
+theme_type_variation = &"SmallLabel"
+text = "MOVE ............. A / D  OR  ARROWS
+JUMP ............. SPACE / W
+DOUBLE JUMP ...... JUMP AGAIN IN THE AIR
+                   (ONCE YOU HAVE FOUND IT)
+INTERACT / FIX ... E
+THROW WRENCH ..... HOLD RIGHT MOUSE TO AIM,
+                   LET GO TO THROW
+
+YOU ARE THE LAST WORKING REPAIR BOT.
+FIX THE BROKEN MACHINES TO BRING THE
+COLORS BACK. NO FIGHTING - JUST FIXING."
+
+[node name="Spacer" type="Control" parent="TutorialPanel/VBox" unique_id=1286771601]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="BackButton" type="Button" parent="TutorialPanel/VBox" unique_id=1784686585]
+custom_minimum_size = Vector2(260, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "< BACK"
+
+[node name="SettingsPanel" type="PanelContainer" parent="." unique_id=1051589792]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -340.0
+offset_right = 520.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="SettingsPanel" unique_id=1803527961]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Header" type="Label" parent="SettingsPanel/VBox" unique_id=834210004]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+text = "* SETTINGS *"
+
+[node name="VolumeRow" type="HBoxContainer" parent="SettingsPanel/VBox" unique_id=1212456525]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Label" type="Label" parent="SettingsPanel/VBox/VolumeRow" unique_id=1245633993]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+text = "VOLUME"
+
+[node name="Down" type="Button" parent="SettingsPanel/VBox/VolumeRow" unique_id=589901229]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+text = "<"
+
+[node name="Meter" type="Label" parent="SettingsPanel/VBox/VolumeRow" unique_id=1831915263]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+theme_type_variation = &"SmallLabel"
+theme_override_colors/font_color = Color(1, 0.84, 0.4, 1)
+text = "||||||||##  80%"
+horizontal_alignment = 1
+
+[node name="Up" type="Button" parent="SettingsPanel/VBox/VolumeRow" unique_id=1604959716]
+custom_minimum_size = Vector2(72, 72)
+layout_mode = 2
+text = ">"
+
+[node name="FullscreenButton" type="Button" parent="SettingsPanel/VBox" unique_id=2069564200]
+custom_minimum_size = Vector2(480, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "FULLSCREEN:  OFF"
+alignment = 0
+
+[node name="Note" type="Label" parent="SettingsPanel/VBox" unique_id=2111804203]
+layout_mode = 2
+theme_type_variation = &"SmallLabel"
+theme_override_colors/font_color = Color(0.5, 0.53, 0.6, 1)
+text = "SETTINGS ARE SAVED AUTOMATICALLY."
+
+[node name="Spacer" type="Control" parent="SettingsPanel/VBox" unique_id=1945318027]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="BackButton" type="Button" parent="SettingsPanel/VBox" unique_id=395080078]
+custom_minimum_size = Vector2(260, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "< BACK"
+
+[node name="CreditsPanel" type="PanelContainer" parent="." unique_id=1429021861]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -340.0
+offset_right = 520.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CreditsPanel" unique_id=1761198049]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Header" type="Label" parent="CreditsPanel/VBox" unique_id=630382363]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+text = "* CREDITS *"
+
+[node name="Body" type="Label" parent="CreditsPanel/VBox" unique_id=301570307]
+layout_mode = 2
+theme_type_variation = &"SmallLabel"
+text = "THE LAST SPARK
+MADE FOR A GAME JAM - THEME: PACIFIST
+
+GAME BY .......... KARL-MARKOS KADAPIK & KARL-SANDER MAEOTS
+ART .............. ROBOT PLATFORM PACK,
+                   PARALLAX CAVE,
+                   MK 16X16 NATURE TILESET,
+                   2D PUZZLE ELEMENTS
+ENGINE ........... GODOT 4
+
+THANK YOU FOR PLAYING!"
+
+[node name="Spacer" type="Control" parent="CreditsPanel/VBox" unique_id=1405751444]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="BackButton" type="Button" parent="CreditsPanel/VBox" unique_id=165899144]
+custom_minimum_size = Vector2(260, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "< BACK"
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1196580232]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

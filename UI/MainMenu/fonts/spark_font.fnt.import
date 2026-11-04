@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://c18v2g85o7onw"
+path="res://.godot/imported/spark_font.fnt-e3c3c8f2f7e4a53b97cdd73265adc5b2.fontdata"
+
+[deps]
+
+source_file="res://UI/MainMenu/fonts/spark_font.fnt"
+dest_files=["res://.godot/imported/spark_font.fnt-e3c3c8f2f7e4a53b97cdd73265adc5b2.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

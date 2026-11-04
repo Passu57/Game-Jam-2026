@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://buppfvhqlh84m"]
 
-[ext_resource type="Script" uid="uid://di8iyl30li5wt" path="res://UI/quest_box.gd" id="1_25hfa"]
-[ext_resource type="SystemFont" uid="uid://dql05c60mgawo" path="res://UI/QuestPixelFont.tres" id="1_cy32h"]
+[ext_resource type="Script" uid="uid://di8iyl30li5wt" path="res://UI/Quest_Box/quest_box.gd" id="1_25hfa"]
+[ext_resource type="SystemFont" uid="uid://dql05c60mgawo" path="res://UI/Quest_Box/QuestPixelFont.tres" id="1_cy32h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lj7ny"]
 content_margin_left = 10.0
