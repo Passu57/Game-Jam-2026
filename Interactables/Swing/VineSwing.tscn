@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Interactables/Swing/vine_swing.gd" id="1_swing"]
+
+[node name="VineSwing" type="Node2D"]
+z_index = 2
+script = ExtResource("1_swing")

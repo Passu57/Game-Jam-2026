@@ -5,7 +5,11 @@
 [ext_resource type="Script" uid="uid://ce8twdc0mi2jq" path="res://characters/Player/interaction_controller.gd" id="3_m1y8q"]
 [ext_resource type="PackedScene" uid="uid://buppfvhqlh84m" path="res://UI/Quest_Box/UI Quest box.tscn" id="4_ofsc6"]
 [ext_resource type="Texture2D" uid="uid://b4x354kw5j11h" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet_WrenchOnly.png" id="5_enwbc"]
+[ext_resource type="Script" uid="uid://ddkmt5sblpce3" path="res://characters/Player/Wrench/hand_wrench.gd" id="6_77vo5"]
 [ext_resource type="AudioStream" uid="uid://d0bki2gvnhxb7" path="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/jump.wav" id="6_enwbc"]
+[ext_resource type="AudioStream" uid="uid://cuvm8vserep7f" path="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/power_down.wav" id="6_pw3qt"]
+[ext_resource type="AudioStream" uid="uid://nyd828nn0gpt" path="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/throw.wav" id="8_77vo5"]
+[ext_resource type="Script" path="res://characters/Player/Dash/dash_ability.gd" id="10_ji0k6"]
 
 [sub_resource type="Animation" id="Animation_dch2n"]
 resource_name = "Idle"
@@ -136,6 +140,7 @@ z_index = 5
 velocity = Vector2(0, 8836924)
 script = ExtResource("1_l6qrd")
 jump_velocity = -300.0
+wrench_needs_unlock = true
 death_time = 1.0
 metadata/_tc_uuid = "2742061418804172302"
 metadata/scene_file_path = "res://characters/Player/Player.tscn"
@@ -218,12 +223,16 @@ color_ramp = SubResource("Gradient_srhiw")
 texture = ExtResource("5_enwbc")
 hframes = 8
 vframes = 5
+script = ExtResource("6_77vo5")
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=228530983]
-stream = ExtResource("6_o1d0p")
+stream = ExtResource("6_pw3qt")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=935854326]
-stream = ExtResource("7_pw3qt")
+stream = ExtResource("6_enwbc")
 
 [node name="ThrowSound" type="AudioStreamPlayer2D" parent="." unique_id=631997432]
-stream = ExtResource("8_pw3qt")
+stream = ExtResource("8_77vo5")
+
+[node name="DashAbility" type="Node" parent="." unique_id=480151257]
+script = ExtResource("10_ji0k6")

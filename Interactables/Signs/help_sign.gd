@@ -15,6 +15,8 @@ enum SignType {
 	ARROW_DOWN_LEFT,
 	DROWNING_WARNING,
 	EXCLAMATION,
+	DOUBLE_JUMP,
+	DASH,
 }
 
 @export var sign_type: SignType = SignType.ARROW_RIGHT:
