@@ -23,6 +23,7 @@ metadata/_tc_uuid = "4169120267857748596"
 metadata/scene_file_path = "res://UI/UI Quest box.tscn"
 
 [node name="HudLayer" type="CanvasLayer" parent="." unique_id=2069964629]
+visible = false
 metadata/_tc_uuid = "7633186915859510086"
 
 [node name="Overlay" type="Control" parent="HudLayer" unique_id=105553447]
