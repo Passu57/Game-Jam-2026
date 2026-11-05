@@ -13,6 +13,7 @@ signal fixed
 var is_fixed: bool = false
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
+@onready var activation_sound: AudioStreamPlayer2D = $ColorMachine
 
 
 func _ready() -> void:
@@ -24,6 +25,7 @@ func interact(_player: Node) -> void:
 	if is_fixed:
 		return
 	is_fixed = true
+	activation_sound.play()
 	anim.play("Fixed")
 	ColorManager.unlock(unlocks_colors)
 	fixed.emit()

@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://mloc3yj1k04d" path="res://Levels/Level.gd" id="1_20gr8"]
 [ext_resource type="TileSet" uid="uid://dna22qsrtu77p" path="res://Assets/mk_16_16_nature_tileset_godot/nature_tileset_blue.tres" id="2_u2cfn"]
 [ext_resource type="PackedScene" uid="uid://b3lajcjw25r0m" path="res://characters/Player/Player.tscn" id="3_u2cfn"]
-[ext_resource type="PackedScene" path="res://Interactables/Machines/Machine01.tscn" id="4_lr1ra"]
+[ext_resource type="PackedScene" uid="uid://8g4u52ulcxul" path="res://Interactables/Machines/Machine01.tscn" id="4_lr1ra"]
+[ext_resource type="PackedScene" uid="uid://d08ppbnqohu3d" path="res://Interactables/Finish/Finish.tscn" id="4_sqs0x"]
 [ext_resource type="PackedScene" uid="uid://cp81utlnjdlx6" path="res://Interactables/Doors/Door01/Door01.tscn" id="5_r7a1c"]
 [ext_resource type="PackedScene" uid="uid://byn747372qbog" path="res://Interactables/Buttons/Button01.tscn" id="6_sqs0x"]
 [ext_resource type="PackedScene" uid="uid://tqu6ofrk4mkn" path="res://Interactables/Electricity/Electrical floor.tscn" id="7_vy400"]
@@ -17,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bh10xympo5bkn" path="res://Assets/Parallax Cave/3.png" id="13_20vxw"]
 [ext_resource type="Texture2D" uid="uid://bjknwtq8ljv82" path="res://Assets/Parallax Cave/4.png" id="14_uikxm"]
 [ext_resource type="PackedScene" uid="uid://dgu0oh0c6ofrr" path="res://Interactables/levers/lever01/lever01.tscn" id="17_lr1ra"]
+[ext_resource type="PackedScene" uid="uid://3g1dfrth8jj8" path="res://Interactables/Checkpoint/Checkpoint.tscn" id="18_r7a1c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0t6di"]
 shader = ExtResource("8_eaymk")
@@ -111,11 +113,14 @@ metadata/_tc_uuid = "916167133667669243"
 [node name="Player" parent="." unique_id=1355679720 instance=ExtResource("3_u2cfn")]
 position = Vector2(206, -17)
 velocity = Vector2(0, 8626620)
-death_time = 0.5
 metadata/_tc_uuid = "138445414280153707"
 
+[node name="Finish" parent="." unique_id=724473009 instance=ExtResource("4_sqs0x")]
+position = Vector2(764, 401)
+next_level = "uid://g8av0hmcr5xh"
+
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1500521860]
-position = Vector2(635, 378)
+position = Vector2(148, 496)
 metadata/_tc_uuid = "7972848003941239366"
 
 [node name="CaveBackground" type="ParallaxBackground" parent="." unique_id=427021937]
@@ -227,7 +232,7 @@ scene_to_open = NodePath("../Door01")
 [node name="Box01" parent="." unique_id=1345553384 instance=ExtResource("13_1jijn")]
 position = Vector2(122, 504)
 
-[node name="_StaticBody2D_493" parent="." unique_id=315364537 instance=ExtResource("4_lr1ra")]
+[node name="ColorMachine" parent="." unique_id=315364537 instance=ExtResource("4_lr1ra")]
 position = Vector2(-64, 485)
 
 [node name="Door01" parent="." unique_id=1568425792 instance=ExtResource("5_r7a1c")]
@@ -268,3 +273,6 @@ target = NodePath("../Door02")
 position = Vector2(680, 399)
 unlocks_condition = 4
 button_scene = NodePath("../Lever01")
+
+[node name="Checkpoint" parent="." unique_id=1620531393 instance=ExtResource("18_r7a1c")]
+position = Vector2(31, 513)

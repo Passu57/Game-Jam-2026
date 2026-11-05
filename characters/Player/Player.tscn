@@ -219,5 +219,11 @@ texture = ExtResource("5_enwbc")
 hframes = 8
 vframes = 5
 
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=228530983]
+stream = ExtResource("6_o1d0p")
+
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=935854326]
-stream = ExtResource("6_enwbc")
+stream = ExtResource("7_pw3qt")
+
+[node name="ThrowSound" type="AudioStreamPlayer2D" parent="." unique_id=631997432]
+stream = ExtResource("8_pw3qt")

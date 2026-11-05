@@ -1,23 +1,26 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://3g1dfrth8jj8"]
 
-[ext_resource type="Script" path="res://Interactables/Checkpoint/checkpoint.gd" id="1_cp"]
-[ext_resource type="Texture2D" path="res://Interactables/Checkpoint/checkpoint_station.png" id="2_cp"]
+[ext_resource type="Script" uid="uid://da4d3xuvxf5pc" path="res://Interactables/Checkpoint/checkpoint.gd" id="1_cp"]
+[ext_resource type="Texture2D" uid="uid://blrni3pex3xst" path="res://Interactables/Checkpoint/checkpoint_station.png" id="2_cp"]
+[ext_resource type="AudioStream" uid="uid://tshx1orfcbh7" path="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/checkpoint.wav" id="3_3ea4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cp"]
 size = Vector2(28, 32)
 
-[node name="Checkpoint" type="Area2D"]
+[node name="Checkpoint" type="Area2D" unique_id=1717883352]
 z_index = 4
 collision_layer = 0
-collision_mask = 1
 monitorable = false
 script = ExtResource("1_cp")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1463274305]
 position = Vector2(0, -16)
 texture = ExtResource("2_cp")
 hframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2035716291]
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_cp")
+
+[node name="Checkpoint" type="AudioStreamPlayer2D" parent="." unique_id=239290582]
+stream = ExtResource("3_3ea4d")
