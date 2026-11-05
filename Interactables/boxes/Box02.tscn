@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://r1ays3dlvuid"]
+
+[ext_resource type="Script" uid="uid://drau54pch2img" path="res://Interactables/boxes/box.gd" id="1_xe67m"]
+[ext_resource type="Texture2D" uid="uid://caqdp36wu70gc" path="res://Assets/Crates/Crates.png" id="2_tgli3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul0di"]
+size = Vector2(32, 16)
+
+[node name="Box01" type="RigidBody2D" unique_id=1345553384]
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_xe67m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1048322010]
+texture = ExtResource("2_tgli3")
+hframes = 2
+vframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=919845512]
+shape = SubResource("RectangleShape2D_ul0di")
