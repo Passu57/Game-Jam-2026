@@ -9,6 +9,10 @@ extends CharacterBody2D
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 @onready var throw_sound: AudioStreamPlayer2D = $ThrowSound
 @onready var dash_sound: AudioStreamPlayer2D = $DashSound
+@onready var running_sound: AudioStreamPlayer2D = $RunningSound
+@export var run_step_interval: float = 0.32
+var _run_step_timer: float = 0.0
+
 
 @export_group("Jump Feel")
 ## Coyote time: you can still jump this long after running off a ledge (seconds).
@@ -110,6 +114,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
+	# Running sound
+	if is_on_floor() and direction != 0:
+		_run_step_timer -= delta
+		if _run_step_timer <= 0.0 and not running_sound.playing:
+			running_sound.play()
+			_run_step_timer = run_step_interval
+	else:
+		_run_step_timer = 0.0
 	_push_objects()
 	_update_animation(direction)
 	_update_run_dust(direction)
@@ -118,7 +130,8 @@ func _physics_process(delta: float) -> void:
 
 # Kicks up dust behind the feet while running on the ground.
 func _update_run_dust(direction: float) -> void:
-	var running := is_on_floor() and direction != 0
+	
+	var running := is_on_floor() and absf(velocity.x) > 1.0
 	run_dust.emitting = running
 	if running:
 		# Dust flies backwards, away from where we're running.

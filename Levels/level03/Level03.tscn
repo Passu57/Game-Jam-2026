@@ -128,66 +128,6 @@ shader = SubResource("Shader_mgba7")
 shader_parameter/tint_color = Color(0.27698418, 0.40729898, 0.17538965, 1)
 shader_parameter/tint_strength = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rk5xk"]
-resource_local_to_scene = true
-shader = ExtResource("27_20tjv")
-shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
-shader_parameter/flame_mid = Color(0.23921569, 0.6313726, 0, 1)
-shader_parameter/flame_light = Color(0.64705884, 0.8392157, 0.21176471, 1)
-shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
-shader_parameter/brightness = 1.0
-shader_parameter/flicker = 0.08
-shader_parameter/flicker_speed = 9.0
-shader_parameter/flicker_offset = 3.502664470767442
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u47oo"]
-resource_local_to_scene = true
-shader = ExtResource("27_20tjv")
-shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
-shader_parameter/flame_mid = Color(0.23921569, 0.6313726, 0, 1)
-shader_parameter/flame_light = Color(0.64705884, 0.8392157, 0.21176471, 1)
-shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
-shader_parameter/brightness = 1.0
-shader_parameter/flicker = 0.08
-shader_parameter/flicker_speed = 9.0
-shader_parameter/flicker_offset = 3.502664470767442
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_20tjv"]
-resource_local_to_scene = true
-shader = ExtResource("27_20tjv")
-shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
-shader_parameter/flame_mid = Color(0.23921569, 0.6313726, 0, 1)
-shader_parameter/flame_light = Color(0.64705884, 0.8392157, 0.21176471, 1)
-shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
-shader_parameter/brightness = 1.0
-shader_parameter/flicker = 0.08
-shader_parameter/flicker_speed = 9.0
-shader_parameter/flicker_offset = 3.9316995558940704
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mpbn5"]
-resource_local_to_scene = true
-shader = ExtResource("27_20tjv")
-shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
-shader_parameter/flame_mid = Color(0.23921569, 0.6313726, 0, 1)
-shader_parameter/flame_light = Color(0.64705884, 0.8392157, 0.21176471, 1)
-shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
-shader_parameter/brightness = 1.0
-shader_parameter/flicker = 0.08
-shader_parameter/flicker_speed = 9.0
-shader_parameter/flicker_offset = 5.82614034050647
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bgm0h"]
-resource_local_to_scene = true
-shader = ExtResource("27_20tjv")
-shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
-shader_parameter/flame_mid = Color(0.23921569, 0.6313726, 0, 1)
-shader_parameter/flame_light = Color(0.64705884, 0.8392157, 0.21176471, 1)
-shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
-shader_parameter/brightness = 1.0
-shader_parameter/flicker = 0.08
-shader_parameter/flicker_speed = 9.0
-shader_parameter/flicker_offset = 5.717472575890248
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_grqos"]
 resource_local_to_scene = true
 shader = ExtResource("27_20tjv")
@@ -198,7 +138,7 @@ shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
 shader_parameter/brightness = 1.0
 shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
-shader_parameter/flicker_offset = 5.241546039992315
+shader_parameter/flicker_offset = 3.502664470767442
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8cb2o"]
 resource_local_to_scene = true
@@ -210,7 +150,7 @@ shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
 shader_parameter/brightness = 1.0
 shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
-shader_parameter/flicker_offset = 4.508514248714498
+shader_parameter/flicker_offset = 3.9316995558940704
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e81e1"]
 resource_local_to_scene = true
@@ -222,7 +162,7 @@ shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
 shader_parameter/brightness = 1.0
 shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
-shader_parameter/flicker_offset = 4.477182013330733
+shader_parameter/flicker_offset = 5.82614034050647
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ue7k4"]
 resource_local_to_scene = true
@@ -234,7 +174,67 @@ shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
 shader_parameter/brightness = 1.0
 shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 5.717472575890248
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8c6xu"]
+resource_local_to_scene = true
+shader = ExtResource("27_20tjv")
+shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
+shader_parameter/flame_mid = Color(0.23921569, 0.6313726, 0, 1)
+shader_parameter/flame_light = Color(0.64705884, 0.8392157, 0.21176471, 1)
+shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 5.241546039992315
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2jtch"]
+resource_local_to_scene = true
+shader = ExtResource("27_20tjv")
+shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
+shader_parameter/flame_mid = Color(0.23921569, 0.6313726, 0, 1)
+shader_parameter/flame_light = Color(0.64705884, 0.8392157, 0.21176471, 1)
+shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 4.508514248714498
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6t2l"]
+resource_local_to_scene = true
+shader = ExtResource("27_20tjv")
+shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
+shader_parameter/flame_mid = Color(0.23921569, 0.6313726, 0, 1)
+shader_parameter/flame_light = Color(0.64705884, 0.8392157, 0.21176471, 1)
+shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 4.477182013330733
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ljds"]
+resource_local_to_scene = true
+shader = ExtResource("27_20tjv")
+shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
+shader_parameter/flame_mid = Color(0.23921569, 0.6313726, 0, 1)
+shader_parameter/flame_light = Color(0.64705884, 0.8392157, 0.21176471, 1)
+shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 6.208591006665365
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecfif"]
+resource_local_to_scene = true
+shader = ExtResource("27_20tjv")
+shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
+shader_parameter/flame_mid = Color(0.23921569, 0.6313726, 0, 1)
+shader_parameter/flame_light = Color(0.64705884, 0.8392157, 0.21176471, 1)
+shader_parameter/flame_core = Color(0.5294118, 0.9647059, 0.92156863, 1)
+shader_parameter/brightness = 1.0
+shader_parameter/flicker = 0.08
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 0.4731085492286766
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mntcb"]
 resource_local_to_scene = true
@@ -244,7 +244,7 @@ shader_parameter/light_b = Color(0.98, 0.757, 0.243, 1)
 shader_parameter/light_c = Color(0.992, 0.957, 0.808, 1)
 shader_parameter/flicker = 0.18
 shader_parameter/flicker_speed = 9.0
-shader_parameter/flicker_offset = 3.038591006665378
+shader_parameter/flicker_offset = 3.0185910066653676
 shader_parameter/brightness = 1.1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ck1yo"]
@@ -876,47 +876,47 @@ frame = 0
 sign_type = 0
 
 [node name="DeadBush06" parent="." unique_id=1724599371 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_rk5xk")
+material = SubResource("ShaderMaterial_grqos")
 position = Vector2(341, -87)
 flame_color = 0
 
 [node name="DeadBush07" parent="." unique_id=308158438 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_u47oo")
+material = SubResource("ShaderMaterial_8cb2o")
 position = Vector2(632, -148)
 flame_color = 0
 
 [node name="DeadBush08" parent="." unique_id=683518939 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_20tjv")
+material = SubResource("ShaderMaterial_e81e1")
 position = Vector2(1143, -136)
 flame_color = 0
 
 [node name="DeadBush09" parent="." unique_id=697977480 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_mpbn5")
+material = SubResource("ShaderMaterial_ue7k4")
 position = Vector2(1267, -40)
 flame_color = 0
 
 [node name="DeadBush10" parent="." unique_id=1418497441 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_bgm0h")
+material = SubResource("ShaderMaterial_8c6xu")
 position = Vector2(1265, 248)
 flame_color = 0
 
 [node name="DeadBush11" parent="." unique_id=1861857641 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_grqos")
+material = SubResource("ShaderMaterial_2jtch")
 position = Vector2(457, 503)
 flame_color = 0
 
 [node name="DeadBush12" parent="." unique_id=1287246611 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_8cb2o")
+material = SubResource("ShaderMaterial_c6t2l")
 position = Vector2(280, 584)
 flame_color = 0
 
 [node name="DeadBush13" parent="." unique_id=1589468960 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_e81e1")
+material = SubResource("ShaderMaterial_1ljds")
 position = Vector2(121, 392)
 flame_color = 0
 
 [node name="DeadBush14" parent="." unique_id=938035295 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_ue7k4")
+material = SubResource("ShaderMaterial_ecfif")
 position = Vector2(280, 262)
 flame_color = 0
 

@@ -1,6 +1,6 @@
 extends Node2D
 @onready var spawn_point: Marker2D = $SpawnPoint
-@onready var level_music: AudioStreamPlayer = $SoundTrackLevel3
+@onready var level_music: AudioStreamPlayer2D = $SoundTrackLevel3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

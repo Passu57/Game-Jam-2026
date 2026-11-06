@@ -213,7 +213,7 @@ position = Vector2(764, 401)
 next_level = "uid://g8av0hmcr5xh"
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1500521860]
-position = Vector2(385, 339)
+position = Vector2(-27, 620)
 metadata/_tc_uuid = "7972848003941239366"
 
 [node name="CaveBackground" type="ParallaxBackground" parent="." unique_id=427021937]
