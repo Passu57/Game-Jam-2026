@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://Systems/Progress/ability_pickup_item.gd" id="1_pick"]
+[ext_resource type="Texture2D" path="res://UI/AbilityPopup/ability_icons.png" id="2_icons"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pick"]
+radius = 9.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj"]
+atlas = ExtResource("2_icons")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="Gradient" id="Gradient_pick"]
+colors = PackedColorArray(0.85, 1, 1, 1, 0.4, 0.95, 1, 0)
+
+[node name="WallJumpPickup" type="Area2D"]
+z_index = 4
+script = ExtResource("1_pick")
+ability = &"wall_jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pick")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_wj")
+
+[node name="Sparkles" type="CPUParticles2D" parent="."]
+amount = 10
+lifetime = 1.0
+emission_shape = 1
+emission_sphere_radius = 7.0
+direction = Vector2(1, -1)
+spread = 25.0
+gravity = Vector2(0, -15)
+initial_velocity_min = 6.0
+initial_velocity_max = 15.0
+scale_amount_min = 1.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_pick")

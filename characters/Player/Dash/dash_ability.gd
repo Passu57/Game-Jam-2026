@@ -137,6 +137,12 @@ func _update_dash(delta: float) -> void:
 		_end_dash(true)
 
 
+## Gives back all air dashes (e.g. after a wall jump).
+func refill() -> void:
+	_air_dashes_left = air_dashes
+	_cooldown_left = 0.0
+
+
 ## Stops a dash without handing movement back (e.g. a swing caught the robot).
 func cancel() -> void:
 	if is_dashing:

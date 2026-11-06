@@ -29,6 +29,11 @@ const ABILITIES := {
 		"text": "PRESS {dash} TO DASH, EVEN IN THE AIR",
 		"icon": 2,
 	},
+	&"wall_jump": {
+		"title": "WALL JUMP",
+		"text": "PRESS {jump} ON A WALL TO KICK OFF",
+		"icon": 3,
+	},
 }
 
 ## Main color of the popup (border, header).
@@ -151,7 +156,7 @@ func _open() -> void:
 	_close_timer = show_time
 	_bar.scale.x = 1.0
 	_text.visible_ratio = 0.0
-	_waiting_for_use = _current in [&"double_jump", &"wrench_throw", &"dash"]
+	_waiting_for_use = _current in [&"double_jump", &"wrench_throw", &"dash", &"wall_jump"]
 	_last_air_jumps = -1
 
 	# Calm slide down + fade in, then the instruction types itself out.
@@ -216,7 +221,22 @@ func _used_ability() -> bool:
 			var player := _find_player()
 			var dash := player.get_node_or_null("DashAbility") if player != null else null
 			return dash != null and dash.get("is_dashing") == true
+		&"wall_jump":
+			var player := _find_player()
+			var wj := player.get_node_or_null("WallJumpAbility") if player != null else null
+			if wj != null and not wj.wall_jumped.is_connected(_on_wall_jumped):
+				wj.wall_jumped.connect(_on_wall_jumped)
+			var used := _wall_jump_used
+			_wall_jump_used = false
+			return used
 	return false
+
+
+var _wall_jump_used: bool = false
+
+
+func _on_wall_jumped(_dir: float) -> void:
+	_wall_jump_used = true
 
 
 func _tween() -> Tween:

@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bbrjdr8btdtk8" path="res://Assets/Cave props/Caves-and-Mines-Props-16px-FREE-Sample/sprites/1x/crystal_cluster_large.png" id="31_5kqxd"]
 [ext_resource type="PackedScene" uid="uid://d08ppbnqohu3d" path="res://Interactables/Finish/Finish.tscn" id="31_nv3ms"]
 [ext_resource type="Texture2D" uid="uid://bxcexapl48cet" path="res://Assets/Cave props/Caves-and-Mines-Props-16px-FREE-Sample/sprites/1x/lantern_post.png" id="32_5kqxd"]
+[ext_resource type="Shader" uid="uid://drhtuw82nv03k" path="res://Interactables/decorations/lantern_flicker.gdshader" id="32_f71it"]
 [ext_resource type="Script" uid="uid://bar56pfhd36bu" path="res://Interactables/decorations/lantern_light.gd" id="33_heno1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rq3t5"]
@@ -129,7 +130,7 @@ shader = SubResource("Shader_mgba7")
 shader_parameter/tint_color = Color(0.20674583, 0.27313963, 0.549828, 1)
 shader_parameter/tint_strength = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qu3ch"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66agr"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -141,7 +142,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 1.4245175425633079
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nv3ms"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjyx8"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -153,7 +154,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = -3.5108881569224764
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kqxd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjbj5"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -165,7 +166,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 0.18488486307362706
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_heno1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tcy7c"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -177,7 +178,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 3.556140340506488
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f71it"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x10e1"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -189,7 +190,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 0.47791665435144637
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_66agr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g5f2g"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -201,7 +202,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 5.566584418967743
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjyx8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ui5ui"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -213,7 +214,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 5.239325647686108
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_x10e1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwjex"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -225,7 +226,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 2.8639967061511626
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g5f2g"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0udmg"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -237,7 +238,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 0.5894791635878605
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ui5ui"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ow6on"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -249,7 +250,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 3.501776313844971
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uwjex"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g5da5"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -261,7 +262,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 2.337258771281654
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0udmg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lichw"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -273,7 +274,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 3.4268146928204146
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ow6on"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hjsyn"]
 resource_local_to_scene = true
 shader = ExtResource("28_qu3ch")
 shader_parameter/flame_dark = Color(0.05490196, 0.09411765, 0.32156864, 1)
@@ -284,6 +285,50 @@ shader_parameter/brightness = 1.0
 shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 2.1036293856408275
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1347"]
+resource_local_to_scene = true
+shader = ExtResource("32_f71it")
+shader_parameter/light_a = Color(0.953, 0.639, 0.051, 1)
+shader_parameter/light_b = Color(0.98, 0.757, 0.243, 1)
+shader_parameter/light_c = Color(0.992, 0.957, 0.808, 1)
+shader_parameter/flicker = 0.18
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 1.6131085492286914
+shader_parameter/brightness = 1.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1cfkb"]
+resource_local_to_scene = true
+shader = ExtResource("32_f71it")
+shader_parameter/light_a = Color(0.953, 0.639, 0.051, 1)
+shader_parameter/light_b = Color(0.98, 0.757, 0.243, 1)
+shader_parameter/light_c = Color(0.992, 0.957, 0.808, 1)
+shader_parameter/flicker = 0.18
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = -3.0245175425633164
+shader_parameter/brightness = 1.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xmqqq"]
+resource_local_to_scene = true
+shader = ExtResource("32_f71it")
+shader_parameter/light_a = Color(0.953, 0.639, 0.051, 1)
+shader_parameter/light_b = Color(0.98, 0.757, 0.243, 1)
+shader_parameter/light_c = Color(0.992, 0.957, 0.808, 1)
+shader_parameter/flicker = 0.18
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 3.7006578830697663
+shader_parameter/brightness = 1.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0qmx"]
+resource_local_to_scene = true
+shader = ExtResource("32_f71it")
+shader_parameter/light_a = Color(0.953, 0.639, 0.051, 1)
+shader_parameter/light_b = Color(0.98, 0.757, 0.243, 1)
+shader_parameter/light_c = Color(0.992, 0.957, 0.808, 1)
+shader_parameter/flicker = 0.18
+shader_parameter/flicker_speed = 9.0
+shader_parameter/flicker_offset = 2.7030317912777875
+shader_parameter/brightness = 1.1
 
 [node name="Level02" type="Node2D" unique_id=2045724769]
 script = ExtResource("1_ptdb3")
@@ -753,55 +798,55 @@ position = Vector2(-134, 522)
 position = Vector2(-315, 463)
 
 [node name="DeadBush08" parent="." unique_id=1474284536 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_qu3ch")
+material = SubResource("ShaderMaterial_66agr")
 position = Vector2(-25, 554)
 
 [node name="DeadBush09" parent="." unique_id=1014955203 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_nv3ms")
+material = SubResource("ShaderMaterial_jjyx8")
 position = Vector2(-296, 621)
 
 [node name="DeadBush10" parent="." unique_id=105410316 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_5kqxd")
+material = SubResource("ShaderMaterial_mjbj5")
 position = Vector2(373, 632)
 
 [node name="DeadBush11" parent="." unique_id=2121751557 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_heno1")
+material = SubResource("ShaderMaterial_tcy7c")
 position = Vector2(913, 617)
 
 [node name="DeadBush12" parent="." unique_id=445246349 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_f71it")
+material = SubResource("ShaderMaterial_x10e1")
 position = Vector2(1137, 521)
 
 [node name="DeadBush13" parent="." unique_id=679465710 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_66agr")
+material = SubResource("ShaderMaterial_g5f2g")
 position = Vector2(1088, 218)
 
 [node name="DeadBush14" parent="." unique_id=349556176 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_jjyx8")
+material = SubResource("ShaderMaterial_ui5ui")
 position = Vector2(1029, 185)
 
 [node name="DeadBush17" parent="." unique_id=202038325 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_x10e1")
+material = SubResource("ShaderMaterial_uwjex")
 position = Vector2(416, 169)
 
 [node name="DeadBush18" parent="." unique_id=2045993895 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_g5f2g")
+material = SubResource("ShaderMaterial_0udmg")
 position = Vector2(274, 169)
 
 [node name="DeadBush19" parent="." unique_id=532687330 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_ui5ui")
+material = SubResource("ShaderMaterial_ow6on")
 position = Vector2(163, 169)
 
 [node name="DeadBush20" parent="." unique_id=82128157 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_uwjex")
+material = SubResource("ShaderMaterial_g5da5")
 position = Vector2(24, 169)
 
 [node name="DeadBush21" parent="." unique_id=27248142 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_0udmg")
+material = SubResource("ShaderMaterial_lichw")
 position = Vector2(-24, 169)
 
 [node name="DeadBush22" parent="." unique_id=1876645763 instance=ExtResource("27_5uu0c")]
-material = SubResource("ShaderMaterial_ow6on")
+material = SubResource("ShaderMaterial_hjsyn")
 position = Vector2(1, 130)
 
 [node name="Waterfall" parent="." unique_id=1434921018 node_paths=PackedStringArray("pool") instance=ExtResource("29_5uu0c")]
@@ -1044,6 +1089,7 @@ can_turn_off = false
 
 [node name="Finish" parent="." unique_id=724473009 instance=ExtResource("31_nv3ms")]
 position = Vector2(0, 145)
+next_level = "uid://dy5xsfnnjblak"
 
 [node name="CrystalClusterLarge" type="Sprite2D" parent="." unique_id=260288275]
 modulate = Color(1, 1, 1, 0.5647059)
@@ -1077,24 +1123,28 @@ texture = ExtResource("31_5kqxd")
 
 [node name="LanternPost" type="Sprite2D" parent="." unique_id=541316867]
 z_index = -1
+material = SubResource("ShaderMaterial_n1347")
 position = Vector2(182, 602)
 texture = ExtResource("32_5kqxd")
 script = ExtResource("33_heno1")
 
 [node name="LanternPost2" type="Sprite2D" parent="." unique_id=214653751]
 z_index = -1
+material = SubResource("ShaderMaterial_1cfkb")
 position = Vector2(-323, 602)
 texture = ExtResource("32_5kqxd")
 script = ExtResource("33_heno1")
 
 [node name="LanternPost3" type="Sprite2D" parent="." unique_id=869211122]
 z_index = -1
+material = SubResource("ShaderMaterial_xmqqq")
 position = Vector2(1087, 490)
 texture = ExtResource("32_5kqxd")
 script = ExtResource("33_heno1")
 
 [node name="LanternPost4" type="Sprite2D" parent="." unique_id=757999037]
 z_index = -1
+material = SubResource("ShaderMaterial_v0qmx")
 position = Vector2(706, 106)
 texture = ExtResource("32_5kqxd")
 script = ExtResource("33_heno1")

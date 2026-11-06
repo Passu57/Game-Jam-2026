@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3]
 
-[ext_resource type="Script" path="res://Systems/Progress/ability_pickup.gd" id="1_pick"]
+[ext_resource type="Script" path="res://Systems/Progress/ability_pickup_item.gd" id="1_pick"]
 [ext_resource type="Texture2D" path="res://UI/AbilityPopup/ability_icons.png" id="2_icons"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pick"]
