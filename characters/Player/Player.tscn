@@ -9,7 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://d0bki2gvnhxb7" path="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/jump.wav" id="6_enwbc"]
 [ext_resource type="AudioStream" uid="uid://cuvm8vserep7f" path="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/power_down.wav" id="6_pw3qt"]
 [ext_resource type="AudioStream" uid="uid://nyd828nn0gpt" path="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/throw.wav" id="8_77vo5"]
-[ext_resource type="Script" path="res://characters/Player/Dash/dash_ability.gd" id="10_ji0k6"]
+[ext_resource type="Script" uid="uid://lsjtsv4dgosr" path="res://characters/Player/Dash/dash_ability.gd" id="10_ji0k6"]
+[ext_resource type="AudioStream" uid="uid://dpxm3f8j34e42" path="res://Sounds/Dash.wav" id="11_o1eki"]
 
 [sub_resource type="Animation" id="Animation_dch2n"]
 resource_name = "Idle"
@@ -236,3 +237,8 @@ stream = ExtResource("8_77vo5")
 
 [node name="DashAbility" type="Node" parent="." unique_id=480151257]
 script = ExtResource("10_ji0k6")
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="." unique_id=1932246535]
+stream = ExtResource("11_o1eki")
+
+[node name="RunningSound" type="AudioStreamPlayer2D" parent="." unique_id=721637979]

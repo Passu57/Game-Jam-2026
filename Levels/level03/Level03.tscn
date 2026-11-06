@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dg6lajrgyemjm" path="res://Interactables/Spikes/SpikeController.tscn" id="22_j7w3s"]
 [ext_resource type="PackedScene" uid="uid://3g1dfrth8jj8" path="res://Interactables/Checkpoint/Checkpoint.tscn" id="23_jvlu8"]
 [ext_resource type="PackedScene" path="res://Systems/Progress/DashPickup.tscn" id="24_jvlu8"]
+[ext_resource type="AudioStream" uid="uid://b5xfadeaq8flx" path="res://Sounds/JungleSoundtrack.mp3" id="25_ebnfs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0t6di"]
 shader = ExtResource("8_7a0di")
@@ -566,3 +567,8 @@ z_index = 9
 position = Vector2(1472, 353)
 mode = 1
 column_height = 400.0
+
+[node name="SoundTrackLevel3" type="AudioStreamPlayer" parent="." unique_id=884998326]
+stream = ExtResource("25_ebnfs")
+volume_db = -11.5
+parameters/looping = false
