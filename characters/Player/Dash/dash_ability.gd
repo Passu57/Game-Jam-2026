@@ -13,6 +13,7 @@ signal dashed(direction: float)
 const ABILITY := &"dash"
 const ACTION := &"dash"
 const SwingMomentum := preload("res://Interactables/Swing/swing_momentum.gd")
+@onready var dash_sound: AudioStreamPlayer2D = $"../DashSound"
 
 ## Only works after picking up the Dash ability.
 @export var needs_unlock: bool = true
@@ -97,6 +98,7 @@ func _start_dash() -> void:
 		_air_dashes_left -= 1
 
 	is_dashing = true
+	dash_sound.play()
 	_time_left = dash_time
 	_trail_timer = 0.0
 	SwingMomentum.stop(_player)

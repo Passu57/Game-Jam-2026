@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var death_sound: AudioStreamPlayer2D = $DeathSound
 @onready var throw_sound: AudioStreamPlayer2D = $ThrowSound
+@onready var dash_sound: AudioStreamPlayer2D = $DashSound
 
 @export_group("Jump Feel")
 ## Coyote time: you can still jump this long after running off a ledge (seconds).
