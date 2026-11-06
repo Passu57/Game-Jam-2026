@@ -1,0 +1,58 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Levels/Level.gd" id="1_level"]
+[ext_resource type="PackedScene" path="res://characters/Player/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://Interactables/Laser/Laser.tscn" id="3_laser"]
+[ext_resource type="PackedScene" path="res://Interactables/levers/lever01/lever01.tscn" id="4_lever"]
+
+[sub_resource type="RectangleShape2D" id="Shape_floor"]
+size = Vector2(600, 40)
+
+[node name="LaserTestCourse" type="Node2D"]
+script = ExtResource("1_level")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(0, 284)
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(0, 284)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(150, 320)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("Shape_floor")
+
+[node name="Look" type="ColorRect" parent="Floor"]
+offset_left = -300.0
+offset_top = -20.0
+offset_right = 300.0
+offset_bottom = 20.0
+color = Color(0.32, 0.3, 0.36, 1)
+
+[node name="Ceiling" type="ColorRect" parent="."]
+offset_left = -150.0
+offset_top = 196.0
+offset_right = 450.0
+offset_bottom = 214.0
+color = Color(0.25, 0.23, 0.28, 1)
+
+[node name="LaserA" parent="." instance=ExtResource("3_laser")]
+test_power_up_on_start = true
+position = Vector2(120, 220)
+rotation = 1.5707964
+length = 200.0
+stop_at_walls = true
+
+[node name="LaserB" parent="." instance=ExtResource("3_laser")]
+test_power_up_on_start = true
+position = Vector2(200, 220)
+rotation = 1.5707964
+length = 72.0
+use_timer = true
+on_time = 1.5
+off_time = 1.2
+
+[node name="Lever" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_lever")]
+position = Vector2(50, 292)
+target = NodePath("../LaserA")

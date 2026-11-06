@@ -42,7 +42,6 @@ func _ready() -> void:
 	if shape_node and shape_node.shape is RectangleShape2D:
 		_half_height = shape_node.shape.size.y * 0.5
 
-
 ## Called by the player while walking into the box: -1 = left, 1 = right.
 func push(dir: float) -> void:
 	if pushable:
