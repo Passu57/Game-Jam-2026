@@ -98,7 +98,8 @@ func _start_dash() -> void:
 		_air_dashes_left -= 1
 
 	is_dashing = true
-	dash_sound.play()
+	if dash_sound:
+		dash_sound.play()
 	_time_left = dash_time
 	_trail_timer = 0.0
 	SwingMomentum.stop(_player)
@@ -214,7 +215,7 @@ func _thruster_burst() -> void:
 	_spawn(p, _player.global_position + Vector2(-_dir * 6.0, 4.0))
 
 
-# Dust kicked up from the floor when dashing off the ground.
+# Dust kicked up from the floor whenfplay dashing off the ground.
 func _dust_puff() -> void:
 	var p := CPUParticles2D.new()
 	p.one_shot = true

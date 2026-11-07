@@ -12,7 +12,7 @@ region = Rect2(0, 0, 16, 16)
 filter_clip = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nycni"]
-size = Vector2(15, 10)
+size = Vector2(11, 9)
 
 [sub_resource type="Animation" id="Animation_nycni"]
 length = 0.001
@@ -92,7 +92,7 @@ collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Hazard" unique_id=95841301]
-position = Vector2(-0.5, 2)
+position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_nycni")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=30866682]

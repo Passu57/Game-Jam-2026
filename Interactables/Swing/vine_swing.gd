@@ -64,6 +64,9 @@ signal released(player: Node)
 ## After letting go you can't grab THIS swing again for this long (seconds).
 ## Other swings can be grabbed right away.
 @export var regrab_delay: float = 0.4
+## Right after grabbing, jump presses are ignored for this long (seconds), so
+## a player mashing jump (e.g. trying to double jump) doesn't let go instantly.
+@export_range(0.0, 0.5, 0.01) var grab_jump_lock: float = 0.1
 ## How far below the handle the robot hangs (pixels).
 @export var hang_offset: float = 9.0
 ## How close the robot has to get to the handle to grab it (pixels).
@@ -88,6 +91,7 @@ var _tip_local: Vector2 = Vector2.ZERO
 var _tip_angle: float = 0.0
 var _grab_area: Area2D
 var _no_grab_until_ms: int = 0
+var _no_release_until_ms: int = 0
 var _time: float = 0.0
 var _gravity: float = 980.0
 ## How much of the rope is out right now. -1 = all of it.
@@ -192,7 +196,7 @@ func _physics_process(delta: float) -> void:
 
 	if player != null:
 		_hold_player()
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("jump") and Time.get_ticks_msec() >= _no_release_until_ms:
 			_release()
 	else:
 		_try_grab()
@@ -223,6 +227,7 @@ func _try_grab() -> void:
 
 func _grab(p: CharacterBody2D) -> void:
 	player = p
+	_no_release_until_ms = Time.get_ticks_msec() + int(grab_jump_lock * 1000.0)
 	SwingMomentum.stop(p)
 	p.set_physics_process(false)
 	# Keep some of the robot's speed: jumping into a swing pushes it.

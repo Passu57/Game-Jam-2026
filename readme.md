@@ -24,3 +24,7 @@ We continued working on the levels. We found some assets to add decors to our ga
 ### Added water with physics and a waterfall aswell
 
 ![alt text](image-3.png)
+
+![alt text](image-5.png)
+
+![alt text](image-4.png)
