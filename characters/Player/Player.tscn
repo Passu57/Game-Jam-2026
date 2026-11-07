@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://buppfvhqlh84m" path="res://UI/Quest_Box/UI Quest box.tscn" id="4_ofsc6"]
 [ext_resource type="Texture2D" uid="uid://b4x354kw5j11h" path="res://Assets/Robot Platform Pack/OrangeRobot/Spritesheets/OrangeRobot_SpriteSheet_WrenchOnly.png" id="5_enwbc"]
 [ext_resource type="Script" uid="uid://ddkmt5sblpce3" path="res://characters/Player/Wrench/hand_wrench.gd" id="6_77vo5"]
-[ext_resource type="AudioStream" uid="uid://d0bki2gvnhxb7" path="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/jump.wav" id="6_enwbc"]
 [ext_resource type="AudioStream" uid="uid://cuvm8vserep7f" path="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/power_down.wav" id="6_pw3qt"]
 [ext_resource type="AudioStream" uid="uid://nyd828nn0gpt" path="res://Sounds/Weird sounds/free_game_ui_sounds/wav/game/throw.wav" id="8_77vo5"]
+[ext_resource type="AudioStream" uid="uid://b517t03g0prw7" path="res://Sounds/low_jump.wav" id="8_o1eki"]
 [ext_resource type="Script" uid="uid://lsjtsv4dgosr" path="res://characters/Player/Dash/dash_ability.gd" id="10_ji0k6"]
 [ext_resource type="Script" uid="uid://clkqwldjid40m" path="res://characters/Player/WallJump/wall_jump_ability.gd" id="11_o1eki"]
+[ext_resource type="AudioStream" uid="uid://dxidqvg0c71pj" path="res://Sounds/Dash.wav" id="12_u6j5b"]
+[ext_resource type="AudioStream" uid="uid://cg4cs4gwfvv1l" path="res://Sounds/RunningSound.wav" id="13_1got8"]
 
 [sub_resource type="Animation" id="Animation_dch2n"]
 resource_name = "Idle"
@@ -230,7 +232,7 @@ script = ExtResource("6_77vo5")
 stream = ExtResource("6_pw3qt")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=935854326]
-stream = ExtResource("6_enwbc")
+stream = ExtResource("8_o1eki")
 
 [node name="ThrowSound" type="AudioStreamPlayer2D" parent="." unique_id=631997432]
 stream = ExtResource("8_77vo5")
@@ -241,3 +243,9 @@ script = ExtResource("10_ji0k6")
 [node name="WallJumpAbility" type="Node" parent="." unique_id=1415699190]
 script = ExtResource("11_o1eki")
 jump_strength = 1.0
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="." unique_id=1295488585]
+stream = ExtResource("12_u6j5b")
+
+[node name="RunningSound" type="AudioStreamPlayer2D" parent="." unique_id=1991991207]
+stream = ExtResource("13_1got8")
