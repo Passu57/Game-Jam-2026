@@ -123,11 +123,11 @@ velocity = Vector2(0, 8626620)
 metadata/_tc_uuid = "138445414280153707"
 
 [node name="SpawnPoint" type="Marker2D" parent="." unique_id=1500521860]
-position = Vector2(-44, 586)
+position = Vector2(-686, 579)
 metadata/_tc_uuid = "7972848003941239366"
 
 [node name="Machine01" parent="." unique_id=315364537 instance=ExtResource("4_pusxw")]
-position = Vector2(-13, 572)
+position = Vector2(-690, 597)
 unlocks_colors = 22
 metadata/_tc_uuid = "2114812151734071093"
 
@@ -208,7 +208,7 @@ position = Vector2(1044, 552)
 
 [node name="AbilityPickup" parent="." unique_id=994679034 instance=ExtResource("16_jt36x")]
 z_index = 0
-position = Vector2(-639, 602)
+position = Vector2(-714, 606)
 script = ExtResource("17_0g1yi")
 
 [node name="Lever01" parent="." unique_id=1328679575 instance=ExtResource("17_4f7ll")]
@@ -219,10 +219,10 @@ position = Vector2(407, 609)
 next_level = "uid://dsgedhiaeoycw"
 
 [node name="DashPickup" parent="." unique_id=817903098 instance=ExtResource("19_n74nu")]
-position = Vector2(-639, 618)
+position = Vector2(-714, 622)
 
 [node name="WrenchPickup" parent="." unique_id=1992363311 instance=ExtResource("20_0g1yi")]
-position = Vector2(-621, 618)
+position = Vector2(-696, 622)
 
 [node name="SpikeController" parent="." unique_id=2099850994 instance=ExtResource("21_do7x6")]
 position = Vector2(-584, 585)
@@ -319,3 +319,4 @@ size = Vector2(274, 45)
 
 [node name="ChainSwing" parent="." unique_id=1732048331 instance=ExtResource("26_0uhpd")]
 position = Vector2(-283, 259)
+grab_jump_lock = null
