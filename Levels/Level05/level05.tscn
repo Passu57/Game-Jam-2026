@@ -37,7 +37,7 @@ shader_parameter/light_b = Color(0.98, 0.757, 0.243, 1)
 shader_parameter/light_c = Color(0.992, 0.957, 0.808, 1)
 shader_parameter/flicker = 0.18
 shader_parameter/flicker_speed = 9.0
-shader_parameter/flicker_offset = 3.0185910066653676
+shader_parameter/flicker_offset = 3.038591006665378
 shader_parameter/brightness = 1.1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ck1yo"]

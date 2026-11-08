@@ -53,7 +53,14 @@ const THROW_ACTION := &"throw"
 ## Tick this if the wrench should only work after unlocking it
 ## with GameProgress.unlock(GameProgress.WRENCH_THROW).
 @export var wrench_needs_unlock: bool = false
+## Controller: stick movement smaller than this is ignored when aiming (0..1).
+@export_range(0.05, 0.9, 0.05) var aim_stick_deadzone: float = 0.3
 @export_group("")
+
+## True while the player is using a controller (switches back on mouse/keys).
+var _using_gamepad: bool = false
+## Last direction aimed with a stick, kept when the stick is let go.
+var _stick_aim: Vector2 = Vector2.ZERO
 
 const WRENCH_SCENE := preload("res://characters/Player/Wrench/Wrench.tscn")
 const WrenchAim := preload("res://characters/Player/Wrench/wrench_aim.gd")
@@ -187,6 +194,26 @@ func _wrench_hand_position() -> Vector2:
 	return global_position + offset
 
 
+# Where a throw starts. Normally the hand, but when the robot stands against a
+# wall the hand (behind the robot) can be inside that wall, and the wrench
+# would hit it the instant it's thrown. Then throw from the robot's center,
+# which is never inside a wall: throwing away from the wall works, throwing
+# into the wall still hits it right away.
+func _wrench_throw_start() -> Vector2:
+	var hand := _wrench_hand_position()
+	var space := get_world_2d().direct_space_state
+	var circle := CircleShape2D.new()
+	circle.radius = 4.0  # same as the wrench's hitbox
+	var query := PhysicsShapeQueryParameters2D.new()
+	query.shape = circle
+	query.transform = Transform2D(0.0, hand)
+	query.collision_mask = 1
+	query.exclude = [get_rid()]
+	if space.intersect_shape(query, 1).is_empty():
+		return hand
+	return global_position
+
+
 func _can_throw_wrench() -> bool:
 	if _wrench_out != null:
 		return false  # only one wrench at a time
@@ -200,12 +227,23 @@ func _update_wrench() -> void:
 		return
 
 	var aiming := Input.is_action_pressed(THROW_ACTION)
+	if not aiming and not Input.is_action_just_released(THROW_ACTION):
+		_stick_aim = Vector2.ZERO  # next aim starts fresh from the facing side
 	if aiming:
 		# Face where we aim (this also moves the hand to that side).
-		sprite.flip_h = get_global_mouse_position().x < global_position.x
+		if _using_gamepad:
+			var d := _gamepad_aim()
+			if absf(d.x) > 0.1:
+				sprite.flip_h = d.x < 0.0
+		else:
+			sprite.flip_h = get_global_mouse_position().x < global_position.x
 
-	var start := _wrench_hand_position()
-	var aim_dir := (get_global_mouse_position() - start).normalized()
+	var start := _wrench_throw_start()
+	var aim_dir: Vector2
+	if _using_gamepad:
+		aim_dir = _gamepad_aim()
+	else:
+		aim_dir = (get_global_mouse_position() - start).normalized()
 	if aim_dir == Vector2.ZERO:
 		aim_dir = Vector2.LEFT if sprite.flip_h else Vector2.RIGHT
 	var start_velocity := aim_dir * wrench_throw_speed
@@ -216,6 +254,37 @@ func _update_wrench() -> void:
 	elif Input.is_action_just_released(THROW_ACTION):
 		_wrench_aim.hide_arc()
 		_throw_wrench(start, start_velocity)
+
+
+# Notices whether the player is on a controller or on mouse/keyboard, so the
+# wrench aims with the right stick or with the mouse.
+func _input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton:
+		_using_gamepad = true
+	elif event is InputEventJoypadMotion and absf(event.axis_value) > 0.5:
+		_using_gamepad = true
+	elif event is InputEventMouseMotion and event.relative.length() > 2.0:
+		_using_gamepad = false
+	elif event is InputEventMouseButton or event is InputEventKey:
+		_using_gamepad = false
+
+
+# Controller aim direction: the right stick. If it's in the middle, the left
+# stick (while aiming you can lean it to aim), then the last aimed direction,
+# and finally a gentle upward throw in the direction the robot faces.
+func _gamepad_aim() -> Vector2:
+	var pads := Input.get_connected_joypads()
+	var pad: int = pads[0] if pads.size() > 0 else 0
+	var right := Vector2(Input.get_joy_axis(pad, JOY_AXIS_RIGHT_X), Input.get_joy_axis(pad, JOY_AXIS_RIGHT_Y))
+	var left := Vector2(Input.get_joy_axis(pad, JOY_AXIS_LEFT_X), Input.get_joy_axis(pad, JOY_AXIS_LEFT_Y))
+	if right.length() > aim_stick_deadzone:
+		_stick_aim = right.normalized()
+	elif left.length() > aim_stick_deadzone:
+		_stick_aim = left.normalized()
+	if _stick_aim != Vector2.ZERO:
+		return _stick_aim
+	var facing := -1.0 if sprite.flip_h else 1.0
+	return Vector2(facing, -0.6).normalized()
 
 
 func _throw_wrench(start: Vector2, start_velocity: Vector2) -> void:

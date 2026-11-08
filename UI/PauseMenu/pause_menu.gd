@@ -88,6 +88,7 @@ var _flavor: Label
 var _band_boxes: Array[Panel] = []
 var _colors_label: Label
 var _modules_label: Label
+var _deaths_label: Label
 var _resume_button: Button
 var _options_button: Button
 var _menu_button: Button
@@ -133,6 +134,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_echo():
 		return
+	if _press_focused_button_with_pad(event):
+		return
 	if not is_open:
 		if event.is_action_pressed("pause") and _can_pause():
 			get_viewport().set_input_as_handled()
@@ -147,6 +150,22 @@ func _input(event: InputEvent) -> void:
 			resume()
 		else:
 			_back_to_main()
+
+
+# Controller: the jump button (A) presses whichever menu button is selected.
+# Works for every menu in the game (main menu, pause menu, settings...).
+# Only when a visible menu button has focus, so jumping in-game is untouched.
+func _press_focused_button_with_pad(event: InputEvent) -> bool:
+	if not (event is InputEventJoypadButton) or not event.is_action_pressed("jump"):
+		return false
+	var focused := get_viewport().gui_get_focus_owner()
+	if not (focused is BaseButton) or not focused.is_visible_in_tree() or focused.disabled:
+		return false
+	get_viewport().set_input_as_handled()
+	if focused.toggle_mode:
+		focused.button_pressed = not focused.button_pressed
+	focused.pressed.emit()
+	return true
 
 
 func _notification(what: int) -> void:
@@ -351,6 +370,11 @@ func _refresh_status() -> void:
 			if gp.has(key):
 				names.append(String(abilities[key].get("title", String(key).to_upper())))
 	_modules_label.text = "MODULES:  " + (" + ".join(names) if not names.is_empty() else "NONE YET")
+
+	var dc := get_node_or_null("/root/DeathCounter")
+	_deaths_label.visible = dc != null
+	if dc != null:
+		_deaths_label.text = "DEATHS:  %d" % int(dc.deaths)
 
 
 func _process(delta: float) -> void:
@@ -724,6 +748,10 @@ func _build_main_page(parent: Control) -> void:
 	_modules_label = _small("MODULES:  NONE YET")
 	_modules_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(_modules_label)
+
+	_deaths_label = _small("DEATHS:  0")
+	_deaths_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vbox.add_child(_deaths_label)
 
 	vbox.add_child(_divider())
 

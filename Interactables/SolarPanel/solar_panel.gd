@@ -48,14 +48,20 @@ KARL-MARKOS KADAPIK
 KARL-SANDER MAEOTS
 
 ART
-ROBOT PLATFORM PACK
-PARALLAX CAVE
-MK 16X16 NATURE TILESET
-2D PUZZLE ELEMENTS
-CAVES AND MINES PROPS
+ROBOT PLATFORM PACK - Edu
+PARALLAX CAVE - Exice
+MK 16X16 NATURE TILESET - Ipixl
+2D PUZZLE ELEMENTS - Jan Schneider
+CAVES AND MINES PROPS - STATIONSUPPLY
+CRATES, SHELVES AND SPIKES - Krackselbubbel
+JUNGLE ASSETS - GREEN TILE - Graph Script Dev
+SHROOM CAVE ASSETS - Auru
+FACTORY MACHINE - Claude helped converting
+LAMONA BACKGROUND - Pixel_1992
 
 SOUND
-FREE GAME UI SOUNDS
+FREE GAME & UI SOUND PACK - WILLOSUNA
+FILMCOW SOUNDS - Filmcow
 
 ENGINE
 GODOT 4"""
@@ -92,6 +98,14 @@ var _progress: float = 0.0
 var _rising: bool = false
 var _time: float = 0.0
 var _sfx: AudioStreamPlayer
+var _rise_tween: Tween
+var _skip_button: Button
+var _skipping: bool = false
+
+## Emitted when the camera has finished rising (normally or after a skip).
+signal _rise_finished
+
+const THEME := preload("res://UI/MainMenu/menu_theme.tres")
 
 
 func _ready() -> void:
@@ -243,11 +257,61 @@ func _start_rise() -> void:
 	_credits.position.y = _text_start_y
 
 	_rising = true
-	var t := create_tween()
-	t.tween_property(self, "_progress", 1.0, rise_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	await t.finished
+	_rise_tween = create_tween()
+	_rise_tween.tween_property(self, "_progress", 1.0, rise_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_rise_tween.finished.connect(func(): _rise_finished.emit())
+	_build_skip_button()
+	await _rise_finished
+	_hide_skip_button()
 	await get_tree().create_timer(end_hold_time).timeout
 	_finish()
+
+
+## Skips ahead: the credits scroll quickly up to "THANK YOU FOR PLAYING!".
+func skip_credits() -> void:
+	if not _rising or _skipping or _progress >= 1.0:
+		return
+	_skipping = true
+	_hide_skip_button()
+	if _rise_tween and _rise_tween.is_valid():
+		_rise_tween.kill()
+	_rise_tween = create_tween()
+	_rise_tween.tween_property(self, "_progress", 1.0, 1.6).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	_rise_tween.finished.connect(func(): _rise_finished.emit())
+
+
+# A small SKIP >> button in the bottom-right corner, faded in after a moment.
+func _build_skip_button() -> void:
+	_skip_button = Button.new()
+	_skip_button.text = "SKIP  >>"
+	_skip_button.theme = THEME
+	_skip_button.add_theme_font_override("font", FONT_SMALL)
+	_skip_button.anchor_left = 1.0
+	_skip_button.anchor_top = 1.0
+	_skip_button.anchor_right = 1.0
+	_skip_button.anchor_bottom = 1.0
+	_skip_button.offset_left = -230
+	_skip_button.offset_top = -100
+	_skip_button.offset_right = -40
+	_skip_button.offset_bottom = -40
+	_skip_button.modulate.a = 0.0
+	_skip_button.pressed.connect(skip_credits)
+	_credits_layer.add_child(_skip_button)
+	var t := create_tween()
+	t.tween_interval(1.5)
+	t.tween_property(_skip_button, "modulate:a", 0.85, 0.6)
+	_skip_button.grab_focus()  # so Enter / Space / controller A press it
+
+
+func _hide_skip_button() -> void:
+	if _skip_button == null or not is_instance_valid(_skip_button):
+		return
+	var b := _skip_button
+	_skip_button = null
+	b.disabled = true
+	var t := create_tween()
+	t.tween_property(b, "modulate:a", 0.0, 0.3)
+	t.tween_callback(b.queue_free)
 
 
 func _process(delta: float) -> void:
@@ -255,6 +319,10 @@ func _process(delta: float) -> void:
 	_animate_panel(delta)
 	if not _rising:
 		return
+	# Keep the skip button selected (e.g. after closing the pause menu).
+	if _skip_button and is_instance_valid(_skip_button) and not get_tree().paused:
+		if get_viewport().gui_get_focus_owner() == null:
+			_skip_button.grab_focus()
 	# Camera and text move together, so the text feels part of the world.
 	# The camera drifts sideways to the shaft's middle during the first part.
 	var side := clampf(_progress * 6.0, 0.0, 1.0)
@@ -322,6 +390,15 @@ func _build_credits() -> void:
 
 	_credits.add_child(_spacer(section_gap))
 	_credits.add_child(_quote_label(final_quote))
+
+	# How many times the robot died on the way here.
+	var dc := get_node_or_null("/root/DeathCounter")
+	if dc != null:
+		var n := int(dc.deaths)
+		var line := "NOT A SINGLE DEATH. AMAZING!" if n == 0 else \
+			("YOU MADE IT WITH 1 DEATH" if n == 1 else "YOU MADE IT WITH %d DEATHS" % n)
+		_credits.add_child(_label(line, FONT_SMALL, Color(0.88, 0.9, 0.95)))
+
 	var thanks := _label("THANK YOU FOR PLAYING!", FONT, Color(1.0, 0.86, 0.42))
 	thanks.add_theme_font_size_override("font_size", 28)
 	_credits.add_child(thanks)

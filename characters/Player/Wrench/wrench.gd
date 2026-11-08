@@ -109,4 +109,3 @@ func _start_return() -> void:
 	_state = State.RETURNING
 	# Fly through walls on the way back so it never gets stuck.
 	set_deferred("monitoring", false)
-
