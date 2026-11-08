@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dwcp7mvces3kn" path="res://Interactables/Spikes/spikes.gd" id="2_spikes"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ul0di"]
-size = Vector2(13, 8)
+size = Vector2(9, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_spikes_up"]
 atlas = ExtResource("1_nycni")

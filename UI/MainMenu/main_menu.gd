@@ -34,7 +34,11 @@ const VOLUME_STEPS := 10
 @onready var fullscreen_button: Button = $SettingsPanel/VBox/FullscreenButton
 
 var volume: int = 8            # 0..10
+var music_volume: int = 6      # 0..10, 60% by default
 var fullscreen: bool = false
+var _music_meter: Label
+var _music_down: Button
+var _music_up: Button
 
 var _time: float = 0.0
 var _spark_home: Vector2
@@ -66,10 +70,13 @@ func _ready() -> void:
 		var back: Button = panel.get_node("VBox/BackButton")
 		_setup_button(back)
 		back.pressed.connect(_close)
-	for b in [volume_down, volume_up, fullscreen_button]:
+	_build_music_row()
+	for b in [volume_down, volume_up, fullscreen_button, _music_down, _music_up]:
 		_setup_button(b)
 	volume_down.pressed.connect(_change_volume.bind(-1))
 	volume_up.pressed.connect(_change_volume.bind(1))
+	_music_down.pressed.connect(_change_music.bind(-1))
+	_music_up.pressed.connect(_change_music.bind(1))
 	fullscreen_button.pressed.connect(_toggle_fullscreen)
 	_refresh_settings_ui()
 
@@ -205,6 +212,25 @@ func _change_volume(step: int) -> void:
 	_refresh_settings_ui()
 
 
+func _change_music(step: int) -> void:
+	music_volume = clampi(music_volume + step, 0, VOLUME_STEPS)
+	_apply_settings()
+	_save_settings()
+	_refresh_settings_ui()
+
+
+# A copy of the VOLUME row, placed right under it, for the music volume.
+func _build_music_row() -> void:
+	var volume_row := $SettingsPanel/VBox/VolumeRow
+	var row := volume_row.duplicate() as HBoxContainer
+	row.name = "MusicRow"
+	volume_row.add_sibling(row)
+	(row.get_node("Label") as Label).text = "MUSIC"
+	_music_meter = row.get_node("Meter")
+	_music_down = row.get_node("Down")
+	_music_up = row.get_node("Up")
+
+
 func _toggle_fullscreen() -> void:
 	fullscreen = not fullscreen
 	_apply_settings()
@@ -214,6 +240,8 @@ func _toggle_fullscreen() -> void:
 
 func _refresh_settings_ui() -> void:
 	volume_meter.text = "|".repeat(volume) + "#".repeat(VOLUME_STEPS - volume) + "  %3d%%" % (volume * 10)
+	if _music_meter:
+		_music_meter.text = "|".repeat(music_volume) + "#".repeat(VOLUME_STEPS - music_volume) + "  %3d%%" % (music_volume * 10)
 	fullscreen_button.text = "FULLSCREEN:  " + ("ON" if fullscreen else "OFF")
 
 
@@ -221,6 +249,10 @@ func _apply_settings() -> void:
 	var bus := AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_mute(bus, volume == 0)
 	AudioServer.set_bus_volume_db(bus, linear_to_db(maxf(volume / float(VOLUME_STEPS), 0.001)))
+	# Music volume lives on the "Music" bus (created by the PauseMenu autoload).
+	var pause_menu := get_node_or_null("/root/PauseMenu")
+	if pause_menu and pause_menu.has_method("set_music_volume"):
+		pause_menu.set_music_volume(music_volume)
 	var mode := DisplayServer.WINDOW_MODE_FULLSCREEN if fullscreen else DisplayServer.WINDOW_MODE_WINDOWED
 	if DisplayServer.window_get_mode() != mode and not Engine.is_embedded_in_editor():
 		DisplayServer.window_set_mode(mode)
@@ -230,12 +262,15 @@ func _load_settings() -> void:
 	var cfg := ConfigFile.new()
 	if cfg.load(SETTINGS_PATH) == OK:
 		volume = int(cfg.get_value("audio", "volume", volume))
+		music_volume = int(cfg.get_value("audio", "music_volume", music_volume))
 		fullscreen = bool(cfg.get_value("video", "fullscreen", fullscreen))
 
 
 func _save_settings() -> void:
 	var cfg := ConfigFile.new()
+	cfg.load(SETTINGS_PATH)  # keep any other saved values
 	cfg.set_value("audio", "volume", volume)
+	cfg.set_value("audio", "music_volume", music_volume)
 	cfg.set_value("video", "fullscreen", fullscreen)
 	cfg.save(SETTINGS_PATH)
 

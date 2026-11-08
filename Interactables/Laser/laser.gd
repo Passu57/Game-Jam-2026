@@ -16,6 +16,9 @@ extends Node2D
 ## Stop the beam at walls (and boxes) instead of always using "Length".
 ## Pushing a box into the beam can then block it!
 @export var stop_at_walls: bool = false
+## Pushable boxes block the beam (even when "Stop At Walls" is off).
+## Push a box in front of the laser to cut it off!
+@export var blocked_by_boxes: bool = true
 ## Draw a receiver at the far end of the beam.
 @export var show_receiver: bool = true:
 	set(value):
@@ -50,6 +53,12 @@ extends Node2D
 @export var time_offset: float = 0.0
 ## A thin flickering line warns the player this long before it turns on.
 @export var warning_time: float = 0.45
+## Wait this long before the laser starts at all (seconds). It stays dark
+## until then, warns just before, and only then begins its on/off cycle.
+## Counted from when the laser can run (level start, or after its color
+## unlocks and it powers up). Give lasers different delays so they don't
+## all start at once.
+@export_range(0.0, 30.0, 0.05, "or_greater") var start_delay: float = 0.0
 
 @export_group("Look")
 @export var beam_color: Color = Color(1.0, 0.18, 0.18):
@@ -75,6 +84,8 @@ var powered: bool = true
 var active: bool = true
 
 var _time: float = 0.0
+## Time since the laser became able to run (color unlocked + powered up).
+var _run_time: float = 0.0
 var _warning: bool = false
 ## False until the required color is unlocked.
 var _color_ok: bool = true
@@ -161,6 +172,8 @@ func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	_time += delta
+	if _color_ok and _power_up_left <= 0.0:
+		_run_time += delta
 	_power_up_left = maxf(_power_up_left - delta, 0.0)
 	_update_state()
 	_update_beam_end()
@@ -197,9 +210,12 @@ func _update_state() -> void:
 	elif _power_up_left > 0.0:
 		active = false
 		_warning = true  # just unlocked: flicker before the beam fires
+	elif _run_time < start_delay:
+		active = false  # start delay: still waiting, warn right before
+		_warning = _run_time >= start_delay - warning_time
 	elif use_timer and on_time + off_time > 0.0:
 		var cycle := on_time + off_time
-		var t := fposmod(_time + time_offset, cycle)
+		var t := fposmod(_run_time - start_delay + time_offset, cycle)
 		active = t < on_time
 		_warning = not active and t >= cycle - warning_time
 	else:
@@ -208,29 +224,40 @@ func _update_state() -> void:
 		switched.emit(active)
 
 
-# With "Stop At Walls": the beam ends at the first wall or box in its way.
+# The beam ends at the first box in its way ("Blocked By Boxes") or the
+# first wall ("Stop At Walls"). The robot never blocks it.
 func _update_beam_end() -> void:
 	_hit_wall = false
 	_beam_end = length
-	if not stop_at_walls:
+	if not stop_at_walls and not blocked_by_boxes:
 		return
 	var space := get_world_2d().direct_space_state
 	var from := to_global(Vector2(BEAM_START, 0))
 	var to := to_global(Vector2(length, 0))
 	var exclude: Array[RID] = []
-	for i in 4:
+	for i in 8:
 		var q := PhysicsRayQueryParameters2D.create(from, to, 1, exclude)
 		var hit := space.intersect_ray(q)
 		if hit.is_empty():
 			return
 		var col: Object = hit.collider
+		var blocks := false
 		if col != null and col.has_method("die"):
-			# The robot doesn't block the beam - look past it.
+			blocks = false  # the robot doesn't block the beam - look past it
+		elif _is_box(col):
+			blocks = blocked_by_boxes or stop_at_walls
+		else:
+			blocks = stop_at_walls
+		if not blocks:
 			exclude.append(hit.rid)
 			continue
 		_beam_end = to_local(hit.position).x
 		_hit_wall = true
 		return
+
+
+func _is_box(col: Object) -> bool:
+	return col is RigidBody2D or (col != null and col.has_method("push"))
 
 
 # --- Drawing ---------------------------------------------------------------
