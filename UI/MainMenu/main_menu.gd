@@ -200,6 +200,23 @@ func _go_to_game() -> void:
 		cm.reset()          # new game: back to black & white
 	if has_node("/root/GameProgress"):
 		get_node("/root/GameProgress").reset()
+
+	# Keep the screen black across the scene change, then fade level 1 in.
+	# (Same trick as the level exit doors: the overlay lives on the root, so it
+	# survives the menu being freed and fades the new level in by itself.)
+	var layer := CanvasLayer.new()
+	layer.layer = 126  # above everything, incl. the color filter and pause menu
+	var black := ColorRect.new()
+	black.color = Color(0, 0, 0, 1)
+	black.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	black.set_anchors_preset(Control.PRESET_FULL_RECT)
+	layer.add_child(black)
+	get_tree().root.add_child(layer)
+	var t := layer.create_tween()
+	t.tween_interval(0.35)
+	t.tween_property(black, "color:a", 0.0, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	t.tween_callback(layer.queue_free)
+
 	get_tree().change_scene_to_file(first_level)
 
 

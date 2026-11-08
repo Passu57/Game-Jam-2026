@@ -29,7 +29,7 @@ enum Mode { AUTO, WRENCH }
 ## How quickly the player reaches that speed. Higher = snappier.
 @export var lift_accel: float = 2200.0
 ## Which color brings the water back. Default: Blue.
-@export_flags("Red", "Yellow", "Green", "Cyan", "Blue", "Magenta") var required_color: int = 16
+@export_flags("Red:1", "Yellow:2", "Green:4", "Blue:16") var required_color: int = 16
 ## Testing only: work even before the color is unlocked.
 @export var test_ignore_color: bool = false
 

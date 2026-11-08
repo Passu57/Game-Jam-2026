@@ -20,11 +20,17 @@ const VOLUME_STEPS := 10
 const MUSIC_BUS := "Music"
 ## Music volume for a fresh install (0..10, 6 = 60%).
 const DEFAULT_MUSIC_VOLUME := 6
+## Audio bus for sound effects (jump, dash, UI clicks...). Every sound player
+## that would play on Master is moved onto this bus automatically.
+const SFX_BUS := "SFX"
+## Sound effect volume for a fresh install, in percent (5% steps).
+const DEFAULT_SFX_VOLUME := 65
 
-## Colors of the 6 color groups (same order as ColorManager bits).
+## The 4 unlockable colors: ColorManager bit + the color of its block.
+const BAND_BITS: Array[int] = [1, 2, 4, 16]   # Red, Yellow, Green, Blue
 const BAND_COLORS: Array[Color] = [
 	Color(0.95, 0.27, 0.25), Color(1.0, 0.84, 0.25), Color(0.36, 0.9, 0.4),
-	Color(0.3, 0.9, 0.95), Color(0.32, 0.48, 1.0), Color(0.88, 0.36, 0.95),
+	Color(0.32, 0.48, 1.0),
 ]
 
 ## One of these is typed out under the title every time you pause.
@@ -54,6 +60,7 @@ var is_open: bool = false
 
 var volume: int = 8
 var music_volume: int = DEFAULT_MUSIC_VOLUME
+var sfx_volume: int = DEFAULT_SFX_VOLUME   # percent 0..100
 var fullscreen: bool = false
 
 var _busy: bool = false
@@ -93,6 +100,9 @@ var _volume_up: Button
 var _music_meter: Label
 var _music_down: Button
 var _music_up: Button
+var _sfx_meter: Label
+var _sfx_down: Button
+var _sfx_up: Button
 var _fullscreen_button: Button
 var _controls_grid: GridContainer
 
@@ -108,10 +118,13 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_ensure_pause_action()
 	_ensure_music_bus()
+	_ensure_bus(SFX_BUS)
+	get_tree().node_added.connect(_route_sound_to_sfx)
 	_load_sounds()
 	_build()
 	_load_settings()
 	_apply_music_volume()
+	_apply_sfx_volume()
 	_hide_now()
 
 
@@ -313,7 +326,7 @@ func _refresh_status() -> void:
 		mask = cm.unlocked_mask
 	var count := 0
 	for i in _band_boxes.size():
-		var on := (mask & (1 << i)) != 0
+		var on := (mask & BAND_BITS[i]) != 0
 		if on:
 			count += 1
 		var box := _band_boxes[i]
@@ -325,7 +338,7 @@ func _refresh_status() -> void:
 			style.bg_color = Color(0.12, 0.12, 0.15)
 			style.border_color = Color(0.3, 0.31, 0.36)
 		box.set_meta("on", on)
-	_colors_label.text = "COLORS RESTORED  %d/6" % count
+	_colors_label.text = "COLORS RESTORED  %d/%d" % [count, BAND_BITS.size()]
 
 	var names: Array[String] = []
 	var gp := get_node_or_null("/root/GameProgress")
@@ -394,12 +407,56 @@ func _change_music(step: int) -> void:
 
 ## Creates the "Music" bus (sending into Master) if the project doesn't have one.
 func _ensure_music_bus() -> void:
-	if AudioServer.get_bus_index(MUSIC_BUS) != -1:
+	_ensure_bus(MUSIC_BUS)
+
+
+func _ensure_bus(bus_name: String) -> void:
+	if AudioServer.get_bus_index(bus_name) != -1:
 		return
 	AudioServer.add_bus()
 	var idx := AudioServer.bus_count - 1
-	AudioServer.set_bus_name(idx, MUSIC_BUS)
+	AudioServer.set_bus_name(idx, bus_name)
 	AudioServer.set_bus_send(idx, "Master")
+
+
+# Any sound player that would play straight on Master is a sound effect:
+# move it to the SFX bus. (Level music is moved to the Music bus by Level.gd.)
+func _route_sound_to_sfx(node: Node) -> void:
+	if node is AudioStreamPlayer or node is AudioStreamPlayer2D or node is AudioStreamPlayer3D:
+		if node.bus == &"Master":
+			node.bus = SFX_BUS
+
+
+func _change_sfx(step: int) -> void:
+	var before := sfx_volume
+	sfx_volume = clampi(sfx_volume + step * 5, 0, 100)
+	if sfx_volume == before:
+		_play("ui_invalid")
+		return
+	_apply_sfx_volume()
+	_save_settings()
+	_refresh_settings_ui()
+	_play("ui_slider_tick")
+
+
+## Sets the SFX bus volume in percent (also callable from the main menu).
+func set_sfx_volume(percent: int) -> void:
+	sfx_volume = clampi(percent, 0, 100)
+	_apply_sfx_volume()
+
+
+func _apply_sfx_volume() -> void:
+	var bus := AudioServer.get_bus_index(SFX_BUS)
+	if bus == -1:
+		return
+	AudioServer.set_bus_mute(bus, sfx_volume == 0)
+	AudioServer.set_bus_volume_db(bus, linear_to_db(maxf(sfx_volume / 100.0, 0.001)))
+
+
+## Meter text like "||||||####  65%" (bars rounded to tens).
+static func meter_text(percent: int) -> String:
+	var bars := int(round(percent / 10.0))
+	return "|".repeat(bars) + "#".repeat(10 - bars) + "  %3d%%" % percent
 
 
 ## Sets the Music bus to the music volume (also callable from the main menu).
@@ -427,6 +484,7 @@ func _toggle_fullscreen() -> void:
 func _refresh_settings_ui() -> void:
 	_volume_meter.text = "|".repeat(volume) + "#".repeat(VOLUME_STEPS - volume) + "  %3d%%" % (volume * 10)
 	_music_meter.text = "|".repeat(music_volume) + "#".repeat(VOLUME_STEPS - music_volume) + "  %3d%%" % (music_volume * 10)
+	_sfx_meter.text = meter_text(sfx_volume)
 	_fullscreen_button.text = "FULLSCREEN:  " + ("ON" if fullscreen else "OFF")
 
 
@@ -444,6 +502,7 @@ func _load_settings() -> void:
 	if cfg.load(SETTINGS_PATH) == OK:
 		volume = int(cfg.get_value("audio", "volume", volume))
 		music_volume = int(cfg.get_value("audio", "music_volume", DEFAULT_MUSIC_VOLUME))
+		sfx_volume = int(cfg.get_value("audio", "sfx_volume", DEFAULT_SFX_VOLUME))
 		fullscreen = bool(cfg.get_value("video", "fullscreen", fullscreen))
 
 
@@ -452,6 +511,7 @@ func _save_settings() -> void:
 	cfg.load(SETTINGS_PATH)  # keep any other saved values
 	cfg.set_value("audio", "volume", volume)
 	cfg.set_value("audio", "music_volume", music_volume)
+	cfg.set_value("audio", "sfx_volume", sfx_volume)
 	cfg.set_value("video", "fullscreen", fullscreen)
 	cfg.save(SETTINGS_PATH)
 
@@ -645,12 +705,12 @@ func _build_main_page(parent: Control) -> void:
 	colors_row.alignment = BoxContainer.ALIGNMENT_CENTER
 	colors_row.add_theme_constant_override("separation", 10)
 	vbox.add_child(colors_row)
-	_colors_label = _small("COLORS RESTORED  0/6")
+	_colors_label = _small("COLORS RESTORED  0/4")
 	colors_row.add_child(_colors_label)
 	var spacer := Control.new()
 	spacer.custom_minimum_size = Vector2(8, 0)
 	colors_row.add_child(spacer)
-	for i in 6:
+	for i in BAND_BITS.size():
 		var box := Panel.new()
 		box.custom_minimum_size = Vector2(22, 22)
 		box.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -685,7 +745,7 @@ func _build_options_page(parent: Control) -> void:
 	_options_page = PanelContainer.new()
 	parent.add_child(_options_page)
 	var vbox := VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 16)
+	vbox.add_theme_constant_override("separation", 12)
 	_options_page.add_child(vbox)
 
 	var title := Label.new()
@@ -695,33 +755,12 @@ func _build_options_page(parent: Control) -> void:
 	vbox.add_child(title)
 	vbox.add_child(_divider())
 
-	var vol_title := _small("VOLUME")
-	vol_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	vbox.add_child(vol_title)
-	var vol_row := HBoxContainer.new()
-	vol_row.alignment = BoxContainer.ALIGNMENT_CENTER
-	vol_row.add_theme_constant_override("separation", 14)
-	vbox.add_child(vol_row)
-	_volume_down = _button("-", vol_row, _change_volume.bind(-1), 72)
-	_volume_meter = Label.new()
-	_volume_meter.custom_minimum_size = Vector2(380, 0)
-	_volume_meter.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	vol_row.add_child(_volume_meter)
-	_volume_up = _button("+", vol_row, _change_volume.bind(1), 72)
-
-	var music_title := _small("MUSIC")
-	music_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	vbox.add_child(music_title)
-	var music_row := HBoxContainer.new()
-	music_row.alignment = BoxContainer.ALIGNMENT_CENTER
-	music_row.add_theme_constant_override("separation", 14)
-	vbox.add_child(music_row)
-	_music_down = _button("-", music_row, _change_music.bind(-1), 72)
-	_music_meter = Label.new()
-	_music_meter.custom_minimum_size = Vector2(380, 0)
-	_music_meter.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	music_row.add_child(_music_meter)
-	_music_up = _button("+", music_row, _change_music.bind(1), 72)
+	var vol := _slider_row(vbox, "VOLUME", _change_volume)
+	_volume_down = vol[0]; _volume_meter = vol[1]; _volume_up = vol[2]
+	var mus := _slider_row(vbox, "MUSIC", _change_music)
+	_music_down = mus[0]; _music_meter = mus[1]; _music_up = mus[2]
+	var sfx := _slider_row(vbox, "SOUND FX", _change_sfx)
+	_sfx_down = sfx[0]; _sfx_meter = sfx[1]; _sfx_up = sfx[2]
 
 	_fullscreen_button = _button("FULLSCREEN:  OFF", vbox, _toggle_fullscreen)
 
@@ -738,6 +777,26 @@ func _build_options_page(parent: Control) -> void:
 
 	vbox.add_child(_divider())
 	_button("BACK", vbox, _back_to_main)
+
+
+# One settings line:  NAME   [-]  ||||||####  60%  [+]
+# Returns [down_button, meter_label, up_button].
+func _slider_row(parent: Control, title: String, change: Callable) -> Array:
+	var row := HBoxContainer.new()
+	row.alignment = BoxContainer.ALIGNMENT_CENTER
+	row.add_theme_constant_override("separation", 12)
+	parent.add_child(row)
+	var name_label := _small(title)
+	name_label.custom_minimum_size = Vector2(170, 0)
+	row.add_child(name_label)
+	var down := _button("-", row, change.bind(-1), 64)
+	var meter := _small("")
+	meter.custom_minimum_size = Vector2(300, 0)
+	meter.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	meter.add_theme_color_override("font_color", Color(1.0, 0.84, 0.4))
+	row.add_child(meter)
+	var up := _button("+", row, change.bind(1), 64)
+	return [down, meter, up]
 
 
 func _build_confirm_page(parent: Control) -> void:
