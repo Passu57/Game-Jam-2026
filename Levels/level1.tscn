@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://dopmcfg0o57hd" path="res://Interactables/decorations/DeadBush4.tscn" id="26_uikxm"]
 [ext_resource type="Texture2D" uid="uid://uxwlcbcfpfk4" path="res://Assets/Cave props/Caves-and-Mines-Props-16px-FREE-Sample/sprites/1x/ore_boulder.png" id="27_uikxm"]
 [ext_resource type="Texture2D" uid="uid://bxcexapl48cet" path="res://Assets/Cave props/Caves-and-Mines-Props-16px-FREE-Sample/sprites/1x/lantern_post.png" id="28_26wun"]
+[ext_resource type="AudioStream" uid="uid://bx8onbv5mrt" path="res://Sounds/music/0f4027da-3efb-4bba-b0fa-c1b3ffed03a0.ogg" id="29_3mc7j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0t6di"]
 shader = ExtResource("8_eaymk")
@@ -109,7 +110,7 @@ shader = SubResource("Shader_mgba7")
 shader_parameter/tint_color = Color(0.49561638, 0.19766185, 0.16592866, 1)
 shader_parameter/tint_strength = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_26wun"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41rou"]
 resource_local_to_scene = true
 shader = ExtResource("24_20vxw")
 shader_parameter/flame_dark = Color(0.36078432, 0.16470589, 0.03137255, 1)
@@ -121,7 +122,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 1.6576260917920038
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mc7j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2oha0"]
 resource_local_to_scene = true
 shader = ExtResource("24_20vxw")
 shader_parameter/flame_dark = Color(0.36078432, 0.16470589, 0.03137255, 1)
@@ -133,7 +134,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 4.1931085492286755
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_41rou"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y525r"]
 resource_local_to_scene = true
 shader = ExtResource("24_20vxw")
 shader_parameter/flame_dark = Color(0.36078432, 0.16470589, 0.03137255, 1)
@@ -145,7 +146,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 6.190290562559447
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2oha0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mf6oh"]
 resource_local_to_scene = true
 shader = ExtResource("24_20vxw")
 shader_parameter/flame_dark = Color(0.36078432, 0.16470589, 0.03137255, 1)
@@ -157,7 +158,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 4.307706206676492
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y525r"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxl7g"]
 resource_local_to_scene = true
 shader = ExtResource("24_20vxw")
 shader_parameter/flame_dark = Color(0.36078432, 0.16470589, 0.03137255, 1)
@@ -169,7 +170,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = -0.8772587712816602
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mf6oh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ut1ok"]
 resource_local_to_scene = true
 shader = ExtResource("24_20vxw")
 shader_parameter/flame_dark = Color(0.36078432, 0.16470589, 0.03137255, 1)
@@ -181,7 +182,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 2.5308113989715935
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxl7g"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lxuwh"]
 resource_local_to_scene = true
 shader = ExtResource("24_20vxw")
 shader_parameter/flame_dark = Color(0.36078432, 0.16470589, 0.03137255, 1)
@@ -407,40 +408,40 @@ position = Vector2(-85.999985, 403.99997)
 rotation = -3.6651917
 
 [node name="DeadBush12" parent="." unique_id=1371756389 instance=ExtResource("23_xsckx")]
-material = SubResource("ShaderMaterial_26wun")
+material = SubResource("ShaderMaterial_41rou")
 position = Vector2(304, 649)
 flame_color = 1
 
 [node name="DeadBush13" parent="." unique_id=2037129189 instance=ExtResource("23_xsckx")]
-material = SubResource("ShaderMaterial_3mc7j")
+material = SubResource("ShaderMaterial_2oha0")
 position = Vector2(175, 649)
 flame_color = 1
 
 [node name="DeadBush18" parent="." unique_id=1932946132 instance=ExtResource("23_xsckx")]
-material = SubResource("ShaderMaterial_41rou")
+material = SubResource("ShaderMaterial_y525r")
 position = Vector2(701, 383)
 rotation = 0.5235988
 flame_color = 1
 
 [node name="DeadBush07" parent="." unique_id=1415346589 instance=ExtResource("23_xsckx")]
-material = SubResource("ShaderMaterial_2oha0")
+material = SubResource("ShaderMaterial_mf6oh")
 position = Vector2(-11, 476.00003)
 rotation = -0.7853982
 flame_color = 1
 
 [node name="DeadBush08" parent="." unique_id=581841338 instance=ExtResource("23_xsckx")]
-material = SubResource("ShaderMaterial_y525r")
+material = SubResource("ShaderMaterial_kxl7g")
 position = Vector2(-213, 480)
 rotation = 0.7853982
 flame_color = 1
 
 [node name="DeadBush16" parent="." unique_id=1781929978 instance=ExtResource("23_xsckx")]
-material = SubResource("ShaderMaterial_mf6oh")
+material = SubResource("ShaderMaterial_ut1ok")
 position = Vector2(375, 361)
 flame_color = 1
 
 [node name="DeadBush17" parent="." unique_id=859282882 instance=ExtResource("23_xsckx")]
-material = SubResource("ShaderMaterial_kxl7g")
+material = SubResource("ShaderMaterial_lxuwh")
 position = Vector2(160, 473)
 flame_color = 1
 
@@ -517,3 +518,6 @@ z_index = -1
 position = Vector2(810, 401)
 texture = ExtResource("28_26wun")
 flip_h = true
+
+[node name="SoundTrackLevel3" type="AudioStreamPlayer2D" parent="." unique_id=1635775493]
+stream = ExtResource("29_3mc7j")

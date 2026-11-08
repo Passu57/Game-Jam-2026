@@ -16,6 +16,10 @@ const SFX_DIR := "res://Sounds/Weird sounds/free_game_ui_sounds/wav/ui/"
 const MAIN_MENU := "res://UI/MainMenu/MainMenu.tscn"
 const SETTINGS_PATH := "user://settings.cfg"
 const VOLUME_STEPS := 10
+## Audio bus that all music plays on (created at startup if missing).
+const MUSIC_BUS := "Music"
+## Music volume for a fresh install (0..10, 6 = 60%).
+const DEFAULT_MUSIC_VOLUME := 6
 
 ## Colors of the 6 color groups (same order as ColorManager bits).
 const BAND_COLORS: Array[Color] = [
@@ -49,6 +53,7 @@ const CONTROLS := [
 var is_open: bool = false
 
 var volume: int = 8
+var music_volume: int = DEFAULT_MUSIC_VOLUME
 var fullscreen: bool = false
 
 var _busy: bool = false
@@ -85,6 +90,9 @@ var _options_page: PanelContainer
 var _volume_meter: Label
 var _volume_down: Button
 var _volume_up: Button
+var _music_meter: Label
+var _music_down: Button
+var _music_up: Button
 var _fullscreen_button: Button
 var _controls_grid: GridContainer
 
@@ -99,9 +107,11 @@ func _ready() -> void:
 	layer = 120  # above the color filter (100) and ability popup (110)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_ensure_pause_action()
+	_ensure_music_bus()
 	_load_sounds()
 	_build()
 	_load_settings()
+	_apply_music_volume()
 	_hide_now()
 
 
@@ -370,6 +380,42 @@ func _change_volume(step: int) -> void:
 	_play("ui_slider_tick")
 
 
+func _change_music(step: int) -> void:
+	var before := music_volume
+	music_volume = clampi(music_volume + step, 0, VOLUME_STEPS)
+	if music_volume == before:
+		_play("ui_invalid")
+		return
+	_apply_music_volume()
+	_save_settings()
+	_refresh_settings_ui()
+	_play("ui_slider_tick")
+
+
+## Creates the "Music" bus (sending into Master) if the project doesn't have one.
+func _ensure_music_bus() -> void:
+	if AudioServer.get_bus_index(MUSIC_BUS) != -1:
+		return
+	AudioServer.add_bus()
+	var idx := AudioServer.bus_count - 1
+	AudioServer.set_bus_name(idx, MUSIC_BUS)
+	AudioServer.set_bus_send(idx, "Master")
+
+
+## Sets the Music bus to the music volume (also callable from the main menu).
+func set_music_volume(value: int) -> void:
+	music_volume = clampi(value, 0, VOLUME_STEPS)
+	_apply_music_volume()
+
+
+func _apply_music_volume() -> void:
+	var bus := AudioServer.get_bus_index(MUSIC_BUS)
+	if bus == -1:
+		return
+	AudioServer.set_bus_mute(bus, music_volume == 0)
+	AudioServer.set_bus_volume_db(bus, linear_to_db(maxf(music_volume / float(VOLUME_STEPS), 0.001)))
+
+
 func _toggle_fullscreen() -> void:
 	fullscreen = not fullscreen
 	_apply_settings()
@@ -380,6 +426,7 @@ func _toggle_fullscreen() -> void:
 
 func _refresh_settings_ui() -> void:
 	_volume_meter.text = "|".repeat(volume) + "#".repeat(VOLUME_STEPS - volume) + "  %3d%%" % (volume * 10)
+	_music_meter.text = "|".repeat(music_volume) + "#".repeat(VOLUME_STEPS - music_volume) + "  %3d%%" % (music_volume * 10)
 	_fullscreen_button.text = "FULLSCREEN:  " + ("ON" if fullscreen else "OFF")
 
 
@@ -396,6 +443,7 @@ func _load_settings() -> void:
 	var cfg := ConfigFile.new()
 	if cfg.load(SETTINGS_PATH) == OK:
 		volume = int(cfg.get_value("audio", "volume", volume))
+		music_volume = int(cfg.get_value("audio", "music_volume", DEFAULT_MUSIC_VOLUME))
 		fullscreen = bool(cfg.get_value("video", "fullscreen", fullscreen))
 
 
@@ -403,6 +451,7 @@ func _save_settings() -> void:
 	var cfg := ConfigFile.new()
 	cfg.load(SETTINGS_PATH)  # keep any other saved values
 	cfg.set_value("audio", "volume", volume)
+	cfg.set_value("audio", "music_volume", music_volume)
 	cfg.set_value("video", "fullscreen", fullscreen)
 	cfg.save(SETTINGS_PATH)
 
@@ -659,6 +708,20 @@ func _build_options_page(parent: Control) -> void:
 	_volume_meter.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vol_row.add_child(_volume_meter)
 	_volume_up = _button("+", vol_row, _change_volume.bind(1), 72)
+
+	var music_title := _small("MUSIC")
+	music_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vbox.add_child(music_title)
+	var music_row := HBoxContainer.new()
+	music_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	music_row.add_theme_constant_override("separation", 14)
+	vbox.add_child(music_row)
+	_music_down = _button("-", music_row, _change_music.bind(-1), 72)
+	_music_meter = Label.new()
+	_music_meter.custom_minimum_size = Vector2(380, 0)
+	_music_meter.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	music_row.add_child(_music_meter)
+	_music_up = _button("+", music_row, _change_music.bind(1), 72)
 
 	_fullscreen_button = _button("FULLSCREEN:  OFF", vbox, _toggle_fullscreen)
 

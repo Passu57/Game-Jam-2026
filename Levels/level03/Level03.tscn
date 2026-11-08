@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://dkps2tmg5lf02" path="res://Assets/Parallax Cave/2.png" id="12_ylhfn"]
 [ext_resource type="Texture2D" uid="uid://bh10xympo5bkn" path="res://Assets/Parallax Cave/3.png" id="13_3lgap"]
 [ext_resource type="Texture2D" uid="uid://bjknwtq8ljv82" path="res://Assets/Parallax Cave/4.png" id="14_khfs4"]
-[ext_resource type="PackedScene" path="res://Systems/Progress/AbilityPickup.tscn" id="16_sxp4r"]
 [ext_resource type="PackedScene" uid="uid://dgu0oh0c6ofrr" path="res://Interactables/levers/lever01/lever01.tscn" id="17_obpwp"]
 [ext_resource type="PackedScene" uid="uid://d08ppbnqohu3d" path="res://Interactables/Finish/Finish.tscn" id="18_ky8a5"]
 [ext_resource type="Script" uid="uid://bn4i3a0pe1nv3" path="res://Interactables/Water/pool_water.gd" id="19_h5f3g"]
@@ -31,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bxcexapl48cet" path="res://Assets/Cave props/Caves-and-Mines-Props-16px-FREE-Sample/sprites/1x/lantern_post.png" id="29_bgm0h"]
 [ext_resource type="Texture2D" uid="uid://cowbi6u6d1wde" path="res://Assets/Jungle Assets/Green Tile V1.1.png" id="29_rk5xk"]
 [ext_resource type="Script" uid="uid://bar56pfhd36bu" path="res://Interactables/decorations/lantern_light.gd" id="30_grqos"]
+[ext_resource type="AudioStream" uid="uid://dp1s0l6mah35n" path="res://Sounds/music/canopy.ogg" id="31_bgm0h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wums7"]
 shader = ExtResource("2_bgm0h")
@@ -128,7 +128,7 @@ shader = SubResource("Shader_mgba7")
 shader_parameter/tint_color = Color(0.27698418, 0.40729898, 0.17538965, 1)
 shader_parameter/tint_strength = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bgm0h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_grqos"]
 resource_local_to_scene = true
 shader = ExtResource("27_20tjv")
 shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
@@ -140,7 +140,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 3.502664470767442
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_grqos"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8cb2o"]
 resource_local_to_scene = true
 shader = ExtResource("27_20tjv")
 shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
@@ -152,7 +152,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 3.9316995558940704
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8cb2o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e81e1"]
 resource_local_to_scene = true
 shader = ExtResource("27_20tjv")
 shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
@@ -164,7 +164,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 5.82614034050647
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_e81e1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ue7k4"]
 resource_local_to_scene = true
 shader = ExtResource("27_20tjv")
 shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
@@ -176,7 +176,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 5.717472575890248
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ue7k4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8c6xu"]
 resource_local_to_scene = true
 shader = ExtResource("27_20tjv")
 shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
@@ -188,7 +188,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 5.241546039992315
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8c6xu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2jtch"]
 resource_local_to_scene = true
 shader = ExtResource("27_20tjv")
 shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
@@ -200,7 +200,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 4.508514248714498
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2jtch"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6t2l"]
 resource_local_to_scene = true
 shader = ExtResource("27_20tjv")
 shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
@@ -212,7 +212,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 4.477182013330733
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c6t2l"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ljds"]
 resource_local_to_scene = true
 shader = ExtResource("27_20tjv")
 shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
@@ -224,7 +224,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 6.208591006665365
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ljds"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecfif"]
 resource_local_to_scene = true
 shader = ExtResource("27_20tjv")
 shader_parameter/flame_dark = Color(0.13333334, 0.2, 0.08627451, 1)
@@ -486,13 +486,6 @@ position = Vector2(602, 314)
 scale = Vector2(0.85, 0.85)
 texture = ExtResource("14_khfs4")
 
-[node name="AbilityPickup" parent="." unique_id=994679034 instance=ExtResource("16_sxp4r")]
-position = Vector2(37, 610)
-
-[node name="AbilityPickup2" parent="." unique_id=1635554705 instance=ExtResource("16_sxp4r")]
-position = Vector2(37, 594)
-ability = &"wrench_throw"
-
 [node name="Lever01" parent="." unique_id=1328679575 node_paths=PackedStringArray("target") instance=ExtResource("17_obpwp")]
 position = Vector2(1162, 208)
 rotation = 1.5707964
@@ -504,7 +497,7 @@ target = NodePath("../Door03")
 
 [node name="Finish" parent="." unique_id=724473009 instance=ExtResource("18_ky8a5")]
 position = Vector2(301, -111)
-next_level = "uid://dsgedhiaeoycw"
+next_level = "uid://bdyccghttpr0y"
 
 [node name="PoolWater" type="Node2D" parent="." unique_id=59542099]
 z_index = 10
@@ -538,31 +531,24 @@ size = Vector2(194, 45)
 
 [node name="VineSwing" parent="." unique_id=879476972 instance=ExtResource("20_2lq1b")]
 position = Vector2(583, 481)
-grab_jump_lock = null
 
 [node name="VineSwing4" parent="." unique_id=39693550 instance=ExtResource("20_2lq1b")]
 position = Vector2(862, 289)
-grab_jump_lock = null
 
 [node name="VineSwing5" parent="." unique_id=673140349 instance=ExtResource("20_2lq1b")]
 position = Vector2(1079, 289)
-grab_jump_lock = null
 
 [node name="VineSwing2" parent="." unique_id=416803329 instance=ExtResource("20_2lq1b")]
 position = Vector2(415, 289)
-grab_jump_lock = null
 
 [node name="VineSwing3" parent="." unique_id=348870754 instance=ExtResource("20_2lq1b")]
 position = Vector2(121, 417)
-grab_jump_lock = null
 
 [node name="VineSwing6" parent="." unique_id=1813379301 instance=ExtResource("20_2lq1b")]
 position = Vector2(933, -207)
-grab_jump_lock = null
 
 [node name="VineSwing7" parent="." unique_id=663915234 instance=ExtResource("20_2lq1b")]
 position = Vector2(727, -207)
-grab_jump_lock = null
 
 [node name="Geyser" parent="." unique_id=1403415210 instance=ExtResource("21_jemm7")]
 z_index = 9
@@ -883,47 +869,47 @@ frame = 0
 sign_type = 0
 
 [node name="DeadBush06" parent="." unique_id=1724599371 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_bgm0h")
+material = SubResource("ShaderMaterial_grqos")
 position = Vector2(341, -87)
 flame_color = 0
 
 [node name="DeadBush07" parent="." unique_id=308158438 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_grqos")
+material = SubResource("ShaderMaterial_8cb2o")
 position = Vector2(632, -148)
 flame_color = 0
 
 [node name="DeadBush08" parent="." unique_id=683518939 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_8cb2o")
+material = SubResource("ShaderMaterial_e81e1")
 position = Vector2(1143, -136)
 flame_color = 0
 
 [node name="DeadBush09" parent="." unique_id=697977480 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_e81e1")
+material = SubResource("ShaderMaterial_ue7k4")
 position = Vector2(1267, -40)
 flame_color = 0
 
 [node name="DeadBush10" parent="." unique_id=1418497441 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_ue7k4")
+material = SubResource("ShaderMaterial_8c6xu")
 position = Vector2(1265, 248)
 flame_color = 0
 
 [node name="DeadBush11" parent="." unique_id=1861857641 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_8c6xu")
+material = SubResource("ShaderMaterial_2jtch")
 position = Vector2(457, 503)
 flame_color = 0
 
 [node name="DeadBush12" parent="." unique_id=1287246611 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_2jtch")
+material = SubResource("ShaderMaterial_c6t2l")
 position = Vector2(280, 584)
 flame_color = 0
 
 [node name="DeadBush13" parent="." unique_id=1589468960 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_c6t2l")
+material = SubResource("ShaderMaterial_1ljds")
 position = Vector2(121, 392)
 flame_color = 0
 
 [node name="DeadBush14" parent="." unique_id=938035295 instance=ExtResource("26_u47oo")]
-material = SubResource("ShaderMaterial_1ljds")
+material = SubResource("ShaderMaterial_ecfif")
 position = Vector2(280, 262)
 flame_color = 0
 
@@ -1383,6 +1369,5 @@ z_index = -7
 position = Vector2(144, 271)
 texture = SubResource("AtlasTexture_mpbn5")
 
-[node name="ColorMachine" parent="." unique_id=315364537 instance=ExtResource("4_02i66")]
-position = Vector2(59, 541)
-unlocks_colors = 22
+[node name="SoundTrackLevel3" type="AudioStreamPlayer2D" parent="." unique_id=754367952]
+stream = ExtResource("31_bgm0h")
