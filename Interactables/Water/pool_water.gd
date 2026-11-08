@@ -15,7 +15,7 @@ extends Node2D
 		_refresh()
 
 ## Which color makes the water appear. Default: Blue.
-@export_flags("Red", "Yellow", "Green", "Cyan", "Blue", "Magenta") var required_color: int = 16
+@export_flags("Red:1", "Yellow:2", "Green:4", "Blue:16") var required_color: int = 16
 ## How long the pool takes to fill up (seconds).
 @export var fill_time: float = 4.0
 ## Wait this long after the color unlocks before filling (seconds).

@@ -24,7 +24,7 @@ extends Node2D
 		fallback_height = value
 		_refresh()
 ## Which color makes it flow. Default: Blue.
-@export_flags("Red", "Yellow", "Green", "Cyan", "Blue", "Magenta") var required_color: int = 16
+@export_flags("Red:1", "Yellow:2", "Green:4", "Blue:16") var required_color: int = 16
 ## Wait this long after the color unlocks before the water starts (seconds).
 @export var start_delay: float = 0.2
 ## How fast the first water falls down when it starts (pixels/second).

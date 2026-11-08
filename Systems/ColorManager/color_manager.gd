@@ -8,13 +8,18 @@ extends CanvasLayer
 signal colors_unlocked(mask: int)
 
 # One bit per color group. Combine them with |, e.g. RED | YELLOW.
+# Only 4 colors can be unlocked: Red, Yellow, Green and Blue.
 const RED := 1
 const YELLOW := 2
 const GREEN := 4
-const CYAN := 8
 const BLUE := 16
+## Not unlockable any more. Cyan fills in once Green AND Blue are unlocked,
+## Magenta once Blue AND Red are, so the world still ends up in full color.
+const CYAN := 8
 const MAGENTA := 32
-const ALL := 63
+const ALL := RED | YELLOW | GREEN | BLUE
+## The colors the player can unlock, in order (for UI like the pause menu).
+const UNLOCKABLE: Array[int] = [RED, YELLOW, GREEN, BLUE]
 
 const SHADER := preload("res://Systems/ColorManager/color_world.gdshader")
 
@@ -42,7 +47,7 @@ func _ready() -> void:
 
 ## Unlocks the given color groups (bit mask) with a fade-in.
 func unlock(mask: int) -> void:
-	print("Sain kasu")
+	mask &= ALL  # Cyan/Magenta can't be unlocked directly
 	var newly_unlocked := mask & ~unlocked_mask
 	if newly_unlocked == 0:
 		return
@@ -74,4 +79,8 @@ func _set_band(band: int, value: float) -> void:
 
 
 func _apply() -> void:
+	# Bands: 0 Red, 1 Yellow, 2 Green, 3 Cyan, 4 Blue, 5 Magenta.
+	# Cyan and Magenta follow their two neighbours, fading in with them.
+	_strength[3] = minf(_strength[2], _strength[4])
+	_strength[5] = minf(_strength[4], _strength[0])
 	_material.set_shader_parameter("band_strength", _strength)

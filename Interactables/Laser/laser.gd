@@ -29,7 +29,7 @@ extends Node2D
 ## The laser only works once this color is unlocked (Red by default).
 ## Before that it's dark and harmless. Untick everything to have it on
 ## from the start.
-@export_flags("Red", "Yellow", "Green", "Cyan", "Blue", "Magenta") var required_color: int = 1
+@export_flags("Red:1", "Yellow:2", "Green:4", "Blue:16") var required_color: int = 1
 ## When the color unlocks, it flickers this long before the beam fires (seconds).
 @export var power_up_time: float = 0.7
 ## Testing only: power up as if the color just unlocked when the level starts.

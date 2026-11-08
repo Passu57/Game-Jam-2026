@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" path="res://Interactables/Geyser/Geyser.tscn" id="28_ry1fh"]
 [ext_resource type="AudioStream" uid="uid://biw6f3nt8mww" path="res://Sounds/music/beamline.ogg" id="29_1urs8"]
 [ext_resource type="Shader" uid="uid://drhtuw82nv03k" path="res://Interactables/decorations/lantern_flicker.gdshader" id="29_8ay17"]
+[ext_resource type="PackedScene" uid="uid://dglmn6fxnc42" path="res://Interactables/Signs/HelpSign.tscn" id="30_jm314"]
 [ext_resource type="Texture2D" uid="uid://bxcexapl48cet" path="res://Assets/Cave props/Caves-and-Mines-Props-16px-FREE-Sample/sprites/1x/lantern_post.png" id="30_qav8y"]
 [ext_resource type="Script" uid="uid://bar56pfhd36bu" path="res://Interactables/decorations/lantern_light.gd" id="31_2s7s5"]
 [ext_resource type="Texture2D" uid="uid://cowbi6u6d1wde" path="res://Assets/Jungle Assets/Green Tile V1.1.png" id="32_o6x7s"]
@@ -110,7 +111,7 @@ shader = SubResource("Shader_mgba7")
 shader_parameter/tint_color = Color(0.49561638, 0.19766185, 0.16592866, 1)
 shader_parameter/tint_strength = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jm314"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_drijp"]
 resource_local_to_scene = true
 shader = ExtResource("28_qju5t")
 shader_parameter/flame_dark = Color(0.27450982, 0.039215688, 0.047058824, 1)
@@ -122,7 +123,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = -1.2239967061511763
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_drijp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q7j83"]
 resource_local_to_scene = true
 shader = ExtResource("28_qju5t")
 shader_parameter/flame_dark = Color(0.27450982, 0.039215688, 0.047058824, 1)
@@ -134,7 +135,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = -1.680367320510335
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q7j83"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7e26"]
 resource_local_to_scene = true
 shader = ExtResource("28_qju5t")
 shader_parameter/flame_dark = Color(0.27450982, 0.039215688, 0.047058824, 1)
@@ -146,7 +147,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = -2.42081139897158
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7e26"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qju5t"]
 resource_local_to_scene = true
 shader = ExtResource("28_qju5t")
 shader_parameter/flame_dark = Color(0.27450982, 0.039215688, 0.047058824, 1)
@@ -158,7 +159,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = -0.45681469282041576
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qju5t"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ay17"]
 resource_local_to_scene = true
 shader = ExtResource("28_qju5t")
 shader_parameter/flame_dark = Color(0.27450982, 0.039215688, 0.047058824, 1)
@@ -170,7 +171,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 2.6171820133307477
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ay17"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qav8y"]
 resource_local_to_scene = true
 shader = ExtResource("28_qju5t")
 shader_parameter/flame_dark = Color(0.27450982, 0.039215688, 0.047058824, 1)
@@ -182,7 +183,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 4.578146928204134
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qav8y"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2s7s5"]
 resource_local_to_scene = true
 shader = ExtResource("28_qju5t")
 shader_parameter/flame_dark = Color(0.27450982, 0.039215688, 0.047058824, 1)
@@ -194,7 +195,7 @@ shader_parameter/flicker = 0.08
 shader_parameter/flicker_speed = 9.0
 shader_parameter/flicker_offset = 4.216217098457392
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2s7s5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6x7s"]
 resource_local_to_scene = true
 shader = ExtResource("28_qju5t")
 shader_parameter/flame_dark = Color(0.27450982, 0.039215688, 0.047058824, 1)
@@ -637,42 +638,42 @@ position = Vector2(643, 408)
 rotation = -1.5707964
 
 [node name="DeadBush08" parent="." unique_id=135831836 instance=ExtResource("27_m7e26")]
-material = SubResource("ShaderMaterial_jm314")
+material = SubResource("ShaderMaterial_drijp")
 position = Vector2(-650, 633)
 flame_color = 2
 
 [node name="DeadBush09" parent="." unique_id=1778829116 instance=ExtResource("27_m7e26")]
-material = SubResource("ShaderMaterial_drijp")
+material = SubResource("ShaderMaterial_q7j83")
 position = Vector2(-570, 474)
 flame_color = 2
 
 [node name="DeadBush10" parent="." unique_id=583614464 instance=ExtResource("27_m7e26")]
-material = SubResource("ShaderMaterial_q7j83")
+material = SubResource("ShaderMaterial_m7e26")
 position = Vector2(-551, 232)
 flame_color = 2
 
 [node name="DeadBush11" parent="." unique_id=1932561925 instance=ExtResource("27_m7e26")]
-material = SubResource("ShaderMaterial_m7e26")
+material = SubResource("ShaderMaterial_qju5t")
 position = Vector2(-130, 376)
 flame_color = 2
 
 [node name="DeadBush12" parent="." unique_id=80414300 instance=ExtResource("27_m7e26")]
-material = SubResource("ShaderMaterial_qju5t")
+material = SubResource("ShaderMaterial_8ay17")
 position = Vector2(261, 631)
 flame_color = 2
 
 [node name="DeadBush13" parent="." unique_id=768314047 instance=ExtResource("27_m7e26")]
-material = SubResource("ShaderMaterial_8ay17")
+material = SubResource("ShaderMaterial_qav8y")
 position = Vector2(104, 263)
 flame_color = 2
 
 [node name="DeadBush14" parent="." unique_id=115946823 instance=ExtResource("27_m7e26")]
-material = SubResource("ShaderMaterial_qav8y")
+material = SubResource("ShaderMaterial_2s7s5")
 position = Vector2(584, 473)
 flame_color = 2
 
 [node name="DeadBush15" parent="." unique_id=1550769210 instance=ExtResource("27_m7e26")]
-material = SubResource("ShaderMaterial_2s7s5")
+material = SubResource("ShaderMaterial_o6x7s")
 position = Vector2(1240, 552)
 flame_color = 2
 
@@ -1500,3 +1501,103 @@ region_rect = Rect2(123, 242, 33, 45)
 
 [node name="SoundTrackLevel3" type="AudioStreamPlayer2D" parent="." unique_id=284016753]
 stream = ExtResource("29_1urs8")
+
+[node name="HelpSign" parent="." unique_id=1001209183 instance=ExtResource("30_jm314")]
+position = Vector2(-601, 585)
+frame = 12
+sign_type = 12
+
+[node name="HelpSign2" parent="." unique_id=1110833823 instance=ExtResource("30_jm314")]
+position = Vector2(-442, 374)
+frame = 12
+sign_type = 12
+
+[node name="HelpSign3" parent="." unique_id=1525884621 instance=ExtResource("30_jm314")]
+position = Vector2(650, 469)
+frame = 12
+sign_type = 12
+
+[node name="HelpSign4" parent="." unique_id=842248108 instance=ExtResource("30_jm314")]
+position = Vector2(741, 469)
+frame = 12
+sign_type = 12
+
+[node name="HelpSign5" parent="." unique_id=1987528780 instance=ExtResource("30_jm314")]
+position = Vector2(1031, 550)
+frame = 12
+sign_type = 12
+
+[node name="HelpSign6" parent="." unique_id=505793256 instance=ExtResource("30_jm314")]
+position = Vector2(-473, 583)
+
+[node name="HelpSign7" parent="." unique_id=723202158 instance=ExtResource("30_jm314")]
+position = Vector2(-588, 470)
+
+[node name="HelpSign8" parent="." unique_id=1106794358 instance=ExtResource("30_jm314")]
+position = Vector2(1000, 629)
+
+[node name="HelpSign9" parent="." unique_id=1636992175 instance=ExtResource("30_jm314")]
+position = Vector2(1271, 629)
+
+[node name="HelpSign10" parent="." unique_id=1888700753 instance=ExtResource("30_jm314")]
+position = Vector2(-88, 372)
+frame = 7
+sign_type = 7
+
+[node name="HelpSign11" parent="." unique_id=1832863693 instance=ExtResource("30_jm314")]
+position = Vector2(-10, 459)
+rotation = -1.5707964
+frame = 3
+sign_type = 3
+
+[node name="HelpSign12" parent="." unique_id=1576397493 instance=ExtResource("30_jm314")]
+position = Vector2(-102, 581)
+rotation = 1.5707964
+frame = 3
+sign_type = 3
+
+[node name="HelpSign13" parent="." unique_id=1523703460 instance=ExtResource("30_jm314")]
+position = Vector2(479, 629)
+frame = 3
+sign_type = 3
+
+[node name="HelpSign14" parent="." unique_id=1033079460 instance=ExtResource("30_jm314")]
+position = Vector2(103, 629)
+frame = 1
+sign_type = 1
+
+[node name="HelpSign15" parent="." unique_id=1206280670 instance=ExtResource("30_jm314")]
+position = Vector2(57, 415)
+rotation = 1.5707964
+frame = 2
+sign_type = 2
+
+[node name="HelpSign16" parent="." unique_id=320710356 instance=ExtResource("30_jm314")]
+position = Vector2(140, 259)
+frame = 1
+sign_type = 1
+
+[node name="HelpSign17" parent="." unique_id=1900183070 instance=ExtResource("30_jm314")]
+position = Vector2(620, 276)
+frame = 7
+sign_type = 7
+
+[node name="HelpSign18" parent="." unique_id=1658003545 instance=ExtResource("30_jm314")]
+position = Vector2(645, 374)
+frame = 8
+sign_type = 8
+
+[node name="HelpSign19" parent="." unique_id=1357358937 instance=ExtResource("30_jm314")]
+position = Vector2(875, 469)
+frame = 7
+sign_type = 7
+
+[node name="HelpSign20" parent="." unique_id=327922224 instance=ExtResource("30_jm314")]
+position = Vector2(794, 548)
+frame = 8
+sign_type = 8
+
+[node name="HelpSign21" parent="." unique_id=1862333108 instance=ExtResource("30_jm314")]
+position = Vector2(910, 548)
+frame = 10
+sign_type = 10
