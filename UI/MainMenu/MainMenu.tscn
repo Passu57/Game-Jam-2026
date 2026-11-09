@@ -452,10 +452,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -520.0
-offset_top = -340.0
-offset_right = 520.0
-offset_bottom = 340.0
+offset_left = -640.0
+offset_top = -505.0
+offset_right = 640.0
+offset_bottom = 505.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -474,11 +474,19 @@ theme_type_variation = &"SmallLabel"
 text = "THE LAST SPARK
 MADE FOR A GAME JAM - THEME: PACIFIST
 
-GAME BY .......... KARL-MARKOS KADAPIK & KARL-SANDER MAEOTS
-ART .............. ROBOT PLATFORM PACK,
-                   PARALLAX CAVE,
-                   MK 16X16 NATURE TILESET,
-                   2D PUZZLE ELEMENTS
+GAME BY .......... KARL-MARKOS KADAPIK
+                   KARL-SANDER MAEOTS
+ART .............. ROBOT PLATFORM PACK
+                   PARALLAX CAVE - Exice
+                   MK 16X16 NATURE TILESET - Ipixl
+                   2D PUZZLE ELEMENTS - Jan Schneider
+                   CAVES AND MINES PROPS - STATIONSUPPLY
+                   CRATES, SHELVES AND SPIKES - Krackselbubbel
+                   JUNGLE ASSETS - GREEN TILE - Graph Script Dev
+                   SHROOM CAVE ASSETS - Auru
+                   FACTORY MACHINES - Converted by claude
+                   LAMONA BACKGROUND - Pixel_1992
+SOUND ............ FREE GAME & UI SOUND PACK - WILLOSUNA
 ENGINE ........... GODOT 4
 
 THANK YOU FOR PLAYING!"

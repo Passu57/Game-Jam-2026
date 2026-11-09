@@ -1,7 +1,7 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://ccy261gfgo4va"]
 
-[ext_resource type="Script" path="res://Interactables/SolarPanel/solar_panel.gd" id="1_panel"]
+[ext_resource type="Script" uid="uid://bry4h4gbq5sgo" path="res://Interactables/SolarPanel/solar_panel.gd" id="1_panel"]
 
-[node name="SolarPanel" type="Node2D"]
+[node name="SolarPanel" type="Node2D" unique_id=1170649942]
 z_index = 1
 script = ExtResource("1_panel")
